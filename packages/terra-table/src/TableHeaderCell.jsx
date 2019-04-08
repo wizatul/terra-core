@@ -65,10 +65,10 @@ const TableHeaderCell = ({
   }
 
   return (
-    <th {...customProps} data-terra-table-header-cell className={contentClassName} {...dataSort}>
+    <span row="columnheader" {...customProps} data-terra-table-header-cell className={contentClassName} style={{display: 'table-cell'}} {...dataSort}>
       {content}
       {sortIndicator}
-    </th>
+    </span>
   );
 };
 

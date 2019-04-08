@@ -13,9 +13,11 @@ const TableCell = ({
   content,
   ...customProps
 }) => (
-  <td {...customProps} data-terra-table-cell>
-    {content}
-  </td>
+  <span {...customProps} style={{display: 'table-cell'}} role="cell" data-terra-table-cell>
+    <span role="button" {...customProps}>
+      {content}
+    </span>
+  </span>
 );
 
 TableCell.propTypes = propTypes;

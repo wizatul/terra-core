@@ -6,10 +6,12 @@ const propTypes = {
    * The children passed to the component
    */
   children: PropTypes.node.isRequired,
+  isSelectable: PropTypes.bool,
 };
 
 const TableHeader = ({
   children,
+  isSelectable,
   ...customProps
 }) => {
   let childrenArray = React.Children.toArray(children);
@@ -20,11 +22,12 @@ const TableHeader = ({
   }
 
   return (
-    <thead {...customProps}>
-      <tr>
+    <div rolw="rowgroup "{...customProps}>
+      <div role="row">
+        {isSelectable && <span role="columnheader"></span>}
         {childrenArray}
-      </tr>
-    </thead>
+      </div>
+    </div>
   );
 };
 

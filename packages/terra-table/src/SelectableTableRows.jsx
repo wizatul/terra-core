@@ -49,6 +49,7 @@ class SelectableTableRows extends React.Component {
     const initialOnClick = row.props.onClick;
 
     return (event) => {
+      console.log('Switching to Row ' + index);
       // The default isSelectable attribute is either undefined or true, unless the consumer specifies the row's isSelectable attribute as false.
       if (row.props.isSelectable !== false) {
         this.handleOnChange(event, index);
@@ -64,8 +65,11 @@ class SelectableTableRows extends React.Component {
     const initialOnKeyDown = row.props.onKeyDown;
 
     return (event) => {
+      console.log('Going on a row with key' + index);
       if (event.nativeEvent.keyCode === KeyCode.KEY_RETURN || event.nativeEvent.keyCode === KeyCode.KEY_SPACE) {
         // The default isSelectable attribute is either undefined or true, unless the consumer specifies the row's isSelectable attribute as false.
+        console.log('Switching to Row ' + index);
+
         if (row.props.isSelectable !== false) {
           this.handleOnChange(event, index);
         }

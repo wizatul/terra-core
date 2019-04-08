@@ -189,6 +189,7 @@
 
     &.row:focus {
       background-color: var(--terra-table-row-focus-background-color, lighten(#ebf6fd, 2%)) !important;
+      border: #000 dashed 3px;
     }
 
     &.row:hover {
@@ -203,6 +204,7 @@
       background-color: var(--terra-table-row-selected-hover-background-color, darken(#ebf6fd, 7%)) !important;
     }
   }
+  border: #000 solid dashed;
 
   // Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
   @media print {

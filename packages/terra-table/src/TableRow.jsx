@@ -25,10 +25,27 @@ const defaultProps = {
   isSelectable: undefined,
 };
 
+function cloneChildItems(children, onClick, onKeyDown) {
+  return React.Children.map(children, (child) => {
+    const newProps = {};
+
+    if (onClick) {
+      newProps.onClick = onClick;
+    }
+    if (onKeyDown) {
+      newProps.onKeyDown = onKeyDown;
+    }
+
+    return React.cloneElement(child, newProps);
+  });
+}
+
 const TableRow = ({
   children,
   isSelected,
   isSelectable,
+  onClick,
+  onKeyDown,
   ...customProps
 }) => {
   const rowClassNames = cx([
@@ -45,9 +62,10 @@ const TableRow = ({
   }
 
   return (
-    <tr {...customProps} aria-selected={isSelected} className={rowClassNames}>
-      {children}
-    </tr>
+    <div role="row" {...customProps} aria-selected={isSelected} className={rowClassNames} style={{display: 'table-row'}}>
+      {isSelectable && <span role="cell"><span style={{position: 'absolute', left: '-10000px'}}>Selectable</span></span>}
+      {cloneChildItems(children, onClick, onKeyDown)}
+    </div>
   );
 };
 

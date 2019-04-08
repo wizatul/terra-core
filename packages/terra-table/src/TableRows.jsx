@@ -65,9 +65,9 @@ const TableRows = ({
   const numberOfCols = getNumberOfColumns(children);
   const cloneChildren = cloneChildItems(children, onClick, onKeyDown, numberOfCols);
   return (
-    <tbody {...customProps}>
+    <div role="rowgroup" {...customProps}>
       {cloneChildren}
-    </tbody>
+    </div>
   );
 };
 

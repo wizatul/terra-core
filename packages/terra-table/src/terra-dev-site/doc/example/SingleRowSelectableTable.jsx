@@ -4,7 +4,7 @@ import Table from 'terra-table/lib/Table';
 
 const SingleRowSelectableTable = () => (
   <Table isStriped={false}>
-    <Table.Header>
+    <Table.Header isSelectable>
       <Table.HeaderCell content="Name" key="NAME" minWidth="small" />
       <Table.HeaderCell content="Address" key="ADDRESS" minWidth="medium" />
       <Table.HeaderCell content="Phone Number" key="PHONE_NUMBER" minWidth="large" />

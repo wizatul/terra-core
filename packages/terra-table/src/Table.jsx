@@ -47,9 +47,9 @@ const Table = ({
     customProps.className,
   ]);
   return (
-    <table {...customProps} className={tableClassNames}>
+    <div role="table" {...customProps} className={tableClassNames} style={{display: 'table'}}>
       {children}
-    </table>
+    </div>
   );
 };
 
