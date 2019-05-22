@@ -3,6 +3,31 @@ ChangeLog
 
 Unreleased
 ----------
+
+2.9.0 - (May 1, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+### Changed
+* Updated WDIO tests to use themeCombinationOfCustomProperties instead of themeEachCustomProperty
+
+2.8.0 - (April 16, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+2.7.0 - (March 26, 2019)
+------------------
+### Changed
+* Update react/react-dom peer-dependency to latest stable minor release
+
+### Removed
+* Removed peer dependency on terra-base
+* Removed baseStyles import from terra-base
+
+2.6.0 - (March 21, 2019)
+------------------
 ### Changed
 * Replaced local keyCode values with keycode-js npm package
 

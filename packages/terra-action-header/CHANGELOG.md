@@ -3,6 +3,46 @@ ChangeLog
 
 Unreleased
 ----------
+
+2.14.0 - (May 22, 2019)
+------------------
+### Changed
+* Now renders `<ActionHeader />` as a div instead of a header element to avoid duplicate banner landmarks in the DOM
+
+2.13.0 - (May 1, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+### Fixed
+* Removed 100% heights from container of action header
+
+2.12.0 - (April 16, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+2.11.0 - (April 9, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+2.10.0 - (April 2, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+2.9.0 - (March 26, 2019)
+------------------
+### Changed
+* Update react/react-dom peer-dependency to latest stable minor release
+
+### Removed
+* Removed peer dependency on terra-base
+* Removed baseStyles import from terra-base
+
+2.8.0 - (March 21, 2019)
+------------------
 ### Changed
 * Update Jest tests to use terra-enzyme-intl
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import 'terra-base/lib/baseStyles';
 import ListUtils from './ListUtils';
 import styles from './ListSectionHeader.module.scss';
 
@@ -9,11 +8,11 @@ const cx = classNames.bind(styles);
 
 const propTypes = {
   /**
-   * Whether or not the section is collapsed.
+   * @private Whether or not the section is collapsed.
    */
   isCollapsed: PropTypes.bool,
   /**
-   * Whether or not the section can be collapsed.
+   * @private Whether or not the section can be collapsed.
    */
   isCollapsible: PropTypes.bool,
   /**
@@ -21,12 +20,12 @@ const propTypes = {
    */
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   /**
-   * The associated metaData to be provided in the onSelect callback.
+   * @private The associated metaData to be provided in the onSelect callback.
    */
   // eslint-disable-next-line react/forbid-prop-types
   metaData: PropTypes.object,
   /**
-   * Function callback for when the appropriate click or key action is performed.
+   * @private Function callback for when the appropriate click or key action is performed.
    * Callback contains the javascript evnt and prop metadata, e.g. onSelect(event, metaData)
    */
   onSelect: PropTypes.func,

@@ -16,6 +16,7 @@ import IconFolder from 'terra-icon/lib/icon/IconFolder';
 import IconAttachment from 'terra-icon/lib/icon/IconAttachment';
 import IconSend from 'terra-icon/lib/icon/IconSend';
 import IconPill from 'terra-icon/lib/icon/IconPill';
+import IconRedo from 'terra-icon/lib/icon/IconRedo';
 import IconVisualization from 'terra-icon/lib/icon/IconVisualization';
 import IconLightbulb from 'terra-icon/lib/icon/IconLightbulb';
 import IconForward from 'terra-icon/lib/icon/IconForward';
@@ -132,7 +133,7 @@ import IconProtocol from 'terra-icon/lib/icon/IconProtocol';
 import IconVideoCamera from 'terra-icon/lib/icon/IconVideoCamera';
 import IconVideoCameraDisabled from 'terra-icon/lib/icon/IconVideoCameraDisabled';
 import IconNoSignal from 'terra-icon/lib/icon/IconNoSignal';
-import IconReload from 'terra-icon/lib/icon/IconReload';
+import IconUndo from 'terra-icon/lib/icon/IconUndo';
 import IconRecurringEvent from 'terra-icon/lib/icon/IconRecurringEvent';
 import IconSeparate from 'terra-icon/lib/icon/IconSeparate';
 import IconMerge from 'terra-icon/lib/icon/IconMerge';
@@ -175,1586 +176,1654 @@ import IconThinDiamondSymbol from 'terra-icon/lib/icon/IconThinDiamondSymbol';
 import IconTriangleSymbol from 'terra-icon/lib/icon/IconTriangleSymbol';
 import IconTriangleDownSymbol from 'terra-icon/lib/icon/IconTriangleDownSymbol';
 import IconXSymbol from 'terra-icon/lib/icon/IconXSymbol';
-import './IconTable.scss';
-
-const IconThemeable = () => (
-  <table className="icon-table">
+import IconCircleLinesSymbol from 'terra-icon/lib/icon/IconCircleLinesSymbol';
+import IconCatalogueNumber from 'terra-icon/lib/icon/IconCatalogueNumber';
+import IconCaution from 'terra-icon/lib/icon/IconCaution';
+import IconConsultInstructionsForUse from 'terra-icon/lib/icon/IconConsultInstructionsForUse';
+import IconDateOfManufacture from 'terra-icon/lib/icon/IconDateOfManufacture';
+import IconManufacturer from 'terra-icon/lib/icon/IconManufacturer';
+const cellStyle = { padding: '0.5rem' };
+const IconAll = () => (
+  <div>  <table>
     <thead>
-      <tr>
-        <th>SVG</th>
-        <th>Concept</th>
-        <th>Code</th>
-      </tr>
+    <tr>
+      <th style={cellStyle} key={'svg'}>SVG</th>
+      <th style={cellStyle} key={'concept'}>Concept</th>
+      <th style={cellStyle} key={'code'}>Code</th>
+    </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><IconAdd height='2em' width='2em' /></td>
-        <td>add</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconAdd height='2em' width='2em' /></td>
+        <td style={cellStyle}>add</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconAdd from 'terra-icon/lib/icon/IconAdd';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSearch height='2em' width='2em' /></td>
-        <td>search</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSearch height='2em' width='2em' /></td>
+        <td style={cellStyle}>search</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSearch from 'terra-icon/lib/icon/IconSearch';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCommit height='2em' width='2em' /></td>
-        <td>commit</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCommit height='2em' width='2em' /></td>
+        <td style={cellStyle}>commit</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCommit from 'terra-icon/lib/icon/IconCommit';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCheckmark height='2em' width='2em' /></td>
-        <td>checkmark</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCheckmark height='2em' width='2em' /></td>
+        <td style={cellStyle}>checkmark</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCheckmark from 'terra-icon/lib/icon/IconCheckmark';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTrash height='2em' width='2em' /></td>
-        <td>trash</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTrash height='2em' width='2em' /></td>
+        <td style={cellStyle}>trash</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTrash from 'terra-icon/lib/icon/IconTrash';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPaperFolded height='2em' width='2em' /></td>
-        <td>paperFolded</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPaperFolded height='2em' width='2em' /></td>
+        <td style={cellStyle}>paperFolded</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPaperFolded from 'terra-icon/lib/icon/IconPaperFolded';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPrinter height='2em' width='2em' /></td>
-        <td>printer</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPrinter height='2em' width='2em' /></td>
+        <td style={cellStyle}>printer</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPrinter from 'terra-icon/lib/icon/IconPrinter';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconComment height='2em' width='2em' /></td>
-        <td>comment</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconComment height='2em' width='2em' /></td>
+        <td style={cellStyle}>comment</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconComment from 'terra-icon/lib/icon/IconComment';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconBookmark height='2em' width='2em' /></td>
-        <td>bookmark</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconBookmark height='2em' width='2em' /></td>
+        <td style={cellStyle}>bookmark</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconBookmark from 'terra-icon/lib/icon/IconBookmark';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconModified height='2em' width='2em' /></td>
-        <td>modified</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconModified height='2em' width='2em' /></td>
+        <td style={cellStyle}>modified</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconModified from 'terra-icon/lib/icon/IconModified';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFirst height='2em' width='2em' /></td>
-        <td>first</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFirst height='2em' width='2em' /></td>
+        <td style={cellStyle}>first</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFirst from 'terra-icon/lib/icon/IconFirst';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFolder height='2em' width='2em' /></td>
-        <td>folder</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFolder height='2em' width='2em' /></td>
+        <td style={cellStyle}>folder</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFolder from 'terra-icon/lib/icon/IconFolder';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconAttachment height='2em' width='2em' /></td>
-        <td>attachment</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconAttachment height='2em' width='2em' /></td>
+        <td style={cellStyle}>attachment</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconAttachment from 'terra-icon/lib/icon/IconAttachment';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSend height='2em' width='2em' /></td>
-        <td>send</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSend height='2em' width='2em' /></td>
+        <td style={cellStyle}>send</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSend from 'terra-icon/lib/icon/IconSend';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPill height='2em' width='2em' /></td>
-        <td>pill</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPill height='2em' width='2em' /></td>
+        <td style={cellStyle}>pill</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPill from 'terra-icon/lib/icon/IconPill';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconVisualization height='2em' width='2em' /></td>
-        <td>visualization</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconRedo height='2em' width='2em' /></td>
+        <td style={cellStyle}>redo</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
+          <code>
+            import IconRedo from 'terra-icon/lib/icon/IconRedo';
+          </code>
+        </td>
+      </tr>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconVisualization height='2em' width='2em' /></td>
+        <td style={cellStyle}>visualization</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconVisualization from 'terra-icon/lib/icon/IconVisualization';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconLightbulb height='2em' width='2em' /></td>
-        <td>lightbulb</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconLightbulb height='2em' width='2em' /></td>
+        <td style={cellStyle}>lightbulb</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconLightbulb from 'terra-icon/lib/icon/IconLightbulb';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconForward height='2em' width='2em' /></td>
-        <td>forward</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconForward height='2em' width='2em' /></td>
+        <td style={cellStyle}>forward</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconForward from 'terra-icon/lib/icon/IconForward';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconProjects height='2em' width='2em' /></td>
-        <td>projects</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconProjects height='2em' width='2em' /></td>
+        <td style={cellStyle}>projects</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconProjects from 'terra-icon/lib/icon/IconProjects';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconReplyAll height='2em' width='2em' /></td>
-        <td>replyAll</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconReplyAll height='2em' width='2em' /></td>
+        <td style={cellStyle}>replyAll</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconReplyAll from 'terra-icon/lib/icon/IconReplyAll';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFlag height='2em' width='2em' /></td>
-        <td>flag</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFlag height='2em' width='2em' /></td>
+        <td style={cellStyle}>flag</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFlag from 'terra-icon/lib/icon/IconFlag';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCalculator height='2em' width='2em' /></td>
-        <td>calculator</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCalculator height='2em' width='2em' /></td>
+        <td style={cellStyle}>calculator</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCalculator from 'terra-icon/lib/icon/IconCalculator';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCaretRight height='2em' width='2em' /></td>
-        <td>caretRight</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCaretRight height='2em' width='2em' /></td>
+        <td style={cellStyle}>caretRight</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCaretRight from 'terra-icon/lib/icon/IconCaretRight';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCaretLeft height='2em' width='2em' /></td>
-        <td>caretLeft</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCaretLeft height='2em' width='2em' /></td>
+        <td style={cellStyle}>caretLeft</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCaretLeft from 'terra-icon/lib/icon/IconCaretLeft';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCaretUp height='2em' width='2em' /></td>
-        <td>caretUp</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCaretUp height='2em' width='2em' /></td>
+        <td style={cellStyle}>caretUp</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCaretUp from 'terra-icon/lib/icon/IconCaretUp';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCaretDown height='2em' width='2em' /></td>
-        <td>caretDown</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCaretDown height='2em' width='2em' /></td>
+        <td style={cellStyle}>caretDown</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCaretDown from 'terra-icon/lib/icon/IconCaretDown';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTrophy height='2em' width='2em' /></td>
-        <td>trophy</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTrophy height='2em' width='2em' /></td>
+        <td style={cellStyle}>trophy</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTrophy from 'terra-icon/lib/icon/IconTrophy';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconChevronLeft height='2em' width='2em' /></td>
-        <td>chevronLeft</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconChevronLeft height='2em' width='2em' /></td>
+        <td style={cellStyle}>chevronLeft</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconChevronLeft from 'terra-icon/lib/icon/IconChevronLeft';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPrevious height='2em' width='2em' /></td>
-        <td>previous</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPrevious height='2em' width='2em' /></td>
+        <td style={cellStyle}>previous</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPrevious from 'terra-icon/lib/icon/IconPrevious';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconChevronRight height='2em' width='2em' /></td>
-        <td>chevronRight</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconChevronRight height='2em' width='2em' /></td>
+        <td style={cellStyle}>chevronRight</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconChevronRight from 'terra-icon/lib/icon/IconChevronRight';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconNext height='2em' width='2em' /></td>
-        <td>next</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconNext height='2em' width='2em' /></td>
+        <td style={cellStyle}>next</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconNext from 'terra-icon/lib/icon/IconNext';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconChevronUp height='2em' width='2em' /></td>
-        <td>chevronUp</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconChevronUp height='2em' width='2em' /></td>
+        <td style={cellStyle}>chevronUp</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconChevronUp from 'terra-icon/lib/icon/IconChevronUp';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconExpandLess height='2em' width='2em' /></td>
-        <td>expandLess</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconExpandLess height='2em' width='2em' /></td>
+        <td style={cellStyle}>expandLess</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconExpandLess from 'terra-icon/lib/icon/IconExpandLess';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconChevron height='2em' width='2em' /></td>
-        <td>chevron</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconChevron height='2em' width='2em' /></td>
+        <td style={cellStyle}>chevron</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconChevron from 'terra-icon/lib/icon/IconChevron';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconChevronDown height='2em' width='2em' /></td>
-        <td>chevronDown</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconChevronDown height='2em' width='2em' /></td>
+        <td style={cellStyle}>chevronDown</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconChevronDown from 'terra-icon/lib/icon/IconChevronDown';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconExpandMore height='2em' width='2em' /></td>
-        <td>expandMore</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconExpandMore height='2em' width='2em' /></td>
+        <td style={cellStyle}>expandMore</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconExpandMore from 'terra-icon/lib/icon/IconExpandMore';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconClock height='2em' width='2em' /></td>
-        <td>clock</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconClock height='2em' width='2em' /></td>
+        <td style={cellStyle}>clock</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconClock from 'terra-icon/lib/icon/IconClock';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconAway height='2em' width='2em' /></td>
-        <td>away</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconAway height='2em' width='2em' /></td>
+        <td style={cellStyle}>away</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconAway from 'terra-icon/lib/icon/IconAway';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSortAscending height='2em' width='2em' /></td>
-        <td>sortAscending</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSortAscending height='2em' width='2em' /></td>
+        <td style={cellStyle}>sortAscending</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSortAscending from 'terra-icon/lib/icon/IconSortAscending';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSortDescending height='2em' width='2em' /></td>
-        <td>sortDescending</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSortDescending height='2em' width='2em' /></td>
+        <td style={cellStyle}>sortDescending</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSortDescending from 'terra-icon/lib/icon/IconSortDescending';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTreemap height='2em' width='2em' /></td>
-        <td>treemap</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTreemap height='2em' width='2em' /></td>
+        <td style={cellStyle}>treemap</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTreemap from 'terra-icon/lib/icon/IconTreemap';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconGlasses height='2em' width='2em' /></td>
-        <td>glasses</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconGlasses height='2em' width='2em' /></td>
+        <td style={cellStyle}>glasses</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconGlasses from 'terra-icon/lib/icon/IconGlasses';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconImage height='2em' width='2em' /></td>
-        <td>image</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconImage height='2em' width='2em' /></td>
+        <td style={cellStyle}>image</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconImage from 'terra-icon/lib/icon/IconImage';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDoorOpen height='2em' width='2em' /></td>
-        <td>doorOpen</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDoorOpen height='2em' width='2em' /></td>
+        <td style={cellStyle}>doorOpen</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDoorOpen from 'terra-icon/lib/icon/IconDoorOpen';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconEllipses height='2em' width='2em' /></td>
-        <td>ellipses</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconEllipses height='2em' width='2em' /></td>
+        <td style={cellStyle}>ellipses</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconEllipses from 'terra-icon/lib/icon/IconEllipses';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconExclamation height='2em' width='2em' /></td>
-        <td>exclamation</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconExclamation height='2em' width='2em' /></td>
+        <td style={cellStyle}>exclamation</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconExclamation from 'terra-icon/lib/icon/IconExclamation';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconItalicI height='2em' width='2em' /></td>
-        <td>italic-i</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconItalicI height='2em' width='2em' /></td>
+        <td style={cellStyle}>italic-i</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconItalicI from 'terra-icon/lib/icon/IconItalicI';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconMinus height='2em' width='2em' /></td>
-        <td>minus</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconMinus height='2em' width='2em' /></td>
+        <td style={cellStyle}>minus</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconMinus from 'terra-icon/lib/icon/IconMinus';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconClose height='2em' width='2em' /></td>
-        <td>close</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconClose height='2em' width='2em' /></td>
+        <td style={cellStyle}>close</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconClose from 'terra-icon/lib/icon/IconClose';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconClear height='2em' width='2em' /></td>
-        <td>clear</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconClear height='2em' width='2em' /></td>
+        <td style={cellStyle}>clear</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconClear from 'terra-icon/lib/icon/IconClear';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconIncomplete height='2em' width='2em' /></td>
-        <td>incomplete</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconIncomplete height='2em' width='2em' /></td>
+        <td style={cellStyle}>incomplete</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconIncomplete from 'terra-icon/lib/icon/IconIncomplete';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconNotMet height='2em' width='2em' /></td>
-        <td>notMet</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconNotMet height='2em' width='2em' /></td>
+        <td style={cellStyle}>notMet</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconNotMet from 'terra-icon/lib/icon/IconNotMet';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPerson height='2em' width='2em' /></td>
-        <td>person</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPerson height='2em' width='2em' /></td>
+        <td style={cellStyle}>person</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPerson from 'terra-icon/lib/icon/IconPerson';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconLeft height='2em' width='2em' /></td>
-        <td>left</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconLeft height='2em' width='2em' /></td>
+        <td style={cellStyle}>left</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconLeft from 'terra-icon/lib/icon/IconLeft';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconRight height='2em' width='2em' /></td>
-        <td>right</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconRight height='2em' width='2em' /></td>
+        <td style={cellStyle}>right</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconRight from 'terra-icon/lib/icon/IconRight';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconUp height='2em' width='2em' /></td>
-        <td>up</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconUp height='2em' width='2em' /></td>
+        <td style={cellStyle}>up</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconUp from 'terra-icon/lib/icon/IconUp';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDown height='2em' width='2em' /></td>
-        <td>down</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDown height='2em' width='2em' /></td>
+        <td style={cellStyle}>down</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDown from 'terra-icon/lib/icon/IconDown';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSettings height='2em' width='2em' /></td>
-        <td>settings</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSettings height='2em' width='2em' /></td>
+        <td style={cellStyle}>settings</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSettings from 'terra-icon/lib/icon/IconSettings';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconEdit height='2em' width='2em' /></td>
-        <td>edit</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconEdit height='2em' width='2em' /></td>
+        <td style={cellStyle}>edit</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconEdit from 'terra-icon/lib/icon/IconEdit';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCalendar height='2em' width='2em' /></td>
-        <td>calendar</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCalendar height='2em' width='2em' /></td>
+        <td style={cellStyle}>calendar</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCalendar from 'terra-icon/lib/icon/IconCalendar';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconLookback height='2em' width='2em' /></td>
-        <td>lookback</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconLookback height='2em' width='2em' /></td>
+        <td style={cellStyle}>lookback</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconLookback from 'terra-icon/lib/icon/IconLookback';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconRefresh height='2em' width='2em' /></td>
-        <td>refresh</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconRefresh height='2em' width='2em' /></td>
+        <td style={cellStyle}>refresh</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconRefresh from 'terra-icon/lib/icon/IconRefresh';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconProvider height='2em' width='2em' /></td>
-        <td>provider</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconProvider height='2em' width='2em' /></td>
+        <td style={cellStyle}>provider</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconProvider from 'terra-icon/lib/icon/IconProvider';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPadlock height='2em' width='2em' /></td>
-        <td>padlock</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPadlock height='2em' width='2em' /></td>
+        <td style={cellStyle}>padlock</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPadlock from 'terra-icon/lib/icon/IconPadlock';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFeatured height='2em' width='2em' /></td>
-        <td>featured</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFeatured height='2em' width='2em' /></td>
+        <td style={cellStyle}>featured</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFeatured from 'terra-icon/lib/icon/IconFeatured';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFeaturedOff height='2em' width='2em' /></td>
-        <td>featuredOff</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFeaturedOff height='2em' width='2em' /></td>
+        <td style={cellStyle}>featuredOff</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFeaturedOff from 'terra-icon/lib/icon/IconFeaturedOff';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFeaturedOutline height='2em' width='2em' /></td>
-        <td>featuredOutline</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFeaturedOutline height='2em' width='2em' /></td>
+        <td style={cellStyle}>featuredOutline</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFeaturedOutline from 'terra-icon/lib/icon/IconFeaturedOutline';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconHalfRating height='2em' width='2em' /></td>
-        <td>halfRating</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconHalfRating height='2em' width='2em' /></td>
+        <td style={cellStyle}>halfRating</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconHalfRating from 'terra-icon/lib/icon/IconHalfRating';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconArchive height='2em' width='2em' /></td>
-        <td>archive</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconArchive height='2em' width='2em' /></td>
+        <td style={cellStyle}>archive</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconArchive from 'terra-icon/lib/icon/IconArchive';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFunnel height='2em' width='2em' /></td>
-        <td>funnel</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFunnel height='2em' width='2em' /></td>
+        <td style={cellStyle}>funnel</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFunnel from 'terra-icon/lib/icon/IconFunnel';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDocuments height='2em' width='2em' /></td>
-        <td>documents</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDocuments height='2em' width='2em' /></td>
+        <td style={cellStyle}>documents</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDocuments from 'terra-icon/lib/icon/IconDocuments';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconQuestion height='2em' width='2em' /></td>
-        <td>question</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconQuestion height='2em' width='2em' /></td>
+        <td style={cellStyle}>question</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconQuestion from 'terra-icon/lib/icon/IconQuestion';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconUnknown height='2em' width='2em' /></td>
-        <td>unknown</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconUnknown height='2em' width='2em' /></td>
+        <td style={cellStyle}>unknown</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconUnknown from 'terra-icon/lib/icon/IconUnknown';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconQuestionOutline height='2em' width='2em' /></td>
-        <td>questionOutline</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconQuestionOutline height='2em' width='2em' /></td>
+        <td style={cellStyle}>questionOutline</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconQuestionOutline from 'terra-icon/lib/icon/IconQuestionOutline';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconHouse height='2em' width='2em' /></td>
-        <td>house</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconHouse height='2em' width='2em' /></td>
+        <td style={cellStyle}>house</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconHouse from 'terra-icon/lib/icon/IconHouse';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSave height='2em' width='2em' /></td>
-        <td>save</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSave height='2em' width='2em' /></td>
+        <td style={cellStyle}>save</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSave from 'terra-icon/lib/icon/IconSave';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconHospital height='2em' width='2em' /></td>
-        <td>hospital</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconHospital height='2em' width='2em' /></td>
+        <td style={cellStyle}>hospital</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconHospital from 'terra-icon/lib/icon/IconHospital';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPending height='2em' width='2em' /></td>
-        <td>pending</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPending height='2em' width='2em' /></td>
+        <td style={cellStyle}>pending</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPending from 'terra-icon/lib/icon/IconPending';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconAnalytics height='2em' width='2em' /></td>
-        <td>analytics</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconAnalytics height='2em' width='2em' /></td>
+        <td style={cellStyle}>analytics</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconAnalytics from 'terra-icon/lib/icon/IconAnalytics';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconAnnouncement height='2em' width='2em' /></td>
-        <td>announcement</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconAnnouncement height='2em' width='2em' /></td>
+        <td style={cellStyle}>announcement</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconAnnouncement from 'terra-icon/lib/icon/IconAnnouncement';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCamera height='2em' width='2em' /></td>
-        <td>camera</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCamera height='2em' width='2em' /></td>
+        <td style={cellStyle}>camera</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCamera from 'terra-icon/lib/icon/IconCamera';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconBriefcase height='2em' width='2em' /></td>
-        <td>briefcase</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconBriefcase height='2em' width='2em' /></td>
+        <td style={cellStyle}>briefcase</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconBriefcase from 'terra-icon/lib/icon/IconBriefcase';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconLink height='2em' width='2em' /></td>
-        <td>link</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconLink height='2em' width='2em' /></td>
+        <td style={cellStyle}>link</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconLink from 'terra-icon/lib/icon/IconLink';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconMenu height='2em' width='2em' /></td>
-        <td>menu</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconMenu height='2em' width='2em' /></td>
+        <td style={cellStyle}>menu</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconMenu from 'terra-icon/lib/icon/IconMenu';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconList height='2em' width='2em' /></td>
-        <td>list</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconList height='2em' width='2em' /></td>
+        <td style={cellStyle}>list</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconList from 'terra-icon/lib/icon/IconList';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconChecklist height='2em' width='2em' /></td>
-        <td>checklist</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconChecklist height='2em' width='2em' /></td>
+        <td style={cellStyle}>checklist</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconChecklist from 'terra-icon/lib/icon/IconChecklist';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconUnlock height='2em' width='2em' /></td>
-        <td>unlock</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconUnlock height='2em' width='2em' /></td>
+        <td style={cellStyle}>unlock</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconUnlock from 'terra-icon/lib/icon/IconUnlock';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDue height='2em' width='2em' /></td>
-        <td>due</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDue height='2em' width='2em' /></td>
+        <td style={cellStyle}>due</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDue from 'terra-icon/lib/icon/IconDue';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSpinner height='2em' width='2em' /></td>
-        <td>spinner</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSpinner height='2em' width='2em' /></td>
+        <td style={cellStyle}>spinner</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSpinner from 'terra-icon/lib/icon/IconSpinner';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTile height='2em' width='2em' /></td>
-        <td>tile</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTile height='2em' width='2em' /></td>
+        <td style={cellStyle}>tile</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTile from 'terra-icon/lib/icon/IconTile';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconUsers height='2em' width='2em' /></td>
-        <td>users</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconUsers height='2em' width='2em' /></td>
+        <td style={cellStyle}>users</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconUsers from 'terra-icon/lib/icon/IconUsers';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconKnurling height='2em' width='2em' /></td>
-        <td>knurling</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconKnurling height='2em' width='2em' /></td>
+        <td style={cellStyle}>knurling</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconKnurling from 'terra-icon/lib/icon/IconKnurling';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconAddPerson height='2em' width='2em' /></td>
-        <td>addPerson</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconAddPerson height='2em' width='2em' /></td>
+        <td style={cellStyle}>addPerson</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconAddPerson from 'terra-icon/lib/icon/IconAddPerson';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconUpload height='2em' width='2em' /></td>
-        <td>upload</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconUpload height='2em' width='2em' /></td>
+        <td style={cellStyle}>upload</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconUpload from 'terra-icon/lib/icon/IconUpload';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDownload height='2em' width='2em' /></td>
-        <td>download</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDownload height='2em' width='2em' /></td>
+        <td style={cellStyle}>download</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDownload from 'terra-icon/lib/icon/IconDownload';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCancel height='2em' width='2em' /></td>
-        <td>cancel</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCancel height='2em' width='2em' /></td>
+        <td style={cellStyle}>cancel</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCancel from 'terra-icon/lib/icon/IconCancel';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconMaximize height='2em' width='2em' /></td>
-        <td>maximize</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconMaximize height='2em' width='2em' /></td>
+        <td style={cellStyle}>maximize</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconMaximize from 'terra-icon/lib/icon/IconMaximize';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconMinimize height='2em' width='2em' /></td>
-        <td>minimize</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconMinimize height='2em' width='2em' /></td>
+        <td style={cellStyle}>minimize</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconMinimize from 'terra-icon/lib/icon/IconMinimize';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconReply height='2em' width='2em' /></td>
-        <td>reply</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconReply height='2em' width='2em' /></td>
+        <td style={cellStyle}>reply</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconReply from 'terra-icon/lib/icon/IconReply';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTable height='2em' width='2em' /></td>
-        <td>table</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTable height='2em' width='2em' /></td>
+        <td style={cellStyle}>table</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTable from 'terra-icon/lib/icon/IconTable';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconRequired height='2em' width='2em' /></td>
-        <td>required</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconRequired height='2em' width='2em' /></td>
+        <td style={cellStyle}>required</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconRequired from 'terra-icon/lib/icon/IconRequired';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconGapChecking height='2em' width='2em' /></td>
-        <td>gap checking</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconGapChecking height='2em' width='2em' /></td>
+        <td style={cellStyle}>gap checking</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconGapChecking from 'terra-icon/lib/icon/IconGapChecking';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPersonHospital height='2em' width='2em' /></td>
-        <td>personHospital</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPersonHospital height='2em' width='2em' /></td>
+        <td style={cellStyle}>personHospital</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPersonHospital from 'terra-icon/lib/icon/IconPersonHospital';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPersonnelPerson height='2em' width='2em' /></td>
-        <td>personnelPerson</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPersonnelPerson height='2em' width='2em' /></td>
+        <td style={cellStyle}>personnelPerson</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPersonnelPerson from 'terra-icon/lib/icon/IconPersonnelPerson';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconLeftPane height='2em' width='2em' /></td>
-        <td>leftPane</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconLeftPane height='2em' width='2em' /></td>
+        <td style={cellStyle}>leftPane</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconLeftPane from 'terra-icon/lib/icon/IconLeftPane';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFlowsheet height='2em' width='2em' /></td>
-        <td>flowsheet</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFlowsheet height='2em' width='2em' /></td>
+        <td style={cellStyle}>flowsheet</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFlowsheet from 'terra-icon/lib/icon/IconFlowsheet';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconNotificationOff height='2em' width='2em' /></td>
-        <td>notificationOff</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconNotificationOff height='2em' width='2em' /></td>
+        <td style={cellStyle}>notificationOff</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconNotificationOff from 'terra-icon/lib/icon/IconNotificationOff';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconNotification height='2em' width='2em' /></td>
-        <td>notification</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconNotification height='2em' width='2em' /></td>
+        <td style={cellStyle}>notification</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconNotification from 'terra-icon/lib/icon/IconNotification';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconLast height='2em' width='2em' /></td>
-        <td>last</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconLast height='2em' width='2em' /></td>
+        <td style={cellStyle}>last</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconLast from 'terra-icon/lib/icon/IconLast';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDevice height='2em' width='2em' /></td>
-        <td>device</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDevice height='2em' width='2em' /></td>
+        <td style={cellStyle}>device</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDevice from 'terra-icon/lib/icon/IconDevice';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPaperPencil height='2em' width='2em' /></td>
-        <td>paperPencil</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPaperPencil height='2em' width='2em' /></td>
+        <td style={cellStyle}>paperPencil</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPaperPencil from 'terra-icon/lib/icon/IconPaperPencil';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconClipboard height='2em' width='2em' /></td>
-        <td>clipboard</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconClipboard height='2em' width='2em' /></td>
+        <td style={cellStyle}>clipboard</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconClipboard from 'terra-icon/lib/icon/IconClipboard';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconZoomOut height='2em' width='2em' /></td>
-        <td>zoomOut</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconZoomOut height='2em' width='2em' /></td>
+        <td style={cellStyle}>zoomOut</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconZoomOut from 'terra-icon/lib/icon/IconZoomOut';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconZoomIn height='2em' width='2em' /></td>
-        <td>zoomIn</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconZoomIn height='2em' width='2em' /></td>
+        <td style={cellStyle}>zoomIn</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconZoomIn from 'terra-icon/lib/icon/IconZoomIn';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconEnvelope height='2em' width='2em' /></td>
-        <td>envelope</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconEnvelope height='2em' width='2em' /></td>
+        <td style={cellStyle}>envelope</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconEnvelope from 'terra-icon/lib/icon/IconEnvelope';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconAllergy height='2em' width='2em' /></td>
-        <td>allergy</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconAllergy height='2em' width='2em' /></td>
+        <td style={cellStyle}>allergy</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconAllergy from 'terra-icon/lib/icon/IconAllergy';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPhoneDown height='2em' width='2em' /></td>
-        <td>phoneDown</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPhoneDown height='2em' width='2em' /></td>
+        <td style={cellStyle}>phoneDown</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPhoneDown from 'terra-icon/lib/icon/IconPhoneDown';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPhone height='2em' width='2em' /></td>
-        <td>phone</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPhone height='2em' width='2em' /></td>
+        <td style={cellStyle}>phone</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPhone from 'terra-icon/lib/icon/IconPhone';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPanelLeft height='2em' width='2em' /></td>
-        <td>panelLeft</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPanelLeft height='2em' width='2em' /></td>
+        <td style={cellStyle}>panelLeft</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPanelLeft from 'terra-icon/lib/icon/IconPanelLeft';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPanelRight height='2em' width='2em' /></td>
-        <td>panelRight</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPanelRight height='2em' width='2em' /></td>
+        <td style={cellStyle}>panelRight</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPanelRight from 'terra-icon/lib/icon/IconPanelRight';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTag height='2em' width='2em' /></td>
-        <td>tag</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTag height='2em' width='2em' /></td>
+        <td style={cellStyle}>tag</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTag from 'terra-icon/lib/icon/IconTag';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconIPass height='2em' width='2em' /></td>
-        <td>iPass</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconIPass height='2em' width='2em' /></td>
+        <td style={cellStyle}>iPass</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconIPass from 'terra-icon/lib/icon/IconIPass';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconScratchPad height='2em' width='2em' /></td>
-        <td>scratchPad</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconScratchPad height='2em' width='2em' /></td>
+        <td style={cellStyle}>scratchPad</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconScratchPad from 'terra-icon/lib/icon/IconScratchPad';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPharmacyReview height='2em' width='2em' /></td>
-        <td>pharmacyReview</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPharmacyReview height='2em' width='2em' /></td>
+        <td style={cellStyle}>pharmacyReview</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPharmacyReview from 'terra-icon/lib/icon/IconPharmacyReview';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconBusy height='2em' width='2em' /></td>
-        <td>busy</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconBusy height='2em' width='2em' /></td>
+        <td style={cellStyle}>busy</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconBusy from 'terra-icon/lib/icon/IconBusy';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconUnavailable height='2em' width='2em' /></td>
-        <td>unavailable</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconUnavailable height='2em' width='2em' /></td>
+        <td style={cellStyle}>unavailable</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconUnavailable from 'terra-icon/lib/icon/IconUnavailable';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconImplant height='2em' width='2em' /></td>
-        <td>implant</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconImplant height='2em' width='2em' /></td>
+        <td style={cellStyle}>implant</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconImplant from 'terra-icon/lib/icon/IconImplant';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconProtocol height='2em' width='2em' /></td>
-        <td>protocol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconProtocol height='2em' width='2em' /></td>
+        <td style={cellStyle}>protocol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconProtocol from 'terra-icon/lib/icon/IconProtocol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconVideoCamera height='2em' width='2em' /></td>
-        <td>videoCamera</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconVideoCamera height='2em' width='2em' /></td>
+        <td style={cellStyle}>videoCamera</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconVideoCamera from 'terra-icon/lib/icon/IconVideoCamera';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconVideoCameraDisabled height='2em' width='2em' /></td>
-        <td>videoCameraDisabled</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconVideoCameraDisabled height='2em' width='2em' /></td>
+        <td style={cellStyle}>videoCameraDisabled</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconVideoCameraDisabled from 'terra-icon/lib/icon/IconVideoCameraDisabled';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconNoSignal height='2em' width='2em' /></td>
-        <td>noSignal</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconNoSignal height='2em' width='2em' /></td>
+        <td style={cellStyle}>noSignal</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconNoSignal from 'terra-icon/lib/icon/IconNoSignal';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconReload height='2em' width='2em' /></td>
-        <td>reload</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconUndo height='2em' width='2em' /></td>
+        <td style={cellStyle}>undo</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
-            import IconReload from 'terra-icon/lib/icon/IconReload';
+            import IconUndo from 'terra-icon/lib/icon/IconUndo';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconRecurringEvent height='2em' width='2em' /></td>
-        <td>recurringEvent</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconRecurringEvent height='2em' width='2em' /></td>
+        <td style={cellStyle}>recurringEvent</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconRecurringEvent from 'terra-icon/lib/icon/IconRecurringEvent';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSeparate height='2em' width='2em' /></td>
-        <td>separate</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSeparate height='2em' width='2em' /></td>
+        <td style={cellStyle}>separate</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSeparate from 'terra-icon/lib/icon/IconSeparate';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconMerge height='2em' width='2em' /></td>
-        <td>merge</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconMerge height='2em' width='2em' /></td>
+        <td style={cellStyle}>merge</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconMerge from 'terra-icon/lib/icon/IconMerge';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCompose height='2em' width='2em' /></td>
-        <td>compose</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCompose height='2em' width='2em' /></td>
+        <td style={cellStyle}>compose</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCompose from 'terra-icon/lib/icon/IconCompose';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconUnread height='2em' width='2em' /></td>
-        <td>unread</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconUnread height='2em' width='2em' /></td>
+        <td style={cellStyle}>unread</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconUnread from 'terra-icon/lib/icon/IconUnread';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSwap height='2em' width='2em' /></td>
-        <td>swap</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSwap height='2em' width='2em' /></td>
+        <td style={cellStyle}>swap</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSwap from 'terra-icon/lib/icon/IconSwap';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconMicrophone height='2em' width='2em' /></td>
-        <td>microphone</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconMicrophone height='2em' width='2em' /></td>
+        <td style={cellStyle}>microphone</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconMicrophone from 'terra-icon/lib/icon/IconMicrophone';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconMicrophoneDisabled height='2em' width='2em' /></td>
-        <td>microphoneDisabled</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconMicrophoneDisabled height='2em' width='2em' /></td>
+        <td style={cellStyle}>microphoneDisabled</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconMicrophoneDisabled from 'terra-icon/lib/icon/IconMicrophoneDisabled';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconOutgoingCall height='2em' width='2em' /></td>
-        <td>outgoingCall</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconOutgoingCall height='2em' width='2em' /></td>
+        <td style={cellStyle}>outgoingCall</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconOutgoingCall from 'terra-icon/lib/icon/IconOutgoingCall';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconIncomingCall height='2em' width='2em' /></td>
-        <td>incomingCall</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconIncomingCall height='2em' width='2em' /></td>
+        <td style={cellStyle}>incomingCall</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconIncomingCall from 'terra-icon/lib/icon/IconIncomingCall';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconMissedCall height='2em' width='2em' /></td>
-        <td>missedCall</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconMissedCall height='2em' width='2em' /></td>
+        <td style={cellStyle}>missedCall</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconMissedCall from 'terra-icon/lib/icon/IconMissedCall';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPinDown height='2em' width='2em' /></td>
-        <td>pinDown</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPinDown height='2em' width='2em' /></td>
+        <td style={cellStyle}>pinDown</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPinDown from 'terra-icon/lib/icon/IconPinDown';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPinDiagonal height='2em' width='2em' /></td>
-        <td>pinDiagonal</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPinDiagonal height='2em' width='2em' /></td>
+        <td style={cellStyle}>pinDiagonal</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPinDiagonal from 'terra-icon/lib/icon/IconPinDiagonal';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPause height='2em' width='2em' /></td>
-        <td>pause</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPause height='2em' width='2em' /></td>
+        <td style={cellStyle}>pause</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPause from 'terra-icon/lib/icon/IconPause';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconAudio height='2em' width='2em' /></td>
-        <td>audio</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconAudio height='2em' width='2em' /></td>
+        <td style={cellStyle}>audio</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconAudio from 'terra-icon/lib/icon/IconAudio';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconExternalLink height='2em' width='2em' /></td>
-        <td>externalLink</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconExternalLink height='2em' width='2em' /></td>
+        <td style={cellStyle}>externalLink</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconExternalLink from 'terra-icon/lib/icon/IconExternalLink';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconBedRequested height='2em' width='2em' /></td>
-        <td>bedRequested</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconBedRequested height='2em' width='2em' /></td>
+        <td style={cellStyle}>bedRequested</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconBedRequested from 'terra-icon/lib/icon/IconBedRequested';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFlipVertical height='2em' width='2em' /></td>
-        <td>flipVertical</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFlipVertical height='2em' width='2em' /></td>
+        <td style={cellStyle}>flipVertical</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFlipVertical from 'terra-icon/lib/icon/IconFlipVertical';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFlipHorizontal height='2em' width='2em' /></td>
-        <td>flipHorizontal</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFlipHorizontal height='2em' width='2em' /></td>
+        <td style={cellStyle}>flipHorizontal</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFlipHorizontal from 'terra-icon/lib/icon/IconFlipHorizontal';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconRotateLeft height='2em' width='2em' /></td>
-        <td>rotateLeft</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconRotateLeft height='2em' width='2em' /></td>
+        <td style={cellStyle}>rotateLeft</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconRotateLeft from 'terra-icon/lib/icon/IconRotateLeft';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconRotateRight height='2em' width='2em' /></td>
-        <td>rotateRight</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconRotateRight height='2em' width='2em' /></td>
+        <td style={cellStyle}>rotateRight</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconRotateRight from 'terra-icon/lib/icon/IconRotateRight';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconHold height='2em' width='2em' /></td>
-        <td>hold</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconHold height='2em' width='2em' /></td>
+        <td style={cellStyle}>hold</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconHold from 'terra-icon/lib/icon/IconHold';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFitWidth height='2em' width='2em' /></td>
-        <td>fitWidth</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFitWidth height='2em' width='2em' /></td>
+        <td style={cellStyle}>fitWidth</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFitWidth from 'terra-icon/lib/icon/IconFitWidth';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconFitScale height='2em' width='2em' /></td>
-        <td>fitScale</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconFitScale height='2em' width='2em' /></td>
+        <td style={cellStyle}>fitScale</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconFitScale from 'terra-icon/lib/icon/IconFitScale';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSecondaryProvider height='2em' width='2em' /></td>
-        <td>secondaryProvider</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSecondaryProvider height='2em' width='2em' /></td>
+        <td style={cellStyle}>secondaryProvider</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSecondaryProvider from 'terra-icon/lib/icon/IconSecondaryProvider';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPartiallyMet height='2em' width='2em' /></td>
-        <td>partiallyMet</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPartiallyMet height='2em' width='2em' /></td>
+        <td style={cellStyle}>partiallyMet</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPartiallyMet from 'terra-icon/lib/icon/IconPartiallyMet';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSimulation height='2em' width='2em' /></td>
-        <td>simulation</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSimulation height='2em' width='2em' /></td>
+        <td style={cellStyle}>simulation</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSimulation from 'terra-icon/lib/icon/IconSimulation';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCollapseRow height='2em' width='2em' /></td>
-        <td>collapseRow</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCollapseRow height='2em' width='2em' /></td>
+        <td style={cellStyle}>collapseRow</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCollapseRow from 'terra-icon/lib/icon/IconCollapseRow';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconExpandRow height='2em' width='2em' /></td>
-        <td>expandRow</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconExpandRow height='2em' width='2em' /></td>
+        <td style={cellStyle}>expandRow</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconExpandRow from 'terra-icon/lib/icon/IconExpandRow';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDoubleChevronLeft height='2em' width='2em' /></td>
-        <td>doubleChevronLeft</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDoubleChevronLeft height='2em' width='2em' /></td>
+        <td style={cellStyle}>doubleChevronLeft</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDoubleChevronLeft from 'terra-icon/lib/icon/IconDoubleChevronLeft';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDoubleChevronRight height='2em' width='2em' /></td>
-        <td>doubleChevronRight</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDoubleChevronRight height='2em' width='2em' /></td>
+        <td style={cellStyle}>doubleChevronRight</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDoubleChevronRight from 'terra-icon/lib/icon/IconDoubleChevronRight';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconCircleSymbol height='2em' width='2em' /></td>
-        <td>circle_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCircleSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>circle_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconCircleSymbol from 'terra-icon/lib/icon/IconCircleSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconDiamondSymbol height='2em' width='2em' /></td>
-        <td>diamond_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDiamondSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>diamond_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconDiamondSymbol from 'terra-icon/lib/icon/IconDiamondSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconPlusSymbol height='2em' width='2em' /></td>
-        <td>plus_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconPlusSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>plus_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconPlusSymbol from 'terra-icon/lib/icon/IconPlusSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconRectangleSymbol height='2em' width='2em' /></td>
-        <td>rectangle_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconRectangleSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>rectangle_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconRectangleSymbol from 'terra-icon/lib/icon/IconRectangleSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconSquareSymbol height='2em' width='2em' /></td>
-        <td>square_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconSquareSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>square_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconSquareSymbol from 'terra-icon/lib/icon/IconSquareSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTeardropSymbol height='2em' width='2em' /></td>
-        <td>teardrop_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTeardropSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>teardrop_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTeardropSymbol from 'terra-icon/lib/icon/IconTeardropSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTeardropUpSymbol height='2em' width='2em' /></td>
-        <td>teardropUp_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTeardropUpSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>teardropUp_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTeardropUpSymbol from 'terra-icon/lib/icon/IconTeardropUpSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconThinDiamondSymbol height='2em' width='2em' /></td>
-        <td>thinDiamond_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconThinDiamondSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>thinDiamond_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconThinDiamondSymbol from 'terra-icon/lib/icon/IconThinDiamondSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTriangleSymbol height='2em' width='2em' /></td>
-        <td>triangle_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTriangleSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>triangle_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTriangleSymbol from 'terra-icon/lib/icon/IconTriangleSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconTriangleDownSymbol height='2em' width='2em' /></td>
-        <td>triangleDown_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconTriangleDownSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>triangleDown_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconTriangleDownSymbol from 'terra-icon/lib/icon/IconTriangleDownSymbol';
           </code>
         </td>
       </tr>
-      <tr>
-        <td><IconXSymbol height='2em' width='2em' /></td>
-        <td>x_symbol</td>
-        <td>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconXSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>x_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
           <code>
             import IconXSymbol from 'terra-icon/lib/icon/IconXSymbol';
           </code>
         </td>
       </tr>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCircleLinesSymbol height='2em' width='2em' /></td>
+        <td style={cellStyle}>circleLines_symbol</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
+          <code>
+            import IconCircleLinesSymbol from 'terra-icon/lib/icon/IconCircleLinesSymbol';
+          </code>
+        </td>
+      </tr>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCatalogueNumber height='2em' width='2em' /></td>
+        <td style={cellStyle}>catalogueNumber</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
+          <code>
+            import IconCatalogueNumber from 'terra-icon/lib/icon/IconCatalogueNumber';
+          </code>
+        </td>
+      </tr>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconCaution height='2em' width='2em' /></td>
+        <td style={cellStyle}>caution</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
+          <code>
+            import IconCaution from 'terra-icon/lib/icon/IconCaution';
+          </code>
+        </td>
+      </tr>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconConsultInstructionsForUse height='2em' width='2em' /></td>
+        <td style={cellStyle}>consultInstructionsForUse</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
+          <code>
+            import IconConsultInstructionsForUse from 'terra-icon/lib/icon/IconConsultInstructionsForUse';
+          </code>
+        </td>
+      </tr>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconDateOfManufacture height='2em' width='2em' /></td>
+        <td style={cellStyle}>dateOfManufacture</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
+          <code>
+            import IconDateOfManufacture from 'terra-icon/lib/icon/IconDateOfManufacture';
+          </code>
+        </td>
+      </tr>
+      <tr style={{ backgroundColor: '#EEEEEE' }}>
+        <td style={cellStyle}><IconManufacturer height='2em' width='2em' /></td>
+        <td style={cellStyle}>manufacturer</td>
+        <td style={{ fontWeight: 'bold', padding: '0.5rem' }}>
+          <code>
+            import IconManufacturer from 'terra-icon/lib/icon/IconManufacturer';
+          </code>
+        </td>
+      </tr>
     </tbody>
   </table>
-);
+  </div>);
 
-export default IconThemeable;
+export default IconAll;

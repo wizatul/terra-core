@@ -1,13 +1,10 @@
 Cerner Corporation
 
 - Ryan Manuel [@ryanthemanuel]
-- Matt Butler [@Matt-Butler]
 - Brett Jankord [@bjankord]
 - Matt Henkes [@mjhenkes]
 - Stephen Esser [@StephenEsser]
-- Yaonan Zhong [@zhongyn]
 - Altamash Fakki [@amf9t2]
-- Tao Zhang [@windse7en]
 - Aaron McRuer [@Nerdenator]
 - Anusha Reddy Ganapuram [@aganapuram]
 - Siddharth Kalluru [@sid141288]
@@ -18,8 +15,6 @@ Cerner Corporation
 - Dave Kasper [@dkasper-was-taken]
 - Nikhil Agrawal [@nagrawal3]
 - Emily Rohrbough [@emilyrohrbough]
-- Rory Hardy [@roryhardy]
-- Jake LaCombe [@JakeLaCombe]
 - Neil Pfeiffer [@neilpfeiffer]
 - David Schoonover [@dkschoonover]
 - Christian Alten [@cwalten]
@@ -31,7 +26,6 @@ Cerner Corporation
 - Umesh Shimpi [@us044466]
 - Billy Rhoades [@brhoades]
 - Rishi Asthana [@rasthana]
-- Wei Hou [@kafkahw]
 - Ryan Perrin [@saedar]
 - Sameeksha Vaity [@samvaity]
 - Sai Kaushik Mallela [@msaikaushik1992]
@@ -40,18 +34,15 @@ Cerner Corporation
 - Derek Yu [@yuderekyu]
 - Hardik Jain [@hardikjain29]
 - Dustin Singleton [@singleton06]
-- Dylan Klohr [@dklohr]
 - Daniel Vu [@dv297]
 - Victor Nava [@vikonava]
 - Chase Sinclair [@ChaseSinclair]
 - Gerard Isdell [@gerard-isdell]
-- Noah Benham [@noahbenham]
 - Andy Nelson [@anelson425]
 - Dan Plubell [@danplubell]
 - Mayuri Kini [@mayurikini]
 - Sruti Paku [@paku-sruti]
 - Cyrus Duong [@cyrusduong]
-- Nathan Faltermeier [@Blackop778]
 - Carter Harwood [@harwood]
 - Mukul Dhariwal [@mukuldhariwal94]
 - Praneeth Madamsetti [@praneethm381]
@@ -63,7 +54,6 @@ Cerner Corporation
 - Alex Bezek [@alex-bezek]
 - Ben Boersma [@BenBoersma]
 - Tom Wu [@tomleewu]
-- Cory McDonald [@corymcdonald]
 - Anthony Ross [@AnthonyRoss]
 - Julia Calandro [@JuliaCalandro]
 - Adam Parker [@amichaelparker]
@@ -84,9 +74,24 @@ Cerner Corporation
 - Shetty Akarsh [@ShettyAkarsh]
 - Caleb Meyer [@calebmeyer]
 - Andrew Givens [@agivens96]
-- Anjali Roy [@anjaliroy19] 
+- Anjali Roy [@anjaliroy19]
+- Younghwan Jang [@yfaney]
+- Naveen Kumar Ramamurthy [@nramamurth]
+- Pranav Agarwal [@pranav300]
 
+Community
 
+- Matt Butler [@Matt-Butler]
+- Yaonan Zhong [@zhongyn]
+- Tao Zhang [@windse7en]
+- Rory Hardy [@roryhardy]
+- Jake LaCombe [@JakeLaCombe]
+- Wei Hou [@kafkahw]
+- Dylan Klohr [@dklohr]
+- Nathan Faltermeier [@Blackop778]
+- Cory McDonald [@corymcdonald]
+- Noah Benham [@noahbenham]
+- Payal Sawant [@PayalSawant]
 
 [@ryanthemanuel]: https://github.com/ryanthemanuel
 [@Matt-Butler]: https://github.com/Matt-Butler
@@ -174,3 +179,7 @@ Cerner Corporation
 [@calebmeyer]: https://github.com/calebmeyer
 [@agivens96]: https://github.com/agivens96
 [@anjaliroy19]: https://github.com/anjaliroy19
+[@yfaney]: http://github.com/yfaney
+[@nramamurth]: https://github.com/nramamurth
+[@PayalSawant]: https://github.com/PayalSawant
+[@pranav300]: https://github.com/pranav300

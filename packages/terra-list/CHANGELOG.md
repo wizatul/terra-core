@@ -3,8 +3,38 @@ Changelog
 
 Unreleased
 ----------
+
+4.6.0 - (May 1, 2019)
+------------------
 ### Changed
-* Replaced local keyCode values with keycode-js npm package 
+* Minor dependency version bump
+
+4.5.0 - (April 16, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+### Added
+* Added an interaction media query to apply `hover` styles over a list-item only on non-touch devices.
+
+4.4.0 - (April 9, 2019)
+------------------
+### Changed
+* Update documentation to better cover sections and headers and for guides to be more interactive
+
+4.3.0 - (March 26, 2019)
+------------------
+### Changed
+* Update react/react-dom peer-dependency to latest stable minor release
+
+### Removed
+* Removed peer dependency on terra-base
+* Removed baseStyles import from terra-base
+
+4.2.0 - (March 21, 2019)
+------------------
+### Changed
+* Replaced local keyCode values with keycode-js npm package
 
 4.1.0 - (February 26, 2019)
 ------------------

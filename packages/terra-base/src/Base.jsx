@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  I18nProvider, i18nLoader, injectIntl, intlShape, FormattedMessage, IntlProvider,
-} from 'terra-i18n';
+import { I18nProvider, i18nLoader } from 'terra-i18n';
 import './baseStyles';
 
 const propTypes = {
@@ -13,7 +11,7 @@ const propTypes = {
   /**
    * The locale name.
    */
-  locale: PropTypes.string,
+  locale: PropTypes.string.isRequired,
   /**
    * Customized translations provided by consuming application only for current locale.
    */
@@ -76,27 +74,17 @@ class Base extends React.Component {
   render() {
     const {
       children,
-      locale,
       customMessages,
       strictMode,
       translationsLoadingPlaceholder,
-      ...customProps
     } = this.props;
 
     const messages = Object.assign({}, this.state.messages, customMessages);
     const renderChildren = strictMode ? (<React.StrictMode>{children}</React.StrictMode>) : children;
 
-    if (locale === undefined) {
-      return (
-        <div {...customProps} data-terra-base>
-          {renderChildren}
-        </div>
-      );
-    }
-
-    if (!this.state.areTranslationsLoaded) return <div>{this.props.translationsLoadingPlaceholder}</div>;
+    if (!this.state.areTranslationsLoaded) return <div>{translationsLoadingPlaceholder}</div>;
     return (
-      <I18nProvider {...customProps} locale={this.state.locale} messages={messages} data-terra-base>
+      <I18nProvider locale={this.state.locale} messages={messages}>
         {renderChildren}
       </I18nProvider>
     );
@@ -107,6 +95,3 @@ Base.propTypes = propTypes;
 Base.defaultProps = defaultProps;
 
 export default Base;
-export {
-  injectIntl, intlShape, FormattedMessage, IntlProvider,
-};

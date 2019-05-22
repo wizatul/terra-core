@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import 'terra-base/lib/baseStyles';
 import styles from './ActionHeaderContainer.module.scss';
 
 const cx = classNames.bind(styles);
@@ -58,14 +57,14 @@ const ActionHeaderContainer = ({
   ) : undefined;
 
   return (
-    <header {...customProps} className={cx(['flex-header', customProps.className])}>
+    <div {...customProps} className={cx(['flex-header', customProps.className])}>
       {startContent && <div className={cx('flex-end')}>{startContent}</div>}
       <div className={cx('flex-fill')}>
         {titleElement}
       </div>
       {content}
       {endContent && <div className={cx('flex-end')}>{endContent}</div>}
-    </header>
+    </div>
   );
 };
 

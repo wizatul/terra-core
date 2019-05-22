@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import IconError from 'terra-icon/lib/icon/IconError';
-import 'terra-base/lib/baseStyles';
 import styles from './Field.module.scss';
 
 const cx = classNames.bind(styles);
@@ -142,7 +141,7 @@ const Field = (props, { intl }) => {
   if (process.env.NODE_ENV !== 'production') {
     if (!htmlFor) {
       // eslint-disable-next-line
-      console.warn('This prop will be required in the next major version bump of terra-form-field. It is needed for creating an accessible mapping from the form field to its related error and help text.');
+      console.warn('The htmlFor prop will be required in the next major version bump of terra-form-field. It is needed for creating an accessible mapping from the form field to its related error and help text.');
     }
 
     if (htmlFor && hasWhiteSpace(htmlFor)) {
@@ -151,18 +150,6 @@ const Field = (props, { intl }) => {
     }
   }
 
-  let helpTextId;
-  let errorTextId;
-
-  if (htmlFor) {
-    /**
-     * IE + JAWS has trouble reading aria-describedby content with our form components.
-     * In that browser, we don't want an ID for the aria-describedby content so we have a
-     * Microsoft specific feature detect to flex on if the ID is undefined or valid.
-     */
-    helpTextId = !isIE() ? `${htmlFor}-help` : undefined;
-    errorTextId = !isIE() ? `${htmlFor}-error` : undefined;
-  }
 
   /**
    * IE + JAWS has trouble reading aria-describedby content with our form components.
@@ -199,8 +186,8 @@ const Field = (props, { intl }) => {
     <div style={customStyles} {...customProps} className={fieldClasses}>
       {labelGroup}
       {children}
-      {isInvalid && error && <div id={errorTextId} className={cx('error-text')}>{error}</div>}
-      {help && <div id={helpTextId} className={cx('help-text')}>{help}</div>}
+      {isInvalid && error && <div tabIndex="-1" id={htmlFor ? `${htmlFor}-error` : undefined} className={cx('error-text')}>{error}</div>}
+      {help && <div tabIndex="-1" id={htmlFor ? `${htmlFor}-help` : undefined} className={cx('help-text')}>{help}</div>}
     </div>
   );
 };

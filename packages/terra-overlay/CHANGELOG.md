@@ -3,6 +3,54 @@ Changelog
 
 Unreleased
 ----------
+
+3.14.0 - (May 14, 2019)
+------------------
+### Changed
+* Updated overlay to use WICG inert polyfill to handle focus management when overlay is open
+
+3.13.0 - (May 9, 2019)
+------------------
+### Changed
+* Upgrade focus-trap-react to version ^6.0.1
+* Added wrapping div to account for breaking change in focus-trap-react
+
+3.12.0 - (May 1, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+3.11.0 - (April 16, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+3.10.0 - (April 9, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+3.9.0 - (April 2, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+3.8.1 - (March 27, 2019)
+------------------
+### Changed
+* Changed default rootProp value to `#root`
+
+3.8.0 - (March 26, 2019)
+------------------
+### Changed
+* Update react/react-dom peer-dependency to latest stable minor release
+
+### Removed
+* Removed peer dependency on terra-base
+* Removed baseStyles import from terra-base
+
+3.7.0 - (March 21, 2019)
+------------------
 ### Added
 * Added overlay prop to OverlayContainer to separate overlay from container-content
 * Added condition in overlay setNode method to prevent screen reader from reading container-content

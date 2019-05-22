@@ -3,6 +3,39 @@ ChangeLog
 
 Unreleased
 ----------
+
+3.10.0 - (May 1, 2019)
+------------------
+### Added
+* Doc site example that can be toggled to demonstrate isInline prop
+
+### Changed
+* Minor dependency version bump
+
+3.9.0 - (April 16, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+3.8.0 - (April 9, 2019)
+------------------
+### Changed
+* Adding a validation of falsey values to the child components to avoid a crash
+
+3.7.0 - (March 26, 2019)
+------------------
+### Added
+* Added aria-describedby to better announce legend, help text, and error text in the Radio Field component
+
+### Removed
+* Removed peer dependency on terra-base
+* Removed baseStyles import from terra-base
+
+### Changed
+* Update react/react-dom peer-dependency to latest stable minor release
+
+3.6.0 - (March 21, 2019)
+------------------
 ### Changed
 * Update Jest tests to use terra-enzyme-intl
 

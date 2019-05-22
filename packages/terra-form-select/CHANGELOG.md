@@ -3,6 +3,45 @@ ChangeLog
 
 Unreleased
 ----------
+
+5.15.0 - (May 1, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+* Added 'disabled' prop to FormSelectField component
+
+### Fixed
+* Add vendor style rule for IE11 to fade placeholder text.
+
+5.14.0 - (April 16, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+5.13.0 - (April 9, 2019)
+------------------
+### Fixed
+* Issue with input element wrapping to new line too soon in multiple and tag variants
+* Unintended height increase
+* Null checks added to private Menu to prevent errors from empty queries
+
+5.12.0 - (April 2, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+5.11.0 - (March 26, 2019)
+------------------
+### Changed
+* Update react/react-dom peer-dependency to latest stable minor release
+* Improved experience using the select component with JAWS, VoiceOver, and VoiceOver on iOS
+
+### Removed
+* Removed peer dependency on terra-base
+* Removed baseStyles import from terra-base
+
+5.10.0 - (March 21, 2019)
+------------------
 ### Fixed
 * Checked for undefined and null for defaultValue
 * Fixed passed in onClick event not firing depending on click position on terra-form-select

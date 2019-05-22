@@ -4,6 +4,54 @@ Changelog
 Unreleased
 ----------
 
+5.6.0 - (May 21, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+5.5.0 - (May 14, 2019)
+------------------
+### Removed
+* Removed custom props spread on I18nProvider. The I18nProvider does not accept custom props.
+
+5.4.0 - (May 1, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+* Updated WDIO tests to use themeCombinationOfCustomProperties instead of themeEachCustomProperty
+
+5.3.0 - (April 16, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+5.2.0 - (April 9, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+5.1.0 - (April 2, 2019)
+------------------
+### Changed
+* Removed placehold.it image src that was used in docs/tests
+
+5.0.0 - (March 27, 2019)
+------------------
+### Breaking Changes
+* Locale prop is now required
+* This package no longer provides the `injectIntl`, `intlShape`, `FormattedMessage`, `IntlProvider` exports from react-intl
+* Removed div that wrapped children passed into the base component. The base component now uses a `<React.Fragment>` wrapper around children
+
+4.5.0 - (March 26, 2019)
+------------------
+### Changed
+* Update react/react-dom peer-dependency to latest stable minor release
+
+4.4.0 - (March 21, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
 4.3.0 - (February 26, 2019)
 ------------------
 ### Changed

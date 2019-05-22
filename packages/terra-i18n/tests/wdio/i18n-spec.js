@@ -1,7 +1,5 @@
-const i18nSupportedLocales = require('../../src/i18nSupportedLocales');
-
 // Add Portuguese-Guinea-Bissau, Zulu & Zulu-South African locales as test locales (supported by intl)
-const testLocales = i18nSupportedLocales.concat(['pt-GW', 'zu', 'zu-ZA']);
+const testLocales = ['en', 'en-GB', 'pt', 'pt-GW', 'zu', 'zu-ZA'];
 
 describe('I18n', () => {
   before(() => browser.setViewportSize(Terra.viewports('medium')[0]));
