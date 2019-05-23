@@ -41,7 +41,7 @@ class Table extends React.Component {
     this.removeResize = this.removeResize.bind(this);
     this.contentRef = React.createRef();
     this.insetRef = React.createRef();
-    this.insetWidth = 0;
+    this.offset = 0;
   }
 
   componentDidMount() {
@@ -50,7 +50,7 @@ class Table extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     if (this.props.fill && this.contentRef.current) {
       this.initializeResize();
     } else {
@@ -60,14 +60,11 @@ class Table extends React.Component {
 
   initializeResize() {
     if (!this.resizeListenerAdded) {
-      this.resizeObserver = new ResizeObserver((entries) => {
-        this.contentWidth = entries[0].contentRect.width;
-        const parent = this.contentRef.current.parentNode;
-        const parentStyle = getComputedStyle(parent);
-        const inset = parseFloat(parentStyle['border-left-width']) + parseFloat(parentStyle['border-right-width']);
-        const parentWidth = this.contentRef.current.parentNode.getBoundingClientRect().width - inset;
-        if (parentWidth !== this.contentWidth) {
-          this.updateSize(parentWidth - this.contentWidth);
+      this.resizeObserver = new ResizeObserver(() => {
+        const offset = this.contentRef.current.offsetWidth - this.contentRef.current.clientWidth;
+        if (this.offset !== offset) {
+          this.offset = offset
+          this.updateSize(this.offset);
         }
       });
       this.resizeObserver.observe(this.contentRef.current);
@@ -97,7 +94,6 @@ class Table extends React.Component {
       refCallback,
       ...customProps
     } = this.props;
-
     const tableClassNames = cx([
       'table',
       { fill },
@@ -109,15 +105,16 @@ class Table extends React.Component {
       attrSpread['data-table-padding'] = paddingStyle;
     }
 
+    // TODO: switch header to array of header cells
     return (
       <div {...customProps} {...attrSpread} className={tableClassNames} ref={refCallback} role="grid">
-        <div className={cx(['header'])}>
-          <div className={cx(['header-content'])}>
+        <div className={cx(['header'])} role="rowgroup">
+          <div className={cx(['header-content'])} role="row">
             {header}
           </div>
           <div className={cx(['header-inset'])} ref={this.insetRef} />
         </div>
-        <div className={cx(['body'])} ref={this.contentRef}>
+        <div className={cx(['body'])} role="rowgroup" ref={this.contentRef}>
           {children}
         </div>
       </div>
