@@ -25,7 +25,6 @@
   .sort-indicator-desc {
     color: var(--terra-table-sort-indicator-color, #1c1f21);
     height: var(--terra-table-sort-indicator-height, 0.6429rem);
-    margin-left: calc(var(--terra-table-sort-indicator-width, 0.6429rem) / -2);
     padding: 0;
     width: var(--terra-table-sort-indicator-width, 0.6429rem);
     flex: 0 0 auto;
@@ -40,6 +39,7 @@
   }
 
   .header-cell {
+    align-items: flex-end;
     border: 0;
     border-right: var(--terra-table-header-cell-border-right, 1px solid #ccc);
     color: var(--terra-table-header-cell-color, #1c1f21);
@@ -47,6 +47,7 @@
     flex: 1 1 0;
     font-size: var(--terra-table-header-cell-font-size, 1rem);
     font-weight: var(--terra-table-header-cell-font-weight, bold);
+    justify-content: space-between;
     line-height: var(--terra-table-header-cell-line-height, 1.143);
     margin: 0;
     padding: 0;
