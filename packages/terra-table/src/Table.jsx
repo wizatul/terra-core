@@ -60,8 +60,11 @@ class Table extends React.Component {
   initializeResize() {
     if (!this.resizeListenerAdded) {
       this.resizeObserver = new ResizeObserver((entries) => {
-        this.contentWidth = this.contentRef.current.clientWidth;
-        const parentWidth = this.contentRef.current.parentNode.clientWidth;
+        this.contentWidth = entries[0].contentRect.width;
+        const parent = this.contentRef.current.parentNode;
+        const parentStyle = getComputedStyle(parent);
+        const inset = parseFloat(parentStyle.borderLeft) + parseFloat(parentStyle.borderRight);
+        const parentWidth = this.contentRef.current.parentNode.getBoundingClientRect().width - inset;
         if (parentWidth !== this.contentWidth) {
           this.updateSize(parentWidth - this.contentWidth);
         }
