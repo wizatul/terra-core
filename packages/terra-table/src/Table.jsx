@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import ResizeObserver from 'resize-observer-polyfill';
 import styles from './Table.module.scss';
 
 const cx = classNames.bind(styles);
@@ -63,7 +64,7 @@ class Table extends React.Component {
         this.contentWidth = entries[0].contentRect.width;
         const parent = this.contentRef.current.parentNode;
         const parentStyle = getComputedStyle(parent);
-        const inset = parseFloat(parentStyle.borderLeft) + parseFloat(parentStyle.borderRight);
+        const inset = parseFloat(parentStyle['border-left-width']) + parseFloat(parentStyle['border-right-width']);
         const parentWidth = this.contentRef.current.parentNode.getBoundingClientRect().width - inset;
         if (parentWidth !== this.contentWidth) {
           this.updateSize(parentWidth - this.contentWidth);
