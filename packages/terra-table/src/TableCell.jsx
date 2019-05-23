@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import 'terra-base/lib/baseStyles';
 import styles from './TableCell.module.scss';
 
 const cx = classNames.bind(styles);
@@ -15,6 +14,10 @@ const propTypes = {
    * Function callback for the ref of the td.
    */
   refCallback: PropTypes.func,
+  /**
+   * Function callback for the ref of the td.
+   */
+  width: PropTypes.string,
 };
 
 const defaultProps = {
@@ -32,9 +35,9 @@ const TableCell = ({
   ]);
 
   return (
-    <td {...customProps} className={cellClassNames} ref={refCallback} role="gridcell">
+    <div {...customProps} className={cellClassNames} ref={refCallback} role="gridcell">
       {children}
-    </td>
+    </div>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import 'terra-base/lib/baseStyles';
 import styles from './TableRow.module.scss';
 import TableUtils from './TableUtils';
 
@@ -97,9 +96,9 @@ const TableRow = ({
   }
 
   return (
-    <tr {...customProps} {...attrSpread} className={rowClassNames} ref={refCallback} role="row">
+    <div {...customProps} {...attrSpread} className={rowClassNames} ref={refCallback} role="row">
       {children}
-    </tr>
+    </div>
   );
 };
 

@@ -25,12 +25,10 @@
   .sort-indicator-desc {
     color: var(--terra-table-sort-indicator-color, #1c1f21);
     height: var(--terra-table-sort-indicator-height, 0.6429rem);
-    left: 50%;
     margin-left: calc(var(--terra-table-sort-indicator-width, 0.6429rem) / -2);
     padding: 0;
-    position: absolute;
-    top: var(--terra-table-sort-indicator-top, 0.1429rem);
     width: var(--terra-table-sort-indicator-width, 0.6429rem);
+    flex: 0 0 auto;
   }
 
   .sort-indicator-asc {
@@ -43,9 +41,10 @@
 
   .header-cell {
     border: 0;
-    border-right: var(--terra-table-header-cell-border-right, 0);
+    border-right: var(--terra-table-header-cell-border-right, 1px solid #ccc);
     color: var(--terra-table-header-cell-color, #1c1f21);
-    display: table-cell;
+    display: flex;
+    flex: 1 1 0;
     font-size: var(--terra-table-header-cell-font-size, 1rem);
     font-weight: var(--terra-table-header-cell-font-weight, bold);
     line-height: var(--terra-table-header-cell-line-height, 1.143);

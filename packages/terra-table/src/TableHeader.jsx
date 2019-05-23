@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'terra-base/lib/baseStyles';
 import classNames from 'classnames/bind';
 import styles from './TableHeader.module.scss';
 
@@ -32,11 +31,9 @@ const TableHeader = ({
   ]);
 
   return (
-    <thead {...customProps} className={contentClassName} ref={refCallback}>
-      <tr>
-        {children}
-      </tr>
-    </thead>
+    <div {...customProps} className={contentClassName} ref={refCallback}>
+      {children}
+    </div>
   );
 };
 

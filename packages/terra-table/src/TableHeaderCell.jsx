@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import 'terra-base/lib/baseStyles';
 import styles from './TableHeaderCell.module.scss';
 import TableUtils from './TableUtils';
 
@@ -117,13 +116,11 @@ const TableHeaderCell = ({
   }
 
   return (
-    <th {...customProps} {...attrSpread} data-terra-table-header-cell className={contentClassName} ref={refCallback} role="columnheader">
+    <div {...customProps} {...attrSpread} data-terra-table-header-cell className={contentClassName} ref={refCallback} role="columnheader">
+      {headerIcon}
+      {children}
       {sortIndicator}
-      <div className={cx('cell-content')}>
-        {headerIcon}
-        {children}
-      </div>
-    </th>
+    </div>
   );
 };
 

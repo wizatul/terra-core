@@ -1,10 +1,10 @@
 :local {
   .cell {
     border: 0;
-    border-right: var(--terra-table-cell-border-right, 0);
-    display: table-cell;
+    border-right: var(--terra-table-cell-border-right, 1px solid #ccc);
     text-align: left;
     vertical-align: top;
+    flex: 1 1 0;
   
     &:last-of-type {
       border-right: 0;

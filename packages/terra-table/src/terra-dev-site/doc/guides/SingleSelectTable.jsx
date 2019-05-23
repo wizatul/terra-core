@@ -50,6 +50,8 @@ class SingleSelectTable extends React.Component {
   render() {
     return (
       <Table
+        fill
+        style={{ height: '200px' }}
         paddingStyle="standard"
         header={(
           <Header>
