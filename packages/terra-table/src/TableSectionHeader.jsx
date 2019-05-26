@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import 'terra-base/lib/baseStyles';
 import TableUtils from './TableUtils';
 import styles from './TableSectionHeader.module.scss';
 
 const cx = classNames.bind(styles);
 
 const propTypes = {
-  /**
-   * Number of columns the section header must span
-   */
-  colSpan: PropTypes.number.isRequired,
   /**
    * @private Whether or not the section is collapsed.
    */
@@ -67,7 +62,6 @@ const defaultProps = {
 };
 
 const TableSectionHeader = ({
-  colSpan,
   isCollapsed,
   isCollapsible,
   level,
@@ -115,14 +109,12 @@ const TableSectionHeader = ({
   }
 
   return (
-    <tr {...customProps} {...attrSpread} className={sectionHeaderClassNames} ref={refCallback}>
-      <td colSpan={colSpan}>
-        <div className={cx('section-content')}>
-          {accordionIcon}
-          {titleElement}
-        </div>
-      </td>
-    </tr>
+    <div {...customProps} {...attrSpread} className={sectionHeaderClassNames} ref={refCallback}>
+      <div className={cx('section-content')}>
+        {accordionIcon}
+        {titleElement}
+      </div>
+    </div>
   );
 };
 

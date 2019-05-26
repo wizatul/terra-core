@@ -27,6 +27,7 @@ const defaultProps = {
 const TableCell = ({
   children,
   refCallback,
+  width,
   ...customProps
 }) => {
   const cellClassNames = cx([
@@ -34,8 +35,9 @@ const TableCell = ({
     customProps.className,
   ]);
 
+  const style = { minWidth: `${width}`, maxWidth: `${width}` };
   return (
-    <div {...customProps} className={cellClassNames} ref={refCallback} role="gridcell">
+    <div {...customProps} style={style} className={cellClassNames} ref={refCallback} role="gridcell">
       {children}
     </div>
   );

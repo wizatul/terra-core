@@ -3,7 +3,6 @@ import Table, {
   Row,
   Cell,
   Section,
-  Header,
   HeaderCell,
   Utils,
 } from 'terra-table/lib/index'; // eslint-disable-line import/no-extraneous-dependencies, import/no-unresolved, import/extensions
@@ -63,13 +62,11 @@ class SectionTable extends React.Component {
     return (
       <Table
         paddingStyle="standard"
-        header={(
-          <Header>
-            <HeaderCell>Column 0</HeaderCell>
-            <HeaderCell>Column 1</HeaderCell>
-            <HeaderCell>Column 2</HeaderCell>
-          </Header>
-        )}
+        headerCells={[
+          <HeaderCell>Column 0</HeaderCell>,
+          <HeaderCell>Column 1</HeaderCell>,
+          <HeaderCell>Column 2</HeaderCell>,
+        ]}
       >
         {this.createSections(mockData)}
       </Table>

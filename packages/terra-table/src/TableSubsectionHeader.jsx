@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import 'terra-base/lib/baseStyles';
 import TableUtils from './TableUtils';
 import styles from './TableSubsectionHeader.module.scss';
 
@@ -67,7 +66,6 @@ const defaultProps = {
 };
 
 const TableSubsectionHeader = ({
-  colSpan,
   isCollapsed,
   isCollapsible,
   level,
@@ -115,14 +113,12 @@ const TableSubsectionHeader = ({
   }
 
   return (
-    <tr {...customProps} {...attrSpread} className={sectionHeaderClassNames} ref={refCallback}>
-      <td colSpan={colSpan}>
-        <div className={cx('subsection-content')}>
-          {accordionIcon}
-          {titleElement}
-        </div>
-      </td>
-    </tr>
+    <div {...customProps} {...attrSpread} className={sectionHeaderClassNames} ref={refCallback}>
+      <div className={cx('subsection-content')}>
+        {accordionIcon}
+        {titleElement}
+      </div>
+    </div>
   );
 };
 

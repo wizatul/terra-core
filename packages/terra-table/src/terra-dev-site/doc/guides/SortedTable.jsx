@@ -1,6 +1,6 @@
 import React from 'react';
 import Table, {
-  Row, Cell, Header, HeaderCell,
+  Row, Cell, HeaderCell,
 } from 'terra-table/lib/index'; // eslint-disable-line import/no-extraneous-dependencies, import/no-unresolved, import/extensions
 import Placeholder from 'terra-doc-template/lib/Placeholder';
 import mockData from './mock-data/mock-sort';
@@ -84,13 +84,11 @@ class SortedTable extends React.Component {
     return (
       <Table
         paddingStyle="standard"
-        header={(
-          <Header>
-            {this.createHeaderCell('column-0', 'Breakfast')}
-            {this.createHeaderCell('column-1', 'Animals')}
-            {this.createHeaderCell('column-2', 'Flatware')}
-          </Header>
-        )}
+        headerCells={[
+          this.createHeaderCell('column-0', 'Breakfast'),
+          this.createHeaderCell('column-1', 'Animals'),
+          this.createHeaderCell('column-2', 'Flatware'),
+        ]}
       >
         {this.createTableRows(mockData)}
       </Table>

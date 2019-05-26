@@ -1,6 +1,6 @@
 import React from 'react';
 import Table, {
-  Row, Cell, Header, HeaderCell, Utils,
+  Row, Cell, HeaderCell, Utils,
 } from 'terra-table/lib/index'; // eslint-disable-line import/no-extraneous-dependencies, import/no-unresolved, import/extensions
 import Placeholder from 'terra-doc-template/lib/Placeholder';
 import mockData from './mock-data/mock-select';
@@ -52,13 +52,11 @@ class MutliSelectTable extends React.Component {
       <Table
         aria-multiselectable
         paddingStyle="standard"
-        header={(
-          <Header>
-            <HeaderCell>Column 0</HeaderCell>
-            <HeaderCell>Column 1</HeaderCell>
-            <HeaderCell>Column 2</HeaderCell>
-          </Header>
-        )}
+        headerCells={[
+          <HeaderCell>Column 0</HeaderCell>,
+          <HeaderCell>Column 1</HeaderCell>,
+          <HeaderCell>Column 2</HeaderCell>,
+        ]}
       >
         {this.createTableRows(mockData)}
       </Table>

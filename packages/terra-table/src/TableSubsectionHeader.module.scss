@@ -8,11 +8,7 @@
     border-top: var(--terra-table-section-header-border-top, 1px solid #dedfe0);
     width: 100%;
 
-    > td {
-      padding: 0;
-    }
-
-    + tr {
+    + div {
       border-top-color: var(--terra-table-subsection-header-next-border-top-color, #b2b5b6);
     }
   }

@@ -89,14 +89,14 @@
     word-wrap: break-word;
   }
 
-  [data-table-padding='standard'] .cell-content {
+  [data-table-padding='standard'] .header-cell {
     padding-bottom: var(--terra-table-header-cell-standard-padding-bottom, 0.5em);
     padding-left: var(--terra-table-header-cell-standard-padding-left, 0.7142857143rem);
     padding-right: var(--terra-table-header-cell-standard-padding-right, 0.7142857143rem);
     padding-top: var(--terra-table-header-cell-standard-padding-top, 0.5em);
   }
 
-  [data-table-padding='compact'] .cell-content {
+  [data-table-padding='compact'] .header-cell {
     padding-bottom: var(--terra-table-header-cell-compact-padding-bottom, 0.35715em);
     padding-left: var(--terra-table-header-cell-compact-padding-left, 0.7142857143rem);
     padding-right: var(--terra-table-header-cell-compact-padding-right, 0.7142857143rem);

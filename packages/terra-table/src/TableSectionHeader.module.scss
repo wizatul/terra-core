@@ -7,12 +7,12 @@
     background-color: var(--terra-table-section-header-background-color, #e8e9ea);
     border-top: var(--terra-table-section-header-border-top, 1px solid #dedfe0);
     width: 100%;
+    position: static; // Keep for IE10 & 11
+    position: sticky;
+    top: inherit;
+    z-index: 1;
 
-    > td {
-      padding: 0;
-    }
-
-    + tr {
+    + div {
       border-top-color: var(--terra-table-section-header-next-border-top-color, #b2b5b6);
     }
   }

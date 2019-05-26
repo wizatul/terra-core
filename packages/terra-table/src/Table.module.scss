@@ -2,36 +2,30 @@
   .table {
     background-color: var(--terra-table-background-color, rgba(255, 255, 255, 0));
     border: var(--terra-table-border, 1px solid #dedfe0);
-    border-collapse: collapse;
-    border-spacing: 0;
-    max-width: 100%;
     width: 100%;
-
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
+    position: relative;
 
     &.fill {
       height: 100%;
-
-      .body {
-        height: 100%;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-      }
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
     }
   }
 
   .header {
-    flex: 0 0 auto;
-    display: flex;
-    width: 100%;
     background-color: var(--terra-table-header-background-color, #f4f4f4);
     border-bottom: var(--terra-table-header-border-bottom, 1px solid #868a8c);
     box-shadow: var(--terra-table-header-box-shadow, 0 4px 4px -4px rgba(134, 138, 140, 0.75), inset 0 0 0 1px #fff);
+    position: static; // Keep for IE10 & 11
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
   }
 
   .header-content {
+    display: flex;
     flex: 1 1 auto;
     width: 100%;
   }
@@ -45,8 +39,6 @@
 
   .body {
     background-color: var(--terra-table-body-background-color);
-
-    flex: 1 1 auto;
     min-height: 0;
     width: 100%;
   }

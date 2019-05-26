@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'terra-base/lib/baseStyles';
 import SubsectionHeader from './TableSubsectionHeader';
 
 const propTypes = {
@@ -8,10 +7,6 @@ const propTypes = {
    * The children list items passed to the component.
    */
   children: PropTypes.node,
-  /**
-   * Number of columns the subsection header must span
-   */
-  colSpan: PropTypes.number.isRequired,
   /**
    * Whether or not the subsection is collapsed.
    */

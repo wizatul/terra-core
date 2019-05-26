@@ -14,7 +14,7 @@ const propTypes = {
   /**
    * The header passed to the table
    */
-  header: PropTypes.element,
+  headerCells: PropTypes.arrayOf(PropTypes.element),
   /**
    * The padding styling to apply to the child list item content.
    * One of `'none'`, `'standard'`, `'compact'`.
@@ -24,10 +24,14 @@ const propTypes = {
    * Function callback for the ref of the table.
    */
   refCallback: PropTypes.func,
+  /**
+   * Whether or not the table should expanded to fill its parent element.
+   */
   fill: PropTypes.bool,
 };
 
 const defaultProps = {
+  headerCells: [],
   paddingStyle: 'none',
   fill: false,
 };
@@ -39,19 +43,19 @@ class Table extends React.Component {
     this.updateSize = this.updateSize.bind(this);
     this.initializeResize = this.initializeResize.bind(this);
     this.removeResize = this.removeResize.bind(this);
-    this.contentRef = React.createRef();
-    this.insetRef = React.createRef();
-    this.offset = 0;
+    this.headerRef = React.createRef();
+    this.bodyRef = React.createRef();
+    this.offsetHeight = 0;
   }
 
   componentDidMount() {
-    if (this.props.fill && this.contentRef.current) {
+    if (this.props.fill && this.headerRef.current) {
       this.initializeResize();
     }
   }
 
   componentDidUpdate() {
-    if (this.props.fill && this.contentRef.current) {
+    if (this.props.fill && this.headerRef.current) {
       this.initializeResize();
     } else {
       this.removeResize();
@@ -60,36 +64,39 @@ class Table extends React.Component {
 
   initializeResize() {
     if (!this.resizeListenerAdded) {
-      this.resizeObserver = new ResizeObserver(() => {
-        const offset = this.contentRef.current.offsetWidth - this.contentRef.current.clientWidth;
-        if (this.offset !== offset) {
-          this.offset = offset
-          this.updateSize(this.offset);
+      this.resizeObserver = new ResizeObserver((entries) => {
+        const { height } = entries[0].contentRect;
+        const style = getComputedStyle(this.headerRef.current);
+        const paddingHeight = parseFloat(style['border-top-width']) + parseFloat(style['border-bottom-width']);
+        const newHeight = height + paddingHeight;
+        if (this.headerHeight !== newHeight) {
+          this.headerHeigt = newHeight;
+          this.updateSize(this.headerHeigt);
         }
       });
-      this.resizeObserver.observe(this.contentRef.current);
+      this.resizeObserver.observe(this.headerRef.current);
       this.resizeListenerAdded = true;
     }
   }
 
   removeResize() {
     if (this.resizeListenerAdded) {
-      this.resizeObserver.disconnect(this.contentRef.current);
+      this.resizeObserver.disconnect(this.headerRef.current);
       this.resizeListenerAdded = false;
     }
   }
 
-  updateSize(width) {
-    if (this.insetRef.current) {
-      this.insetRef.current.style.width = `${width}px`;
+  updateSize(top) {
+    if (this.bodyRef.current) {
+      this.bodyRef.current.style.top = `${top}px`;
     }
   }
 
-  render () {
+  render() {
     const {
       children,
       fill,
-      header,
+      headerCells,
       paddingStyle,
       refCallback,
       ...customProps
@@ -105,21 +112,26 @@ class Table extends React.Component {
       attrSpread['data-table-padding'] = paddingStyle;
     }
 
-    // TODO: switch header to array of header cells
+    let header;
+    if (headerCells.length) {
+      header = (
+        <div className={cx(['header'])} role="rowgroup" ref={this.headerRef}>
+          <div className={cx(['header-content'])} role="row">
+            {headerCells}
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div {...customProps} {...attrSpread} className={tableClassNames} ref={refCallback} role="grid">
-        <div className={cx(['header'])} role="rowgroup">
-          <div className={cx(['header-content'])} role="row">
-            {header}
-          </div>
-          <div className={cx(['header-inset'])} ref={this.insetRef} />
-        </div>
-        <div className={cx(['body'])} role="rowgroup" ref={this.contentRef}>
+        {header}
+        <div className={cx(['body'])} role="rowgroup" ref={this.bodyRef}>
           {children}
         </div>
       </div>
     );
-  };
+  }
 }
 
 Table.propTypes = propTypes;
