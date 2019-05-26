@@ -60,9 +60,9 @@ class SingleSelectTable extends React.Component {
         style={{ height: '200px' }}
         paddingStyle="standard"
         headerCells={[
-          <HeaderCell isResizable columnId="key-1" onResizeEnd={this.handleResizeEnd} width={this.state['key-1']}>Column 0</HeaderCell>,
-          <HeaderCell isResizable columnId="key-2" onResizeEnd={this.handleResizeEnd} width={this.state['key-2']}>Column 1</HeaderCell>,
-          <HeaderCell isResizable columnId="key-3" onResizeEnd={this.handleResizeEnd} width={this.state['key-3']}>Column 2</HeaderCell>,
+          <HeaderCell key="cell-1" isResizable columnId="key-1" onResizeEnd={this.handleResizeEnd} width={this.state['key-1']}>Column 0</HeaderCell>,
+          <HeaderCell key="cell-2" isResizable columnId="key-2" onResizeEnd={this.handleResizeEnd} width={this.state['key-2']}>Column 1</HeaderCell>,
+          <HeaderCell key="cell-3" isResizable columnId="key-3" onResizeEnd={this.handleResizeEnd} width={this.state['key-3']}>Column 2</HeaderCell>,
         ]}
       >
         {this.createTableRows(mockData)}

@@ -17,11 +17,11 @@ const propTypes = {
   /**
    * String identifier of the column in which the HeaderCell will be rendered.
    */
-  columnId: PropTypes.string.isRequired,
+  columnId: PropTypes.string,
   /**
    * String-formatted width that the HeaderCell should be rendered as. Any valid css width value is supported (i.e. 200px, 3rem).
    */
-  width: PropTypes.string.isRequired,
+  width: PropTypes.string,
   /**
    * Boolean indicating whether or not the HeaderCell is resizable. If true, a ResizeHandle will be rendered
    * over the HeaderCell's contents.

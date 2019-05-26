@@ -53,9 +53,9 @@ class MutliSelectTable extends React.Component {
         aria-multiselectable
         paddingStyle="standard"
         headerCells={[
-          <HeaderCell>Column 0</HeaderCell>,
-          <HeaderCell>Column 1</HeaderCell>,
-          <HeaderCell>Column 2</HeaderCell>,
+          <HeaderCell key="cell-1">Column 0</HeaderCell>,
+          <HeaderCell key="cell-2">Column 1</HeaderCell>,
+          <HeaderCell key="cell-3">Column 2</HeaderCell>,
         ]}
       >
         {this.createTableRows(mockData)}
