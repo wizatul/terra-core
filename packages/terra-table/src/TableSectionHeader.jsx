@@ -77,7 +77,6 @@ const TableSectionHeader = ({
 }) => {
   const sectionHeaderClassNames = cx([
     'section-header',
-    { 'is-collapsible': isCollapsible },
     customProps.className,
   ]);
 
@@ -109,8 +108,8 @@ const TableSectionHeader = ({
   }
 
   return (
-    <div {...customProps} {...attrSpread} className={sectionHeaderClassNames} ref={refCallback}>
-      <div className={cx('section-content')}>
+    <div {...customProps} className={sectionHeaderClassNames} ref={refCallback}>
+      <div {...attrSpread} className={cx(['section-content', { 'is-collapsible': isCollapsible }])}>
         {accordionIcon}
         {titleElement}
       </div>

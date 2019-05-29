@@ -123,6 +123,93 @@ class Table extends React.Component {
       );
     }
 
+    // const stickyStyle = {
+    //   top: '57px',
+    //   position: 'sticky',
+    //   fontSize: '16px',
+    //   backgroundColor: 'aliceblue',
+    //   margin: '0',
+    // };
+
+    // const needHeight = {
+    //   // height: '200px',
+    //   // paddingBottom: '1px',
+    //   margin: '0',
+    // };
+
+    // const hStyle = {
+    //   // marginTop: '-60px',
+    //   // paddingTop: '60px',
+    // };
+
+    // return (
+    //   <div style={{ height: '400px', position: 'relative', overflow: 'auto', width: '100%' }}>
+    //     <div style={{ marginBottom: '10px', height: '57px', fontSize: '20px', top: '0', position: 'sticky', backgroundColor: 'pink', zIndex: '2' }}>
+    //       <h1 style={hStyle}>lobster</h1>
+    //     </div>
+    //     {/* <div style={needHeight}> */}
+    //       <div tabIndex="0" style={stickyStyle}>
+    //         <h1 style={hStyle}>lobster</h1>
+    //       </div>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //     {/* </div> */}
+    //     {/* <div style={needHeight}> */}
+    //       <div tabIndex="0" style={stickyStyle}>
+    //         <h1 style={hStyle}>lobster</h1>
+    //       </div>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //     {/* </div> */}
+    //     {/* <div style={needHeight}> */}
+    //     <div tabIndex="0" style={stickyStyle}>
+    //         <h1 style={hStyle}>lobster</h1>
+    //       </div>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //     {/* </div> */}
+    //     {/* <div style={needHeight}> */}
+    //     <div tabIndex="0" style={stickyStyle}>
+    //         <h1 style={hStyle}>lobster</h1>
+    //       </div>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //     {/* </div> */}
+    //     {/* <div style={needHeight}> */}
+    //     <div tabIndex="0" style={stickyStyle}>
+    //         <h1 style={hStyle}>lobster</h1>
+    //       </div>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //     {/* </div> */}
+    //     {/* <div style={needHeight}> */}
+    //     <div tabIndex="0" style={stickyStyle}>
+    //         <h1 style={hStyle}>lobster</h1>
+    //       </div>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //       <p tabIndex="0" style={hStyle}>poo</p>
+    //     {/* </div> */}
+    //   </div>
+    // );
+
     return (
       <div {...customProps} {...attrSpread} className={tableClassNames} ref={refCallback} role="grid">
         {header}
