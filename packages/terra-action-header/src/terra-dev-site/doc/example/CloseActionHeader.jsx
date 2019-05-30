@@ -7,7 +7,7 @@ const ActionHeaderExample = () => (
   <div>
     <br />
     <ActionHeader
-      title="Close Action Header"
+      // title="Close Action Header"
       onClose={() => alert('You clicked close!')}
     />
     <br />

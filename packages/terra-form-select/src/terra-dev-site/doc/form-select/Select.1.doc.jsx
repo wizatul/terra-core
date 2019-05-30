@@ -31,6 +31,8 @@ import SearchExample from '../example/Search';
 import SearchExampleSrc from '!raw-loader!../../../../src/terra-dev-site/doc/example/Search';
 import TagExample from '../example/Tag';
 import TagExampleSrc from '!raw-loader!../../../../src/terra-dev-site/doc/example/Tag';
+import ModalHeaderExample from '../example/ModalHeader';
+import ModalHeaderExampleSrc from '!raw-loader!../../../../src/terra-dev-site/doc/example/ModalHeader';
 /* eslint-enable import/no-webpack-loader-syntax, import/first, import/extensions, import/no-unresolved, import/no-duplicates */
 
 const Index = () => (
@@ -49,6 +51,11 @@ const Index = () => (
       componentSrc: OptGroupSrc,
     }]}
     examples={[{
+      title: 'Modal Header',
+      description: 'fooby',
+      example: <ModalHeaderExample />,
+      source: ModalHeaderExampleSrc,
+    }, {
       title: 'Default',
       description: 'A default variant allows selecting a single option.',
       example: <DefaultExample />,

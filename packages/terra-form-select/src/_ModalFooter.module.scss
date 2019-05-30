@@ -1,0 +1,16 @@
+:local {
+  .modal-footer {
+    align-items: center;
+    background-color: var(--terra-form-select-modal-footer-background-color, #f9f9f9);
+    border-top: var(--terra-form-select-modal-footer-border-top, 1px solid #dedfe0);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    min-height: var(--terra-form-select-modal-footer-min-height, 2.8571428571rem);
+    padding-bottom: var(--terra-form-select-modal-footer-padding-bottom, 0.6428571429rem);
+    padding-left: var(--terra-form-select-modal-footer-padding-left, 0.7142857143rem);
+    padding-right: var(--terra-form-select-modal-footer-padding-right, 0.7142857143rem);
+    padding-top: var(--terra-form-select-modal-footer-padding-top, 0.6428571429rem);
+    width: 100%;
+  }
+}

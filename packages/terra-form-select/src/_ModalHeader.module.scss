@@ -1,0 +1,65 @@
+@import '~terra-mixins/lib/Mixins';
+
+:local {
+  .modal-header {
+    align-items: flex-start;
+    background-color: var(--terra-form-select-modal-header-background-color, #f4f4f4);
+    border-bottom: var(--terra-form-select-modal-header-border-bottom, 1px solid #dedfe0);
+    border-left: var(--terra-form-select-modal-header-border-left);
+    border-right: var(--terra-form-select-modal-header-border-right);
+    border-top: var(--terra-form-select-modal-header-border-top);
+    box-shadow: var(--terra-form-select-modal-header-box-shadow);
+    display: flex;
+    justify-content: space-between;
+    min-height: var(--terra-form-select-modal-header-min-height, 3.6428571429rem);
+    padding: var(--terra-form-select-modal-header-padding, 0.714rem);
+    position: relative;
+    width: 100%;
+
+    .flex-collapse {
+      display: flex;
+      flex: 0 0 auto;
+      height: 100%;
+      max-width: 40%;
+      position: relative;
+    }
+  }
+
+  .close-container {
+    display: flex;
+    flex: 0 0 auto;
+    position: relative;
+  }
+
+  .header-icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    position: relative;
+    top: var(--terra-form-select-modal-header-icon-top, 0.1429rem);
+
+    &.close {
+      background: var(--terra-form-select-modal-header-close-background, inline-svg('<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M28.2 24L42.9 9.1 40.8 7l-1.7-1.6-.4-.5L24 19.7 9.4 4.9 7.2 7 5.6 8.6l-.5.5L19.8 24 5.1 38.9 7.2 41l1.7 1.6.5.5L24 28.3l14.7 14.8.4-.5 1.7-1.6 2.1-2.1L28.2 24z"></path></svg>'));
+    }
+  }
+
+  .title {
+    color: var(--terra-form-select-modal-header-color);
+    font-size: var(--terra-form-select-modal-header-font-size, 1.286rem);
+    font-weight: normal;
+    hyphens: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+    overflow-wrap: break-word; /* Modern browsers */
+    padding: var(--terra-form-select-modal-header-title-padding);
+    padding-top: var(--terra-form-select-modal-header-title-padding-top, 0.2143rem);
+    width: 100%;
+    word-wrap: break-word; /* For IE 10 and IE 11 */
+  }
+
+  .title-container {
+    flex: 1 1 auto;
+    position: relative;
+    width: 100%;
+  }
+}
