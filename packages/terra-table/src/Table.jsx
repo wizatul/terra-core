@@ -43,52 +43,60 @@ class Table extends React.Component {
     this.updateSize = this.updateSize.bind(this);
     this.initializeResize = this.initializeResize.bind(this);
     this.removeResize = this.removeResize.bind(this);
-    this.headerRef = React.createRef();
     this.bodyRef = React.createRef();
-    this.offsetHeight = 0;
+    this.insetRef = React.createRef();
+    this.animationFrameID = null;
+    this.offset = 0;
   }
 
   componentDidMount() {
-    if (this.props.fill && this.headerRef.current) {
+    if (this.props.fill && this.bodyRef.current) {
       this.initializeResize();
     }
   }
 
   componentDidUpdate() {
-    if (this.props.fill && this.headerRef.current) {
+    if (this.props.fill && this.bodyRef.current) {
       this.initializeResize();
     } else {
       this.removeResize();
     }
   }
 
+  componentWillUnmount() {
+    if (this.props.fill && this.bodyRef.current) {
+      this.removeResize();
+    }
+  }
+
   initializeResize() {
     if (!this.resizeListenerAdded) {
-      this.resizeObserver = new ResizeObserver((entries) => {
-        const { height } = entries[0].contentRect;
-        const style = getComputedStyle(this.headerRef.current);
-        const paddingHeight = parseFloat(style['border-top-width']) + parseFloat(style['border-bottom-width']);
-        const newHeight = height + paddingHeight;
-        if (this.headerHeight !== newHeight) {
-          this.headerHeigt = newHeight;
-          this.updateSize(this.headerHeigt);
+      this.resizeObserver = new ResizeObserver(() => {
+        const offset = this.bodyRef.current.offsetWidth - this.bodyRef.current.clientWidth;
+        if (this.offset !== offset) {
+          this.offset = offset;
+          this.animationFrameID = window.requestAnimationFrame(() => {
+            this.animationFrameID = null;
+            this.updateSize(this.offset);
+          });
         }
       });
-      this.resizeObserver.observe(this.headerRef.current);
+      this.resizeObserver.observe(this.bodyRef.current);
       this.resizeListenerAdded = true;
     }
   }
 
   removeResize() {
     if (this.resizeListenerAdded) {
-      this.resizeObserver.disconnect(this.headerRef.current);
+      window.cancelAnimationFrame(this.animationFrameID);
+      this.resizeObserver.disconnect(this.bodyRef.current);
       this.resizeListenerAdded = false;
     }
   }
 
-  updateSize(top) {
-    if (this.bodyRef.current) {
-      this.bodyRef.current.style.top = `${top}px`;
+  updateSize(width) {
+    if (this.insetRef.current) {
+      this.insetRef.current.style.width = `${width}px`;
     }
   }
 
@@ -115,100 +123,14 @@ class Table extends React.Component {
     let header;
     if (headerCells.length) {
       header = (
-        <div className={cx(['header'])} role="rowgroup" ref={this.headerRef}>
+        <div className={cx(['header'])} role="rowgroup">
           <div className={cx(['header-content'])} role="row">
             {headerCells}
           </div>
+          <div className={cx(['header-inset'])} ref={this.insetRef} />
         </div>
       );
     }
-
-    // const stickyStyle = {
-    //   top: '57px',
-    //   position: 'sticky',
-    //   fontSize: '16px',
-    //   backgroundColor: 'aliceblue',
-    //   margin: '0',
-    // };
-
-    // const needHeight = {
-    //   // height: '200px',
-    //   // paddingBottom: '1px',
-    //   margin: '0',
-    // };
-
-    // const hStyle = {
-    //   // marginTop: '-60px',
-    //   // paddingTop: '60px',
-    // };
-
-    // return (
-    //   <div style={{ height: '400px', position: 'relative', overflow: 'auto', width: '100%' }}>
-    //     <div style={{ marginBottom: '10px', height: '57px', fontSize: '20px', top: '0', position: 'sticky', backgroundColor: 'pink', zIndex: '2' }}>
-    //       <h1 style={hStyle}>lobster</h1>
-    //     </div>
-    //     {/* <div style={needHeight}> */}
-    //       <div tabIndex="0" style={stickyStyle}>
-    //         <h1 style={hStyle}>lobster</h1>
-    //       </div>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //     {/* </div> */}
-    //     {/* <div style={needHeight}> */}
-    //       <div tabIndex="0" style={stickyStyle}>
-    //         <h1 style={hStyle}>lobster</h1>
-    //       </div>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //     {/* </div> */}
-    //     {/* <div style={needHeight}> */}
-    //     <div tabIndex="0" style={stickyStyle}>
-    //         <h1 style={hStyle}>lobster</h1>
-    //       </div>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //     {/* </div> */}
-    //     {/* <div style={needHeight}> */}
-    //     <div tabIndex="0" style={stickyStyle}>
-    //         <h1 style={hStyle}>lobster</h1>
-    //       </div>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //     {/* </div> */}
-    //     {/* <div style={needHeight}> */}
-    //     <div tabIndex="0" style={stickyStyle}>
-    //         <h1 style={hStyle}>lobster</h1>
-    //       </div>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //     {/* </div> */}
-    //     {/* <div style={needHeight}> */}
-    //     <div tabIndex="0" style={stickyStyle}>
-    //         <h1 style={hStyle}>lobster</h1>
-    //       </div>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //       <p tabIndex="0" style={hStyle}>poo</p>
-    //     {/* </div> */}
-    //   </div>
-    // );
 
     return (
       <div {...customProps} {...attrSpread} className={tableClassNames} ref={refCallback} role="grid">
