@@ -8,10 +8,10 @@ import mockData from './mock-data/mock-select';
 const maxSectionCount = 3;
 
 const widths = [
-  { static: { value: 660, unit: 'px' } },
-  { static: { value: 660, unit: 'px' } },
-  { static: { value: 660, unit: 'px' } },
-  { static: { value: 660, unit: 'px' } },
+  { static: { value: 60, unit: 'px' } },
+  { static: { value: 60, unit: 'px' } },
+  { static: { value: 60, unit: 'px' } },
+  { static: { value: 60, unit: 'px' } },
 ];
 
 const createCell = (cell, index) => (
