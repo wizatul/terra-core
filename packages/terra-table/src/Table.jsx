@@ -44,7 +44,7 @@ class Table extends React.Component {
     this.initializeResize = this.initializeResize.bind(this);
     this.removeResize = this.removeResize.bind(this);
     this.bodyRef = React.createRef();
-    this.insetRef = React.createRef();
+    this.headerRef = React.createRef();
     this.animationFrameID = null;
     this.offset = 0;
   }
@@ -95,8 +95,8 @@ class Table extends React.Component {
   }
 
   updateSize(width) {
-    if (this.insetRef.current) {
-      this.insetRef.current.style.width = `${width}px`;
+    if (this.headerRef.current) {
+      this.headerRef.current.style.paddingRight = `${width}px`;
     }
   }
 
@@ -123,11 +123,10 @@ class Table extends React.Component {
     let header;
     if (headerCells.length) {
       header = (
-        <div className={cx(['header'])} role="rowgroup">
+        <div className={cx(['header'])} role="rowgroup" ref={this.headerRef}>
           <div className={cx(['header-content'])} role="row">
             {headerCells}
           </div>
-          <div className={cx(['header-inset'])} ref={this.insetRef} />
         </div>
       );
     }

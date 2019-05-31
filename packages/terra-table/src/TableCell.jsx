@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './TableCell.module.scss';
+import TableUtils from './TableUtils';
 
 const cx = classNames.bind(styles);
 
@@ -17,7 +18,14 @@ const propTypes = {
   /**
    * Function callback for the ref of the td.
    */
-  width: PropTypes.string,
+  width: PropTypes.shape({
+    static: PropTypes.shape({
+      value: PropTypes.number,
+      unit: PropTypes.string,
+    }),
+    percentage: PropTypes.number,
+    scalar: PropTypes.number,
+  }),
 };
 
 const defaultProps = {
@@ -35,9 +43,14 @@ const TableCell = ({
     customProps.className,
   ]);
 
-  const style = { minWidth: `${width}`, maxWidth: `${width}` };
   return (
-    <div {...customProps} style={style} className={cellClassNames} ref={refCallback} role="gridcell">
+    <div
+      {...customProps}
+      style={TableUtils.styleFromWidth(width)}
+      className={cellClassNames}
+      ref={refCallback}
+      role="gridcell"
+    >
       {children}
     </div>
   );

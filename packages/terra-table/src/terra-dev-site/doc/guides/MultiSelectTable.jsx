@@ -7,13 +7,20 @@ import mockData from './mock-data/mock-select';
 
 const maxSectionCount = 3;
 
-const createCell = cell => (
-  <Cell key={cell.key}>
+const widths = [
+  { static: { value: 60, unit: 'px' } },
+  { static: { value: 60, unit: 'px' } },
+  { static: { value: 60, unit: 'px' } },
+  { static: { value: 60, unit: 'px' } },
+];
+
+const createCell = (cell, index) => (
+  <Cell key={cell.key} width={widths[index]}>
     <Placeholder title={cell.title} style={{ height: '50px', padding: '0' }} />
   </Cell>
 );
 
-const createCellsForRow = cells => cells.map(cell => createCell(cell));
+const createCellsForRow = cells => cells.map((cell, index) => createCell(cell, index));
 
 class MutliSelectTable extends React.Component {
   constructor(props) {
@@ -53,9 +60,10 @@ class MutliSelectTable extends React.Component {
         aria-multiselectable
         paddingStyle="standard"
         headerCells={[
-          <HeaderCell key="cell-1">Column 0</HeaderCell>,
-          <HeaderCell key="cell-2">Column 1</HeaderCell>,
-          <HeaderCell key="cell-3">Column 2</HeaderCell>,
+          <HeaderCell key="cell-0" width={widths[0]}>Fixed 0</HeaderCell>,
+          <HeaderCell key="cell-1" width={widths[1]}>Fixed 1</HeaderCell>,
+          <HeaderCell key="cell-2" width={widths[2]}>Fixed 2</HeaderCell>,
+          <HeaderCell key="cell-3" width={widths[3]}>Fixed 3</HeaderCell>,
         ]}
       >
         {this.createTableRows(mockData)}

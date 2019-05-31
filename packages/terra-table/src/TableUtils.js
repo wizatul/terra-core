@@ -70,12 +70,46 @@ const wrappedEventCallback = (callback, newCallback) => {
   };
 };
 
+const staticStyle = width => (
+  {
+    msFlex: '0 0 auto',
+    flex: '0 0 auto',
+    width,
+    maxWidth: width,
+    minWidth: width,
+  }
+);
+
+const scalarStype = width => (
+  {
+    msFlex: `${width} 1 0`,
+    flex: `${width} 1 0`,
+  }
+);
+
+const styleFromWidth = (width) => {
+  if (!width) {
+    return null;
+  }
+  if (width.static) {
+    return staticStyle(`${width.static.value}${width.static.unit}`);
+  }
+  if (width.percentage) {
+    return staticStyle(`${width.percentage}%`);
+  }
+  if (width.scalar) {
+    return scalarStype(width.scalar);
+  }
+  return null;
+};
+
 const TableUtils = {
   updatedMultiSelectedKeys,
   shouldBeMultiSelectable,
   wrappedOnClickForItem,
   wrappedOnKeyDownForItem,
   wrappedEventCallback,
+  styleFromWidth,
 };
 
 export default TableUtils;

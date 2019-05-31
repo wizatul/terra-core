@@ -3,7 +3,8 @@
     border-top: var(--terra-table-row-border-top, 1px solid #dedfe0);
     display: flex;
     margin-bottom: 0;
-    flex: 0 0 auto;
+    position: relative;
+    flex: 1 1 auto;
   }
 
   .is-striped {

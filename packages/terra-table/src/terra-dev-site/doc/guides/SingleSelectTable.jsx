@@ -5,13 +5,25 @@ import Table, {
 import Placeholder from 'terra-doc-template/lib/Placeholder';
 import mockData from './mock-data/mock-select';
 
-const createCell = (cell, index, state) => (
-  <Cell key={cell.key} width={state[`key-${index + 1}`]}>
+const widths = [
+  { static: { value: 60, unit: 'px' } },
+  { percentage: 20 },
+  { scalar: 2 },
+];
+
+// const widths = [
+//   { static: { value: 60, unit: 'px' } },
+//   { static: { value: 60, unit: 'px' } },
+//   { static: { value: 60, unit: 'px' } },
+// ];
+
+const createCell = (cell, index) => (
+  <Cell key={cell.key} width={widths[index]}>
     <Placeholder title={cell.title} style={{ height: '50px', padding: '0' }} />
   </Cell>
 );
 
-const createCellsForRow = (cells, state) => cells.map((cell, index) => createCell(cell, index, state));
+const createCellsForRow = cells => cells.map((cell, index) => createCell(cell, index));
 
 class SingleSelectTable extends React.Component {
   constructor(props) {
@@ -19,8 +31,7 @@ class SingleSelectTable extends React.Component {
     this.createTableRow = this.createTableRow.bind(this);
     this.createTableRows = this.createTableRows.bind(this);
     this.handleRowSelection = this.handleRowSelection.bind(this);
-    this.handleResizeEnd = this.handleResizeEnd.bind(this);
-    this.state = { selectedKey: null, 'key-1': 200, 'key-2': 200, 'key-3': 200 };
+    this.state = { selectedKey: null };
   }
 
   handleRowSelection(event, metaData) {
@@ -48,11 +59,6 @@ class SingleSelectTable extends React.Component {
     return data.map(childItem => this.createTableRow(childItem));
   }
 
-  handleResizeEnd(columnId, width) {
-    console.log(`id: ${columnId}, width: ${width}`);
-    this.setState(state => ({ [columnId]: state[columnId] + width }));
-  }
-
   render() {
     return (
       <Table
@@ -60,9 +66,10 @@ class SingleSelectTable extends React.Component {
         style={{ height: '200px' }}
         paddingStyle="standard"
         headerCells={[
-          <HeaderCell key="cell-1" isResizable columnId="key-1" onResizeEnd={this.handleResizeEnd} width={this.state['key-1']}>Column 0</HeaderCell>,
-          <HeaderCell key="cell-2" isResizable columnId="key-2" onResizeEnd={this.handleResizeEnd} width={this.state['key-2']}>Column 1</HeaderCell>,
-          <HeaderCell key="cell-3" isResizable columnId="key-3" onResizeEnd={this.handleResizeEnd} width={this.state['key-3']}>Column 2</HeaderCell>,
+          <HeaderCell key="cell-1" width={widths[0]}>Fixed</HeaderCell>,
+          <HeaderCell key="cell-2" width={widths[1]}>Percentage</HeaderCell>,
+          <HeaderCell key="cell-3" width={widths[2]}>Scalar 2</HeaderCell>,
+          <HeaderCell key="cell-4">Default</HeaderCell>,
         ]}
       >
         {this.createTableRows(mockData)}

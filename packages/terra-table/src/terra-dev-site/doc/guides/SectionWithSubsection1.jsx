@@ -76,9 +76,9 @@ class SectionWithSubsection1 extends React.Component {
         fill
         paddingStyle="standard"
         headerCells={[
-          <HeaderCell key="cell-1">Column 0</HeaderCell>,
-          <HeaderCell key="cell-2">Column 1</HeaderCell>,
-          <HeaderCell key="cell-3">Column 2</HeaderCell>,
+          <HeaderCell key="cell-1">Column 0Column 0Column 0Column 0Column 0</HeaderCell>,
+          <HeaderCell key="cell-2">Column 1Column 1Column 1Column 1Column 1</HeaderCell>,
+          <HeaderCell key="cell-3">Column 2Column 2Column 2Column 2Column 2</HeaderCell>,
         ]}
       >
         {this.createSections(mockData)}

@@ -43,7 +43,7 @@
     border: 0;
     border-right: var(--terra-table-header-cell-border-right, 1px solid #ccc);
     color: var(--terra-table-header-cell-color, #1c1f21);
-    display: flex;
+    // display: flex;
     flex: 1 1 0;
     font-size: var(--terra-table-header-cell-font-size, 1rem);
     font-weight: var(--terra-table-header-cell-font-weight, bold);
@@ -54,6 +54,7 @@
     position: relative;
     text-align: left;
     vertical-align: bottom;
+    word-break: break-word;
 
     &:last-of-type {
       border-right: 0; // Hide last border
