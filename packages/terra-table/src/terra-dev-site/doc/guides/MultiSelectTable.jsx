@@ -8,10 +8,10 @@ import mockData from './mock-data/mock-select';
 const maxSectionCount = 3;
 
 const widths = [
-  { static: { value: 60, unit: 'px' } },
-  { static: { value: 60, unit: 'px' } },
-  { static: { value: 60, unit: 'px' } },
-  { static: { value: 60, unit: 'px' } },
+  { static: { value: 660, unit: 'px' } },
+  { static: { value: 660, unit: 'px' } },
+  { static: { value: 660, unit: 'px' } },
+  { static: { value: 660, unit: 'px' } },
 ];
 
 const createCell = (cell, index) => (
@@ -65,6 +65,8 @@ class MutliSelectTable extends React.Component {
           <HeaderCell key="cell-2" width={widths[2]}>Fixed 2</HeaderCell>,
           <HeaderCell key="cell-3" width={widths[3]}>Fixed 3</HeaderCell>,
         ]}
+        fill
+        style={{ height: '200px' }}
       >
         {this.createTableRows(mockData)}
       </Table>

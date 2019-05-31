@@ -109,19 +109,15 @@ class Table extends React.Component {
       refCallback,
       ...customProps
     } = this.props;
-    const tableClassNames = cx([
-      'table',
-      { fill },
-      customProps.className,
-    ]);
-
     const attrSpread = {};
     if (paddingStyle !== 'none') {
       attrSpread['data-table-padding'] = paddingStyle;
     }
 
     let header;
+    let makeInline = false;
     if (headerCells.length) {
+      makeInline = headerCells.every(cell => (cell.props.width && cell.props.width.static));
       header = (
         <div className={cx(['header'])} role="rowgroup" ref={this.headerRef}>
           <div className={cx(['header-content'])} role="row">
@@ -130,6 +126,13 @@ class Table extends React.Component {
         </div>
       );
     }
+
+    const tableClassNames = cx([
+      'table',
+      { fill },
+      { 'is-inline': makeInline },
+      customProps.className,
+    ]);
 
     return (
       <div {...customProps} {...attrSpread} className={tableClassNames} ref={refCallback} role="grid">
