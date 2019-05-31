@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ----------
+### Changed
+* Made required updates to consumer terra-toolkit v5 and terra-dev-site v5
+
 ### Breaking Changes - [Upgrade Guide](https://github.com/cerner/terra-core/tree/master/packages/terra-table/docs/guides)
 * Removed Component `SingleSelectableRows` - No longer supported this uncontrolled variant of table.
 * Removed Component `MultiSelectableRows` - No longer supported this uncontrolled variant of table.
