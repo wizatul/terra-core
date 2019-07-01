@@ -9,6 +9,7 @@ import Dropdown from './_Dropdown';
 import Util from './_FrameUtil';
 import SharedUtil from './_SharedUtil';
 import styles from './_Frame.module.scss';
+import MenuUtil from './_MenuUtil';
 
 const cx = classNames.bind(styles);
 
@@ -110,6 +111,11 @@ const propTypes = {
     Variants.SEARCH,
     Variants.TAG,
   ]),
+  /**
+   * @private
+   * The select's list of options
+   */
+  options: PropTypes.arrayOf(PropTypes.element),
 };
 
 const defaultProps = {
@@ -129,6 +135,7 @@ const defaultProps = {
   totalOptions: undefined,
   value: undefined,
   variant: Variants.DEFAULT,
+  options: [],
 };
 
 /* This rule can be removed when eslint-plugin-jsx-a11y is updated to ~> 6.0.0 */
@@ -377,7 +384,12 @@ class Frame extends React.Component {
    * @param {event} event - The onKeyDown event.
    */
   handleKeyDown(event) {
-    const { value } = this.props;
+    const {
+      value,
+      onDeselect,
+      options,
+      intl,
+    } = this.props;
     const { keyCode, target } = event;
 
     if (keyCode === KeyCode.KEY_SPACE && target !== this.input) {
@@ -387,7 +399,11 @@ class Frame extends React.Component {
       event.preventDefault();
       this.openDropdown(event);
     } else if (keyCode === KeyCode.KEY_BACK_SPACE && Util.allowsMultipleSelections(this.props) && !this.state.searchValue && value.length > 0) {
-      this.props.onDeselect(value[value.length - 1]);
+      const unselectedTxt = intl.formatMessage({ id: 'Terra.form.select.unselected' });
+      const lastOptionValue = value[value.length - 1];
+      const option = MenuUtil.findByValue(options, lastOptionValue);
+      this.visuallyHiddenComponent.current.innerText = `${option.props.display} ${unselectedTxt}`;
+      onDeselect(lastOptionValue);
     } else if (keyCode === KeyCode.KEY_ESCAPE) {
       this.closeDropdown();
     }

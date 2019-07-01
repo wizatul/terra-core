@@ -241,6 +241,7 @@ class Select extends React.Component {
         required={required}
         totalOptions={Util.getTotalNumberOfOptions(children)}
         clearOptionDisplay={clearOptionDisplay}
+        options={children}
         dropdown={dropdownProps => (
           <DropdownMenu {...dropdownProps}>
             {this.state.tags}
