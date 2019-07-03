@@ -4,8 +4,7 @@ ChangeLog
 Unreleased
 ----------
 ### Added
-* Added Object-fit-images polyfill for IE.
-* Added `object-fit` property in css.
+* Added enum `ImageFit` from Terra-image to resolve issue for non-square images.
 
 2.18.0 - (June 28, 2019)
 ------------------
