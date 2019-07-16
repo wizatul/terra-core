@@ -1,8 +1,14 @@
 {
-  "Terra.paginator.previous": "Föregående",
-  "Terra.paginator.next": "Nästa",
+  "Terra.paginator.currentPage": " ",
+  "Terra.paginator.goFirstPage": "Först",
+  "Terra.paginator.goLastPage": "Sist",
+  "Terra.paginator.goNextPage": "Nästa",
+  "Terra.paginator.goPreviousPage": "Föregående",
+  "Terra.paginator.goPageIndex": "Sida {pageNumber}",
   "Terra.paginator.first": "Först",
   "Terra.paginator.last": "Sist",
+  "Terra.paginator.next": "Nästa",
+  "Terra.paginator.previous": "Föregående",
   "Terra.paginator.pageIndex": "Sida {pageNumber}",
-  "Terra.paginator.pageCount": "Sida {pageNumber} av {pageNumberTotal}"
+  "Terra.paginator.pageIndexTotal": "Sida {pageNumber} av {pageNumberTotal}"
 }

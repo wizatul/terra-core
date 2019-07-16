@@ -1,8 +1,14 @@
 {
-  "Terra.paginator.previous": "Précédent",
-  "Terra.paginator.next": "Suivant",
+  "Terra.paginator.currentPage": " ",
+  "Terra.paginator.goFirstPage": "Premier",
+  "Terra.paginator.goLastPage": "Dernier",
+  "Terra.paginator.goNextPage": "Suivant",
+  "Terra.paginator.goPreviousPage": "Précédent",
+  "Terra.paginator.goPageIndex": "Page {pageNumber}",
   "Terra.paginator.first": "Premier",
   "Terra.paginator.last": "Dernier",
+  "Terra.paginator.next": "Suivant",
+  "Terra.paginator.previous": "Précédent",
   "Terra.paginator.pageIndex": "Page {pageNumber}",
-  "Terra.paginator.pageCount": "Page {pageNumber} sur {pageNumberTotal}"
+  "Terra.paginator.pageIndexTotal": "Page {pageNumber} sur {pageNumberTotal}"
 }

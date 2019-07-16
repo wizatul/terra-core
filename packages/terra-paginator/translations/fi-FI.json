@@ -1,8 +1,14 @@
 {
-  "Terra.paginator.previous": "Edellinen",
-  "Terra.paginator.next": "Seuraava",
+  "Terra.paginator.currentPage": " ",
+  "Terra.paginator.goFirstPage": "Ensimmäinen",
+  "Terra.paginator.goLastPage": "Viimeinen",
+  "Terra.paginator.goNextPage": "Seuraava",
+  "Terra.paginator.goPreviousPage": "Edellinen",
+  "Terra.paginator.goPageIndex": "Sivu {pageNumber}",
   "Terra.paginator.first": "Ensimmäinen",
   "Terra.paginator.last": "Viimeinen",
+  "Terra.paginator.next": "Seuraava",
+  "Terra.paginator.previous": "Edellinen",
   "Terra.paginator.pageIndex": "Sivu {pageNumber}",
-  "Terra.paginator.pageCount": "Sivu {pageNumber} / {pageNumberTotal}"
+  "Terra.paginator.pageIndexTotal": "Sivu {pageNumber} / {pageNumberTotal}"
 }
