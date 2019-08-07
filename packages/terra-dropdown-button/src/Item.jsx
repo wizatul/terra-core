@@ -11,6 +11,11 @@ const propTypes = {
    */
   label: PropTypes.string.isRequired,
   /**
+   * The associated metaData to be provided in the onSelect callback.
+   */
+  // eslint-disable-next-line react/forbid-prop-types
+  metaData: PropTypes.object,
+  /**
    * The function that is called when the option is clicked or enter/space is pressed with it focused.
    */
   onSelect: PropTypes.func.isRequired,
@@ -29,7 +34,7 @@ const propTypes = {
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // Keyboard events are handled in _DropdownList.jsx
 const Item = ({
-  label, onSelect, isActive, requestClose, ...customProps
+  label, onSelect, isActive, requestClose, metaData, ...customProps
 }) => (
   /*
     Having the li element with tabIndex -1 is important for VoiceOver in Safari, without it pressing VO + left/right will
@@ -38,7 +43,7 @@ const Item = ({
   <li tabIndex="-1" role="presentation">
     <div
       {...customProps}
-      onClick={(event) => { requestClose(onSelect); event.stopPropagation(); }}
+      onClick={(event) => { requestClose(event); onSelect(event, metaData); }}
       role="menuitem"
       tabIndex="0"
       className={cx([

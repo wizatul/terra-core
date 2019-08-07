@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FocusTrap from 'focus-trap-react';
 import Hookshot from 'terra-hookshot';
+import Overlay from 'terra-overlay';
 import DropdownList from './_DropdownList';
 
 const propTypes = {
@@ -31,28 +32,34 @@ const propTypes = {
 const Dropdown = ({
   requestClose, isOpen, targetRef, children, width,
 }) => (
-  <Hookshot
-    isOpen={isOpen}
-    isEnabled
-    targetRef={targetRef}
-    attachmentBehavior="flip"
-    contentAttachment={{ vertical: 'top', horizontal: 'start' }}
-    targetAttachment={{ vertical: 'bottom', horizontal: 'start' }}
-  >
-    <Hookshot.Content
-      onEsc={requestClose}
-      onOutsideClick={requestClose}
+  <React.Fragment>
+    <Hookshot
+      isOpen={isOpen}
+      isEnabled
+      targetRef={targetRef}
+      attachmentBehavior="flip"
+      contentAttachment={{ vertical: 'top', horizontal: 'start' }}
+      targetAttachment={{ vertical: 'bottom', horizontal: 'start' }}
     >
-      <FocusTrap focusTrapOptions={{ returnFocusOnDeactivate: true, clickOutsideDeactivates: true }}>
-        <DropdownList
-          requestClose={requestClose}
-          width={width}
-        >
-          {children}
-        </DropdownList>
-      </FocusTrap>
-    </Hookshot.Content>
-  </Hookshot>
+      <Hookshot.Content>
+        <FocusTrap focusTrapOptions={{ returnFocusOnDeactivate: true, clickOutsideDeactivates: true }}>
+          <DropdownList
+            requestClose={requestClose}
+            width={width}
+          >
+            {children}
+          </DropdownList>
+        </FocusTrap>
+      </Hookshot.Content>
+    </Hookshot>
+    <Overlay
+      isOpen={isOpen}
+      isRelativeToContainer
+      backgroundStyle="clear"
+      zIndex="7000"
+      onRequestClose={requestClose}
+    />
+  </React.Fragment>
 );
 
 Dropdown.propTypes = propTypes;
