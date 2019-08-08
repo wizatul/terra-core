@@ -54,7 +54,6 @@ const Dropdown = ({
     </Hookshot>
     <Overlay
       isOpen={isOpen}
-      isRelativeToContainer
       backgroundStyle="clear"
       zIndex="7000"
       onRequestClose={requestClose}
