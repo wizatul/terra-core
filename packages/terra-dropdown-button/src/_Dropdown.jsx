@@ -33,6 +33,12 @@ const Dropdown = ({
   requestClose, isOpen, targetRef, children, width,
 }) => (
   <React.Fragment>
+    <Overlay
+      isOpen={isOpen}
+      backgroundStyle="clear"
+      zIndex="7000"
+      onRequestClose={requestClose}
+    />
     <Hookshot
       isOpen={isOpen}
       isEnabled
@@ -52,12 +58,6 @@ const Dropdown = ({
         </FocusTrap>
       </Hookshot.Content>
     </Hookshot>
-    <Overlay
-      isOpen={isOpen}
-      backgroundStyle="clear"
-      zIndex="7000"
-      onRequestClose={requestClose}
-    />
   </React.Fragment>
 );
 
