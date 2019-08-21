@@ -71,6 +71,7 @@ const propTypes = {
    */
   // eslint-disable-next-line react/forbid-prop-types
   style: PropTypes.object,
+  customLabel: PropTypes.string,
 };
 
 const defaultProps = {
@@ -84,6 +85,7 @@ const defaultProps = {
   isInline: false,
   isLabelHidden: false,
   labelAttrs: {},
+  customLabel: 'top',
   maxWidth: undefined,
   required: false,
   showOptional: false,
@@ -100,6 +102,7 @@ const Field = (props) => {
     error,
     errorIcon,
     help,
+    customLabel,
     hideRequired,
     htmlFor,
     isInvalid,
@@ -169,7 +172,7 @@ const Field = (props) => {
   });
 
   const labelGroup = (
-    <div className={cx(['label-group', { 'label-group-hidden': isLabelHidden }])}>
+    <div className={cx([`label-group-${customLabel}`, { 'label-group-hidden': isLabelHidden }])}>
       {isInvalid && <div className={cx('error-icon')}>{errorIcon}</div>}
       {
         <label htmlFor={htmlFor} {...labelAttrs} className={labelClassNames}>
@@ -194,10 +197,14 @@ const Field = (props) => {
   /* eslint-disable react/forbid-dom-props */
   return (
     <div style={customStyles} {...customProps} className={fieldClasses}>
-      {labelGroup}
-      {content}
-      {isInvalid && error && <div tabIndex="-1" id={htmlFor ? `${htmlFor}-error` : undefined} className={cx('error-text')}>{error}</div>}
-      {help && <div tabIndex="-1" id={htmlFor ? `${htmlFor}-help` : undefined} className={cx('help-text')}>{help}</div>}
+      <div className={cx(`form-container-${customLabel}`)}>
+        {labelGroup}
+        <div className={cx(`form-content-${customLabel}`)}>
+          {content}
+        </div>
+      </div>
+      {isInvalid && error && <div tabIndex="-1" id={htmlFor ? `${htmlFor}-error` : undefined} className={cx([`error-text-${customLabel}`])}>{error}</div>}
+      {help && <div tabIndex="-1" id={htmlFor ? `${htmlFor}-help` : undefined} className={cx([`help-text-${customLabel}`])}>{help}</div>}
     </div>
   );
   /* eslint-enable react/forbid-dom-props */

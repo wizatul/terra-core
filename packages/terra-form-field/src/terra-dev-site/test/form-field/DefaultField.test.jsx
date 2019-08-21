@@ -12,6 +12,7 @@ const DefaultField = () => (
       label="Field Label"
       help="This is a standard, non-required field."
       error="Error Message"
+      customLabel="left"
     >
       <div className={cx('field-content')}>Control Placeholder</div>
     </Field>

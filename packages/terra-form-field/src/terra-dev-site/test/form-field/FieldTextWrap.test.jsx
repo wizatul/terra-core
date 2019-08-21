@@ -14,6 +14,7 @@ const FieldExamples = () => (
       help="Help Message Help Message Help Message Help Message Help Message Help Message Help Message Help Message"
       error="Error Message Error Message Error Message Error Message Error Message Error Message Error Message"
       isInvalid
+      customLabel="left"
     >
       <div className={cx('field-content')}>Control Placeholder</div>
     </Field>

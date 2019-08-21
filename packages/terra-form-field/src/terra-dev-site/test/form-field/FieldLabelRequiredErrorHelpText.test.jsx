@@ -16,6 +16,7 @@ const FieldLabelRequiredErrorHelpText = () => (
       error="Error Message"
       isInvalid
       required
+      customLabel="left"
     >
       <div className={cx('field-content')}>Control Placeholder</div>
     </Field>
