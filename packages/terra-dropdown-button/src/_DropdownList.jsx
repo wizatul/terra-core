@@ -107,7 +107,8 @@ class DropdownList extends React.Component {
       event.preventDefault();
       if (this.pressed) {
         const item = Util.findByIndex(this, this.state.focused);
-        this.props.requestClose(item.props.onSelect);
+        this.props.requestClose(event);
+        item.props.onSelect();
       }
       this.pressed = false;
     }
