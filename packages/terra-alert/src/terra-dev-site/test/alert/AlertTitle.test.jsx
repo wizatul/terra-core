@@ -3,7 +3,9 @@ import Alert from '../../../Alert';
 
 export default () => (
   <div>
-    <Alert id="alertAlert" type="alert" title="Alert_Alert:">Alert of type Alert with custom title</Alert>
+    <div style={{ width: '50px' }}>
+      <Alert id="alertAlert" type="alert" title="Alert_Alert:">Alert of type Alert with custom title</Alert>
+    </div>
     <br />
     <Alert id="errorAlert" type="error" title="Error_Alert:">Alert of type Error with custom title</Alert>
     <br />

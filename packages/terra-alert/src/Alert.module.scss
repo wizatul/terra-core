@@ -36,8 +36,15 @@
     margin-left: var(--terra-alert-body-margin-left, 0.64285rem);
     margin-right: var(--terra-alert-body-margin-right, 0.7143rem);
     margin-top: var(--terra-alert-body-margin-top, 0.7143rem);
-    overflow: hidden;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
     padding-top: 0;
+    word-wrap: break-word;
+  }
+
+  .body::-webkit-scrollbar { 
+    display: none; 
   }
 
   .body-narrow {
@@ -51,6 +58,7 @@
 
   .section {
     flex: 1;
+    flex-shrink: 1;
     margin-bottom: 0;
     margin-top: 0;
     padding-bottom: var(--terra-alert-section-padding-bottom, 0.142857rem);
