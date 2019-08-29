@@ -68,9 +68,21 @@ const propTypes = {
    */
   maxWidth: PropTypes.string,
   /**
+   * Specifies the maximum number of digits accepted by the number input field.
+   */
+  maxDigits: PropTypes.number,
+  /**
+   * Specifies the minimum number of digits required for the number input field.
+   */
+  minDigits: PropTypes.number,
+  /**
    * Function to trigger when user changes the input value. Provide a function to create a controlled input.
    */
   onChange: PropTypes.func,
+  /**
+   * Specifies the number of decimal places to be shown for number input field.
+   */
+  precision: PropTypes.number,
   /**
    * Ref callback to pass into the ref attribute of the html input element.
    */
@@ -110,6 +122,9 @@ const defaultProps = {
   labelAttrs: {},
   onChange: undefined,
   maxWidth: undefined,
+  maxDigits: undefined,
+  minDigits: undefined,
+  precision: undefined,
   refCallback: undefined,
   required: false,
   showOptional: false,
@@ -133,7 +148,10 @@ const InputField = (props) => {
     label,
     labelAttrs,
     maxWidth,
+    maxDigits,
+    minDigits,
     onChange,
+    precision,
     refCallback,
     required,
     showOptional,
@@ -157,6 +175,18 @@ const InputField = (props) => {
   }
 
   const inputType = type || inputAttrs.type;
+  let min;
+  let max;
+
+  if (inputType === 'number') {
+    if (maxDigits > 0) {
+      max = (10 ** maxDigits) - 1;
+    }
+    if (minDigits > 0) {
+      min = 10 ** (minDigits - 1);
+    }
+  }
+
   return (
     <Field
       label={label}
@@ -181,6 +211,8 @@ const InputField = (props) => {
         type={inputType}
         onChange={onChange}
         value={value}
+        max={max}
+        min={min}
         defaultValue={defaultValue}
         refCallback={refCallback}
         aria-describedby={ariaDescriptionIds}

@@ -24,6 +24,14 @@ const propTypes = {
    */
   isInvalid: PropTypes.bool,
   /**
+   * Sets the maximum value accepted by number input field.
+   */
+  max: PropTypes.number,
+  /**
+   * Sets the minimum value accepted by number input field.
+   */
+  min: PropTypes.number,
+  /**
    * Function to trigger when the input loses focus.
    */
   onBlur: PropTypes.func,
@@ -77,6 +85,8 @@ const defaultProps = {
   onBlur: undefined,
   onChange: undefined,
   onFocus: undefined,
+  max: undefined,
+  min: undefined,
   name: null,
   pattern: undefined,
   required: false,
@@ -94,6 +104,8 @@ class Input extends React.Component {
       onBlur,
       onChange,
       onFocus,
+      max,
+      min,
       name,
       pattern,
       refCallback,
@@ -143,6 +155,8 @@ class Input extends React.Component {
         }}
         name={name}
         type={type}
+        max={max}
+        min={min}
         pattern={pattern}
         onBlur={onBlur}
         onChange={onChange}
