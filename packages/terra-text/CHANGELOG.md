@@ -1,15 +1,29 @@
-Changelog
+ChangeLog
 =========
 
 Unreleased
 ----------
+### Added
+* Accept and forward ref to the `<span />` element.
+
+4.17.0 - (September 6, 2019)
+------------------
+### Added
+* Props table markdown file import added to doc site page
+
+### Changed
+* Only apply `color: inherit` if no colorClass is provided
+
+4.16.0 - (September 3, 2019)
+------------------
+### Changed
+* Minor dependency version bump
+
+4.15.0 - (August 21, 2019)
+------------------
 ### Changed
 * Import for package version from package.json added to doc page
 * Switch from Object.assign to Object spread syntax.
-
-Unreleased
-------------------
-### Changed
 * Cleaned up imports in examples and test files
 
 4.14.0 - (August 14, 2019)

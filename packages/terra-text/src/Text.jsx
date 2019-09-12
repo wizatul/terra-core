@@ -73,12 +73,13 @@ const defaultProps = {
   isWordWrapped: false,
 };
 
-const Text = ({
+const Text = React.forwardRef(({
   children, isVisuallyHidden, isItalic, fontSize, weight, isWordWrapped, colorClass, ...customProps
-}) => {
+}, ref) => {
   const attributes = { ...customProps };
   const TextClassNames = cx([
     'text',
+    { 'inherit-color': !colorClass }, // set `color: inherit` via class if colorClass is not provided
     { italic: isItalic },
     { 'word-wrap': isWordWrapped },
     { 'visually-hidden': isVisuallyHidden },
@@ -89,11 +90,11 @@ const Text = ({
   ]);
 
   return (
-    <span {...attributes} className={TextClassNames}>
+    <span {...attributes} className={TextClassNames} ref={ref}>
       {children}
     </span>
   );
-};
+});
 
 Text.propTypes = propTypes;
 Text.defaultProps = defaultProps;
