@@ -9,6 +9,14 @@
     border-top-right-radius: 0;
     box-shadow: var(--terra-form-select-dropdown-box-shadow, 0 3px 12px -5px rgba(0, 0, 0, 0.25));
     overflow: auto;
+
+    // Put these in .is-dropdown-inline class
+    position: absolute;
+    // 0 needs px unit for calc to work correctly
+    /* stylelint-disable length-zero-no-unit */
+    left: calc(0px - var(--terra-form-select-dropdown-left-offset-width, 1px));
+    /* stylelint-enable length-zero-no-unit */
+    top: calc(100% + var(--terra-form-select-dropdown-top-offset-width, 1px));
   }
 
   .is-above {
@@ -20,4 +28,6 @@
     border-top-right-radius: var(--terra-form-select-dropdown-border-top-right-radius, 3px);
     box-shadow: var(--terra-form-select-dropdown-above-box-shadow, 0 -3px 12px -5px rgba(0, 0, 0, 0.25));
   }
+
+  // TODO: Add is-above.is-dropdown-inline styles for positioning
 }
