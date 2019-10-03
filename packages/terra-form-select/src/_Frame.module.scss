@@ -67,19 +67,36 @@
       border-color: var(--terra-form-select-focus-hover-border-color, #4cb2e9);
     }
 
+    &.is-incomplete:not(.is-invalid) {
+      background-color: var(--terra-form-select-incomplete-background-color, #ffc);
+    }
+
+    &.is-incomplete.is-focused:not(.is-invalid) {
+      background-color: var(--terra-form-select-incomplete-focus-background-color, #ffc);
+    }
+
+    &.is-incomplete:hover:not(.is-invalid) {
+      background-color: var(--terra-form-select-incomplete-hover-background-color, #ffc);
+    }
+
+    &.is-incomplete.is-disabled:not(.is-invalid) {
+      background-color: var(--terra-form-select-incomplete-disabled-background-color, #ffc);
+    }
+
     &.is-invalid {
       background-color: var(--terra-form-select-invalid-background-color, none);
       background-image: var(--terra-form-select-invalid-background-image, none);
-      border-color: var(--terra-form-select-invalid-border-color, #dedfe0);
+      border-color: var(--terra-form-select-invalid-border-color, #e50000);
+      box-shadow: 0 0 0 1px #e50000;
     }
 
     &.is-invalid.is-focused {
       background-size: var(--terra-form-select-invalid-focus-background-size, 0 0);
-      border-color: var(--terra-form-select-invalid-focus-border-color, #4cb2e9);
+      border-color: var(--terra-form-select-invalid-focus-border-color, #e50000);
     }
 
     &.is-invalid:hover {
-      border-color: var(--terra-form-select-invalid-hover-border-color, #dedfe0);
+      border-color: var(--terra-form-select-invalid-hover-border-color, #e50000);
     }
   }
 
@@ -116,7 +133,7 @@
 
     .search-input::placeholder,
     .placeholder {
-      color: var(--terra-form-select-disabled-placeholder-color, #70787c);
+      color: var(--terra-form-select-disabled-placeholder-color, rgba(25, 32, 35, 0.53));
       font-style: var(--terra-form-select-disabled-placeholder-font-style);
     }
   }
@@ -222,7 +239,7 @@
 
   .search-input::placeholder,
   .placeholder {
-    color: var(--terra-form-select-search-placeholder-color, #70787c);
+    color: var(--terra-form-select-search-placeholder-color, rgba(25, 32, 35, 0.53));
     font-size: var(--terra-form-select-search-placeholder-font-size, 1.143rem);
     font-style: var(--terra-form-select-search-placeholder-font-style);
     overflow: hidden;
@@ -306,20 +323,36 @@
       border-color: var(--terra-form-select-focus-hover-border-color, #4cb2e9);
     }
 
+    &.is-incomplete:not(.is-invalid) > .display {
+      background-color: var(--terra-form-select-incomplete-background-color, #ffc);
+    }
+
+    &.is-incomplete.is-focused:not(.is-invalid) > .display {
+      background-color: var(--terra-form-select-incomplete-focus-background-color, #ffc);
+    }
+
+    &.is-incomplete:hover:not(.is-invalid) > .display {
+      background-color: var(--terra-form-select-incomplete-hover-background-color, #ffc);
+    }
+
+    &.is-incomplete.is-disabled:not(.is-invalid) > .display {
+      background-color: var(--terra-form-select-incomplete-disabled-background-color, #ffc);
+    }
+
     &.is-invalid > .display {
       background-color: var(--terra-form-select-invalid-background-color, none);
       background-image: var(--terra-form-select-invalid-background-image, none);
-      border-color: var(--terra-form-select-invalid-border-color, #dedfe0);
+      border-color: var(--terra-form-select-invalid-border-color, #e50000);
     }
 
     &.is-invalid.is-focused > .display {
       background-size: var(--terra-form-select-invalid-focus-background-size, 0 0);
-      border-color: var(--terra-form-select-invalid-focus-border-color, #4cb2e9);
-      box-shadow: var(--terra-form-select-invalid-focus-box-shadow, 0 0 0 2px rgba(76, 178, 233, 0.25));
+      border-color: var(--terra-form-select-invalid-focus-border-color, #e50000);
+      box-shadow: var(--terra-form-select-invalid-focus-box-shadow, 0 0 0 1px #e50000);
     }
 
     &.is-invalid:hover > .display {
-      border-color: var(--terra-form-select-invalid-hover-border-color, #dedfe0);
+      border-color: var(--terra-form-select-invalid-hover-border-color, #e50000);
     }
   }
 

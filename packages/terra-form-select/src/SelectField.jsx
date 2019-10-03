@@ -95,6 +95,10 @@ const propTypes = {
    */
   value: PropTypes.oneOfType([PropTypes.array, PropTypes.number, PropTypes.string]),
   /**
+   * Whether the field is incomplete. Field must also be required.
+   */
+  isIncomplete: PropTypes.bool,
+  /**
    * The select variant. One of `default`, `combobox`, `multiple`, `tag`, or `search`.
    */
   variant: PropTypes.oneOf([
@@ -126,6 +130,7 @@ const defaultProps = {
   selectAttrs: {},
   showOptional: false,
   value: undefined,
+  isIncomplete: false,
   variant: 'default',
 };
 
@@ -162,6 +167,7 @@ const SelectField = ({
   showOptional,
   value,
   variant,
+  isIncomplete,
   ...customProps
 }, context) => {
   let helpText = help;
@@ -226,6 +232,7 @@ const SelectField = ({
         required={required}
         value={value}
         variant={variant}
+        isIncomplete={isIncomplete}
       >
         {children}
       </Select>

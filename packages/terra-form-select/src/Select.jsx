@@ -93,6 +93,10 @@ const propTypes = {
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
   /**
+   * Whether the field is incomplete. Field must also be required.
+   */
+  isIncomplete: PropTypes.bool,
+  /**
    * The behavior of the select. One of `default`, `combobox`, `multiple`, `tag`, or `search`.
    */
   variant: PropTypes.oneOf([
@@ -121,6 +125,7 @@ const defaultProps = {
   placeholder: undefined,
   required: false,
   value: undefined,
+  isIncomplete: false,
   variant: 'default',
 };
 
@@ -214,7 +219,7 @@ class Select extends React.Component {
   render() {
     const { intl } = this.context;
     const {
-      allowClear, children, defaultValue, onChange, placeholder, required, value, ...otherProps
+      allowClear, children, defaultValue, onChange, placeholder, required, value, isIncomplete, ...otherProps
     } = this.props;
 
     const defaultPlaceholder = intl.formatMessage({ id: 'Terra.form.select.defaultDisplay' });
@@ -241,6 +246,7 @@ class Select extends React.Component {
         required={required}
         totalOptions={Util.getTotalNumberOfOptions(children)}
         clearOptionDisplay={clearOptionDisplay}
+        isIncomplete={isIncomplete}
         dropdown={dropdownProps => (
           <DropdownMenu {...dropdownProps}>
             {this.state.tags}

@@ -101,6 +101,10 @@ const propTypes = {
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
   /**
+   * Whether the field is incomplete. Field must also be required.
+   */
+  isIncomplete: PropTypes.bool,
+  /**
    * The behavior of the select.
    */
   variant: PropTypes.oneOf([
@@ -117,6 +121,7 @@ const defaultProps = {
   disabled: false,
   dropdown: undefined,
   dropdownAttrs: undefined,
+  isIncomplete: false,
   isInvalid: false,
   maxSelectionCount: undefined,
   noResultContent: undefined,
@@ -190,7 +195,7 @@ class Frame extends React.Component {
   getDisplay(displayId, placeholderId, ariaDescribedBy) {
     const { hasSearchChanged, searchValue } = this.state;
     const {
-      disabled, display, placeholder, required, variant,
+      disabled, display, placeholder, required, variant, isIncomplete,
     } = this.props;
 
     const inputAttrs = {
@@ -206,7 +211,11 @@ class Frame extends React.Component {
       'aria-disabled': disabled,
       'aria-owns': this.state.isOpen ? 'terra-select-menu' : undefined,
       type: 'text',
-      className: cx('search-input', { 'is-hidden': Util.shouldHideSearch(this.props, this.state) }),
+      className: cx(
+        'search-input',
+        { 'is-hidden': Util.shouldHideSearch(this.props, this.state) },
+        { 'is-incomplete': (isIncomplete && required) },
+      ),
     };
 
     const multipleInputAttrs = {
