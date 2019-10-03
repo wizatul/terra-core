@@ -214,7 +214,6 @@ class Frame extends React.Component {
       className: cx(
         'search-input',
         { 'is-hidden': Util.shouldHideSearch(this.props, this.state) },
-        { 'is-incomplete': (isIncomplete && required) },
       ),
     };
 
@@ -676,6 +675,7 @@ class Frame extends React.Component {
       display,
       dropdown,
       dropdownAttrs,
+      isIncomplete
       isInvalid,
       maxHeight,
       maxSelectionCount,
@@ -700,6 +700,7 @@ class Frame extends React.Component {
       { 'is-focused': this.state.isFocused },
       { 'is-invalid': isInvalid },
       { 'is-open': this.state.isOpen },
+      { 'is-incomplete': (isIncomplete && required) },
       customProps.className,
     ]);
 
