@@ -675,7 +675,7 @@ class Frame extends React.Component {
       display,
       dropdown,
       dropdownAttrs,
-      isIncomplete
+      isIncomplete,
       isInvalid,
       maxHeight,
       maxSelectionCount,
