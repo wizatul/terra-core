@@ -75,6 +75,7 @@ class MenuUtil {
       if (option.type.isOption && (!ignoreDisabled || (ignoreDisabled && !option.props.disabled))) {
         accumulator.push(option);
       } else if (option.type.isOptGroup) {
+        accumulator.push(option);
         return accumulator.concat(MenuUtil.flatten(option.props.children, ignoreDisabled));
       }
       return accumulator;
@@ -123,7 +124,7 @@ class MenuUtil {
    * @return {ReactNode|undefined} - The option. Returns undefined if not found.
    */
   static findByValue(object, value) {
-    return MenuUtil.flatten(object).find(({ props }) => MenuUtil.isEqual(props.value, value));
+    return MenuUtil.flatten(object).find(({ props }) => MenuUtil.isEqual(props.value ? props.value : props.label, value));
   }
 
   /**
@@ -184,8 +185,10 @@ class MenuUtil {
    */
   static findNext(object, value) {
     const options = MenuUtil.flatten(object, true);
-    const index = options.findIndex(({ props }) => MenuUtil.isEqual(props.value, value));
-    return index === -1 ? null : options[Math.min(index + 1, options.length - 1)].props.value;
+    const index = options.findIndex(({ props }) => MenuUtil.isEqual(props.value ? props.value : props.label, value));
+    const optionIndex = options[Math.min(index + 1, options.length - 1)].props.value ? options[Math.min(index + 1, options.length - 1)].props.value :
+      options[Math.min(index + 1, options.length - 1)].props.label;
+    return index === -1 ? null : optionIndex;
   }
 
   /**

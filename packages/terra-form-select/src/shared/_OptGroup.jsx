@@ -35,14 +35,15 @@ const OptGroup = ({
   disabled,
   intl,
   label,
+  isActive
 }) => (
-  <li className={cx('opt-group', { 'is-disabled': disabled })} role="group">
-    <div className={cx('label')}>
+  <li className={cx('opt-group')} role="group">
+    <div className={cx('label', { 'is-active': isActive })} id="aria-optGroup" aria-label={`${label} Group`} role="listbox">
       {label}
     </div>
     <ul className={cx('options')} role="listbox" aria-label={intl.formatMessage({ id: 'Terra.form.select.option' })}>
       {React.Children.map(children, child => (
-        React.cloneElement(child, { disabled: disabled || !!child.props.disabled })
+        React.cloneElement(child, { ariaId: 'aria-optGroup', disabled: disabled || !!child.props.disabled })
       ))}
     </ul>
   </li>

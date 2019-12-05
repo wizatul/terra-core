@@ -60,6 +60,7 @@ const Option = ({
   isSelected,
   isCheckable,
   isAddOption,
+  ariaId,
   ...customProps
 }) => {
   const optionClassNames = cx([
@@ -99,6 +100,7 @@ const Option = ({
       aria-disabled={disabled}
       tabIndex="0" // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
       data-terra-select-option
+      aria-describedby={ariaId}
     >
       {(isCheckable || isAddOption) && <span className={cx('icon')} />}
       <span className={cx('display')}>{display}</span>

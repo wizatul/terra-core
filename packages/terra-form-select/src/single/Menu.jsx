@@ -84,12 +84,13 @@ class Menu extends React.Component {
       return null;
     }
 
-    if (active !== null && MenuUtil.findByValue(options, active)) {
+    if (active !== null && MenuUtil.findByValue(children, active)) {
       return active;
     }
 
-    const selected = options.find(option => MenuUtil.isEqual(value, option.props.value));
-    return selected === undefined ? options[0].props.value : selected.props.value;
+    const selected = options.find(option => MenuUtil.isEqual(value, option.props.value ? option.props.value : option.props.label));
+    const focusValue = options[0].props.value ? options[0].props.value : options[0].props.label;
+    return selected === undefined ? focusValue : selected.props.value;
   }
 
   constructor(props) {
@@ -238,7 +239,7 @@ class Menu extends React.Component {
       } else if (this.isActiveSelected()) {
         visuallyHiddenComponent.current.innerText = intl.formatMessage({ id: 'Terra.form.select.selectedText' }, { text: element.props.display });
       } else {
-        visuallyHiddenComponent.current.innerText = element.props.display;
+        visuallyHiddenComponent.current.innerText = element.props.display ? element.props.display : element.props.label;
       }
     }
   }
@@ -280,7 +281,9 @@ class Menu extends React.Component {
           ...(option.props.value === this.state.active) && { 'data-select-active': true },
         });
       } if (option.type.isOptGroup) {
-        return React.cloneElement(option, {}, this.clone(option.props.children));
+        return React.cloneElement(option, {
+          isActive: option.props.label === this.state.active,
+        }, this.clone(option.props.children));
       }
       return option;
     });

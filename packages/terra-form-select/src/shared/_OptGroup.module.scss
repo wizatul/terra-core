@@ -35,4 +35,8 @@
   .is-disabled {
     pointer-events: none;
   }
+
+  .is-active {
+    background-color: rgb(120, 167, 120);
+  }
 }
