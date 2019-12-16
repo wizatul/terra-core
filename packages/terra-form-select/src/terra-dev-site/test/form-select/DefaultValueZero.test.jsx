@@ -7,6 +7,7 @@ const cx = classNames.bind(styles);
 
 const DefaultValueZero = () => (
   <div className={cx('content-wrapper')}>
+    <iframe title="frmselect" src="/#/raw/tests/terra-form-select/form-select/many-options" height="450" width="650" />
     <Select defaultValue={0} id="defaultValueZero">
       <Select.Option value={0} display="0" />
       <Select.Option value={1} display="1" />

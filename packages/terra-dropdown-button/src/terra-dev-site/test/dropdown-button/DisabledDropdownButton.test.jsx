@@ -8,6 +8,7 @@ const cx = classnames.bind(styles);
 
 export default () => (
   <div className={cx('container-spacing-wrapper')}>
+    <iframe title="frmDropdown" src="/#/raw/tests/terra-dropdown-button/dropdown-button/default-dropdown-button" height="450" />
     <DropdownButton
       label="Primary option"
       onSelect={() => { console.log('primary option'); }}
