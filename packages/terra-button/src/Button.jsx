@@ -194,13 +194,14 @@ class Button extends React.Component {
     if (this.props.onFocus) {
       this.props.onFocus(event);
     }
+
+    // Restore default focus options after focus has been applied.
+    this.shouldShowFocus = true;
   }
 
   handleMouseDown(event) {
     // Prevent button from showing focus styles when clicked
     this.shouldShowFocus = false;
-    // Wait until after onFocus has been triggered on browsers where it will get triggered for click
-    setTimeout(() => { this.shouldShowFocus = true; }, 300);
 
     if (this.props.onMouseDown) {
       this.props.onMouseDown(event);
@@ -278,8 +279,8 @@ class Button extends React.Component {
 
     const buttonLabel = (
       <span className={buttonLabelClasses}>
-        {isReversed ? buttonText : buttonIcon }
-        {isReversed ? buttonIcon : buttonText }
+        {isReversed ? buttonText : buttonIcon}
+        {isReversed ? buttonIcon : buttonText}
       </span>
     );
 
