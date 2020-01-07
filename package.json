@@ -87,6 +87,7 @@
     "start-prod": "tt-serve --env.disableHotReloading -p",
     "start-static": "tt-serve-static --site ./build",
     "test": "npm run jest && npm run wdio",
+    "test:grid": "tt-wdio --config node_modules/terra-toolkit/config/wdio/wdio.conf.js --gridUrl='grid314.test.devcernerpowerchart.com' --locales=['en-US']",
     "wdio-default": "NODE_OPTIONS=--max-old-space-size=2048 wdio node_modules/terra-toolkit/config/wdio/wdio.conf.js",
     "wdio-fusion": "NODE_OPTIONS=--max-old-space-size=2048 THEME=orion-fusion-theme wdio node_modules/terra-toolkit/config/wdio/wdio.conf.js",
     "wdio": "npm run wdio-default && npm run wdio-fusion"
