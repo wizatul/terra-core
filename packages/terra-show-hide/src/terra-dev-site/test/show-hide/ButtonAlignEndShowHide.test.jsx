@@ -20,7 +20,7 @@ class ButtonAlignRightShowHideTest extends React.Component {
 
   render() {
     return (
-      <div>
+      <div  style={{width: '90%'}} >
         <ShowHide buttonAlign="end" preview={<p>{previewText}</p>} isOpen={this.state.isOpen} onChange={this.toggleShowHide}>
           <p>{fullText}</p>
         </ShowHide>

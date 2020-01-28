@@ -20,14 +20,16 @@ class DefaultShowHide extends React.Component {
 
   render() {
     return (
-      <ShowHide
-        preview={previewText}
-        isOpen={this.state.isOpen}
-        onChange={this.toggleShowHide}
-        buttonText="Show Section Label that is way too long and has to wrap to multiple lines Show Section Label that is way too long and has to wrap to multiple lines"
-      >
-        {fullText}
-      </ShowHide>
+      <div style={{width: '90%'}} >
+        <ShowHide
+          preview={previewText}
+          isOpen={this.state.isOpen}
+          onChange={this.toggleShowHide}
+          buttonText="Show Section Label that is way too long and has to wrap to multiple lines Show Section Label that is way too long and has to wrap to multiple lines"
+        >
+          {fullText}
+        </ShowHide>
+      </div>
     );
   }
 }
