@@ -148,6 +148,7 @@ class Menu extends React.Component {
 
   componentDidUpdate() {
     console.log('[Search Menu] - ComponentDidUpdate');
+    console.log('[Search Menu] - ComponentDidUpdate - Active Element ', document.activeElement);
 
     this.updateNoResultsScreenReader();
   }
@@ -419,6 +420,7 @@ class Menu extends React.Component {
         className={cx('menu')}
         aria-label={this.props.intl.formatMessage({ id: 'Terra.form.select.menu' })}
         ref={(menu) => { this.menu = menu; }}
+        onFocus={() => { console.log('[Search Menu] - OnFocus'); }}
         onMouseDown={(event) => { console.log('[Search Menu] - OnMouseDown'); event.preventDefault(); }}
         {...(this.state.active !== null ? { 'aria-activedescendant': `terra-select-option-${this.state.active}` } : {})}
         tabIndex="-1"

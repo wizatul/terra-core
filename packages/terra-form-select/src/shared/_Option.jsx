@@ -97,7 +97,8 @@ const Option = ({
       aria-selected={isSelected} // Needed to allow VoiceOver on iOS to announce selected state
       aria-checked={isSelected} // Needed to allow JAWS to announce "selected" state
       aria-disabled={disabled}
-      tabIndex="0" // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
+      onFocus={() => { console.log('[Search Option] - OnFocus'); }}
+      tabIndex="-1" // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
       data-terra-select-option
     >
       {(isCheckable || isAddOption) && <span className={cx('icon')} />}

@@ -174,6 +174,8 @@ class Frame extends React.Component {
 
   componentDidUpdate(previousProps, previousState) {
     console.log('[Search Frame] - ComponentDidUpdate');
+    console.log('[Search Frame] - ComponentDidUpdate - Active Element ', document.activeElement);
+
     if (FrameUtil.shouldPositionDropdown(previousState, this.state, this.dropdown)) {
       console.log('[Search Frame] - ComponentDidUpdate - ShouldPositionDropdown');
       clearTimeout(this.debounceTimer);
