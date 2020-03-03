@@ -267,7 +267,7 @@ class Menu extends React.Component {
           isCheckable: false,
           isSelected: MenuUtil.isSelected(this.props.value, option.props.value),
           variant: 'search',
-          onMouseDown: () => { console.log('[Search Menu] - Option - OnMouseDown'); this.downOption = option; },
+          onMouseDown: (event) => { console.log('[Search Menu] - Option - OnMouseDown'); event.preventDefault(); this.downOption = option; },
           onMouseUp: event => this.handleOptionClick(event, option),
           onMouseEnter: event => this.handleMouseEnter(event, option),
           ...(option.props.value === this.state.active) && { 'data-select-active': true },
@@ -423,7 +423,7 @@ class Menu extends React.Component {
         onFocus={() => { console.log('[Search Menu] - OnFocus'); }}
         onMouseDown={(event) => { console.log('[Search Menu] - OnMouseDown'); event.preventDefault(); }}
         {...(this.state.active !== null ? { 'aria-activedescendant': `terra-select-option-${this.state.active}` } : {})}
-        tabIndex="-1"
+        tabIndex="0"
       >
         {this.clone(this.state.children)}
       </ul>
