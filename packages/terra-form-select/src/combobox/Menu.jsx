@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { polyfill } from 'react-lifecycles-compat';
 import { injectIntl, intlShape } from 'react-intl';
 import * as KeyCode from 'keycode-js';
 import AddOption from '../shared/_AddOption';
@@ -440,11 +439,5 @@ class Menu extends React.Component {
 
 Menu.propTypes = propTypes;
 Menu.defaultProps = defaultProps;
-
-/**
- * This polyfill enables backwards compatibility of features added in React 16.3.0.
- * More information is available at: https://github.com/reactjs/react-lifecycles-compat
- */
-polyfill(Menu);
 
 export default injectIntl(Menu);

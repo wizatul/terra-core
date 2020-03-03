@@ -243,6 +243,7 @@ class Frame extends React.Component {
   openDropdown(event) {
     console.log('[Search Frame] - OpenDropdown');
     if (this.state.isOpen || this.props.disabled) {
+      console.log('[Search Frame] - OpenDropdown - isOpen returning');
       return;
     }
 
@@ -282,6 +283,8 @@ class Frame extends React.Component {
         }
       }, 10);
     }
+
+    console.log('[Search Frame] - OpenDropdown - Setting state');
 
     this.setState({ isOpen: true, isPositioned: false });
   }
@@ -373,6 +376,8 @@ class Frame extends React.Component {
    * @param {event} event - The mouse down event.
    */
   handleMouseDown(event) {
+    console.log('[Search Frame] - HandleMouseDown');
+
     // Preventing default events stops the search input from losing focus.
     // The default variant has no search input therefore the mouse down gives the component focus.
     event.preventDefault();
@@ -384,6 +389,8 @@ class Frame extends React.Component {
    * @param {event} event - The mouse down event.
    */
   handleInputMouseDown(event) {
+    console.log('[Search Frame] - HandleInputMouseDown');
+
     event.stopPropagation();
     this.openDropdown(event);
   }
@@ -476,9 +483,15 @@ class Frame extends React.Component {
    * Toggles the dropdown open or closed.
    */
   toggleDropdown(event) {
+    console.log('[Search Frame] - ToggleDropdown');
+
     if (this.state.isOpen) {
+      console.log('[Search Frame] - ToggleDropdown - Close Dropdown');
+
       this.closeDropdown();
     } else {
+      console.log('[Search Frame] - ToggleDropdown - Open Dropdown');
+
       this.openDropdown(event);
     }
   }

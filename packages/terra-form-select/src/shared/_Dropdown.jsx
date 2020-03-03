@@ -70,6 +70,7 @@ const Dropdown = ({
    * @param {event} event - The event invoking the callback.
    */
   const preventDefault = React.useCallback((event) => {
+    console.log('[Dropdown] - PreventDefault');
     event.preventDefault();
   }, []);
 
