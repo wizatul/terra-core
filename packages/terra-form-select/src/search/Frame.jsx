@@ -687,7 +687,6 @@ class Frame extends React.Component {
         onKeyDown={this.handleKeyDown}
         onMouseDown={this.handleMouseDown}
         onTouchStart={this.handleTouchStart}
-        tabIndex="-1"
         ref={(select) => { this.select = select; }}
       >
         <div className={cx('visually-hidden-component')} hidden>

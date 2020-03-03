@@ -98,7 +98,6 @@ const Option = ({
       aria-checked={isSelected} // Needed to allow JAWS to announce "selected" state
       aria-disabled={disabled}
       onFocus={() => { console.log('[Search Option] - OnFocus'); }}
-      tabIndex="0" // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
       data-terra-select-option
     >
       {(isCheckable || isAddOption) && <span className={cx('icon')} />}

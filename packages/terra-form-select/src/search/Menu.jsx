@@ -423,7 +423,6 @@ class Menu extends React.Component {
         onFocus={() => { console.log('[Search Menu] - OnFocus'); }}
         onMouseDown={(event) => { console.log('[Search Menu] - OnMouseDown'); event.preventDefault(); }}
         {...(this.state.active !== null ? { 'aria-activedescendant': `terra-select-option-${this.state.active}` } : {})}
-        tabIndex="0"
       >
         {this.clone(this.state.children)}
       </ul>
