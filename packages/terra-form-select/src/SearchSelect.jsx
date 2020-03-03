@@ -157,11 +157,17 @@ class SearchSelect extends React.Component {
    * @param {array|number|string} value - The value resulting from a change.
    */
   handleChange(value) {
+    console.log('[SearchSelect] - HandleChange', ' Value: ', value);
+
     if (this.props.value === undefined) {
+      console.log('[SearchSelect] - HandleChange - Uncontrolled Set State');
+
       this.setState({ value });
     }
 
     if (this.props.onChange) {
+      console.log('[SearchSelect] - HandleChange - Controlled On Change Callback');
+
       this.props.onChange(value);
     }
   }
@@ -184,6 +190,10 @@ class SearchSelect extends React.Component {
    * @param {ReactNode} option - The selected option.
    */
   handleSelect(value, option) {
+    console.log('[SearchSelect] - HandleSelect', ' Value: ', value, ' Option: ', option);
+
+    console.log('[SearchSelect] - HandleSelect - SelectUtil.select() - ', SelectUtil.select(this.props, this.state, value));
+
     this.handleChange(SelectUtil.select(this.props, this.state, value));
 
     if (this.props.onSelect) {

@@ -173,7 +173,9 @@ class Frame extends React.Component {
   }
 
   componentDidUpdate(previousProps, previousState) {
+    console.log('[Search Frame] - ComponentDidUpdate');
     if (FrameUtil.shouldPositionDropdown(previousState, this.state, this.dropdown)) {
+      console.log('[Search Frame] - ComponentDidUpdate - ShouldPositionDropdown');
       clearTimeout(this.debounceTimer);
       this.debounceTimer = setTimeout(this.positionDropdown, !previousState.isOpen ? 0 : 100);
     }
@@ -224,6 +226,7 @@ class Frame extends React.Component {
    * Closes the dropdown.
    */
   closeDropdown() {
+    console.log('[Search Frame] - CloseDropdown');
     this.setState({
       isAbove: false,
       isFocused: document.activeElement === this.input || document.activeElement === this.select,
@@ -238,6 +241,7 @@ class Frame extends React.Component {
    * Opens the dropdown.
    */
   openDropdown(event) {
+    console.log('[Search Frame] - OpenDropdown');
     if (this.state.isOpen || this.props.disabled) {
       return;
     }
@@ -250,12 +254,15 @@ class Frame extends React.Component {
      */
     if (event && event.target
       && (event.target.hasAttribute('data-terra-form-select-toggle-button')
-      || event.target.hasAttribute('data-terra-form-select-toggle-button-icon'))) {
+        || event.target.hasAttribute('data-terra-form-select-toggle-button-icon'))) {
       this.setState({ isOpen: true, isPositioned: false });
+
+      console.log('[Search Frame] - OpenDropdown - ClickedArrowButton - Preparing Timeout');
 
       // Allows time for state update to render select menu DOM before shifting focus to it
       setTimeout(() => {
         if (document.querySelector(this.selectMenu)) {
+          console.log('[Search Frame] - OpenDropdown - ClickedArrowButton - Timeout Invoked');
           document.querySelector(this.selectMenu).focus();
         }
       }, 10);
@@ -265,9 +272,12 @@ class Frame extends React.Component {
     if (this.input) {
       this.input.focus();
     } else {
+      console.log('[Search Frame] - OpenDropdown - DidNotClickArrowButton - Preparing Timeout');
+
       // Allows time for state update to render select menu DOM before shifting focus to it
       setTimeout(() => {
         if (document.querySelector(this.selectMenu)) {
+          console.log('[Search Frame] - OpenDropdown - DidNotClickArrowButton - Timeout Invoked');
           document.querySelector(this.selectMenu).focus();
         }
       }, 10);
@@ -293,6 +303,8 @@ class Frame extends React.Component {
    * Handles the blur event.
    */
   handleBlur(event) {
+    console.log('[Search Frame] - HandleBlur');
+
     const { relatedTarget } = event;
     const { focusedByTouch } = this.state;
 
@@ -310,6 +322,8 @@ class Frame extends React.Component {
       return;
     }
 
+    console.log('[Search Frame] - HandleBlur - UpdatingState');
+
     this.setState({ isFocused: false, focusedByTouch: false });
 
     this.closeDropdown();
@@ -323,6 +337,8 @@ class Frame extends React.Component {
    * Handles the focus event.
    */
   handleFocus(event) {
+    console.log('[Search Frame] - HandleFocus');
+
     if (this.props.disabled) {
       return;
     }
@@ -376,6 +392,8 @@ class Frame extends React.Component {
    * Handles the input focus event.
    */
   handleInputFocus() {
+    console.log('[Search Frame] - HandleInputFocus');
+
     this.setState({ isInputFocused: true });
   }
 
@@ -383,6 +401,8 @@ class Frame extends React.Component {
    * Handles the input blur event.
    */
   handleInputBlur() {
+    console.log('[Search Frame] - HandleInputBlur');
+
     this.setState({ isInputFocused: false });
   }
 
@@ -438,6 +458,8 @@ class Frame extends React.Component {
    * @param {ReactNode} option - The option that was selected.
    */
   handleSelect(value, option) {
+    console.log('[Search Frame] - HandleSelect', ' Value: ', value, ' Option: ', option);
+
     this.setState({
       searchValue: '',
       hasSearchChanged: false,
@@ -671,21 +693,21 @@ class Frame extends React.Component {
         />
         {this.state.isOpen
           && (
-          <Dropdown
-            {...dropdownAttrs}
-            id={this.state.isOpen ? 'terra-select-dropdown' : undefined}
-            target={this.select}
-            isAbove={this.state.isAbove}
-            isTouchAccessible={isTouchAccessible}
-            isEnabled={this.state.isPositioned}
-            onResize={this.positionDropdown}
-            refCallback={(ref) => { this.dropdown = ref; }}
-            style={FrameUtil.dropdownStyle(dropdownAttrs, this.state)} // eslint-disable-line react/forbid-component-props
-          >
-            <Menu {...menuProps}>
-              {children}
-            </Menu>
-          </Dropdown>
+            <Dropdown
+              {...dropdownAttrs}
+              id={this.state.isOpen ? 'terra-select-dropdown' : undefined}
+              target={this.select}
+              isAbove={this.state.isAbove}
+              isTouchAccessible={isTouchAccessible}
+              isEnabled={this.state.isPositioned}
+              onResize={this.positionDropdown}
+              refCallback={(ref) => { this.dropdown = ref; }}
+              style={FrameUtil.dropdownStyle(dropdownAttrs, this.state)} // eslint-disable-line react/forbid-component-props
+            >
+              <Menu {...menuProps}>
+                {children}
+              </Menu>
+            </Dropdown>
           )}
       </div>
     );

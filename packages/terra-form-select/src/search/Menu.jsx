@@ -99,6 +99,8 @@ class Menu extends React.Component {
    * @return {Object} - The new state object.
    */
   static getDerivedStateFromProps(props, state) {
+    console.log('[Search Menu] - GetDerivedStateFromProps');
+
     const {
       clearOptionDisplay, searchValue, noResultContent,
     } = props;
@@ -146,6 +148,8 @@ class Menu extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log('[Search Menu] - ComponentDidUpdate');
+
     this.updateNoResultsScreenReader();
   }
 
@@ -191,6 +195,8 @@ class Menu extends React.Component {
   }
 
   updateCurrentActiveScreenReader() {
+    console.log('[Search Menu] - UpdateCurrentActiveScreenReader');
+
     const {
       intl,
       clearOptionDisplay,
@@ -261,7 +267,7 @@ class Menu extends React.Component {
           isCheckable: false,
           isSelected: MenuUtil.isSelected(this.props.value, option.props.value),
           variant: 'search',
-          onMouseDown: () => { this.downOption = option; },
+          onMouseDown: () => { console.log('[Search Menu] - Option - OnMouseDown'); this.downOption = option; },
           onMouseUp: event => this.handleOptionClick(event, option),
           onMouseEnter: event => this.handleMouseEnter(event, option),
           ...(option.props.value === this.state.active) && { 'data-select-active': true },
@@ -278,6 +284,8 @@ class Menu extends React.Component {
    * @param {event} event - The key down event.
    */
   handleKeyDown(event) {
+    console.log('[Search Menu] - HandleKeyDown');
+
     const { keyCode } = event;
     const { active, children } = this.state;
     const { intl, onSelect } = this.props;
@@ -335,14 +343,19 @@ class Menu extends React.Component {
    * @param {ReactNode} option - The option that was clicked.
    */
   handleOptionClick(event, option) {
+    console.log('[Search Menu] - OnMouseUp|HandleOptionClick');
+
     if (option.props.disabled || option !== this.downOption) {
+      console.log('[Search Menu] - OnMouseUp|HandleOptionClick - Disabled or Invalid Option');
       return;
     }
 
     const { input, onSelect } = this.props;
 
     onSelect(option.props.value, option);
+
     if (input) {
+      console.log('[Search Menu] - OnMouseUp|HandleOptionClick - Focusing Input');
       input.focus();
     }
   }
@@ -374,6 +387,8 @@ class Menu extends React.Component {
    * Options below the dropdown will be scrolled to the bottom of the menu.
    */
   scrollIntoView() {
+    console.log('[Search Menu] - ScrollIntoView');
+
     const activeOption = this.menu.querySelector('[data-select-active]');
     if (!this.state.active || activeOption === null) {
       return;
