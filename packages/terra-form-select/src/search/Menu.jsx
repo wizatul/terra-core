@@ -419,8 +419,9 @@ class Menu extends React.Component {
         className={cx('menu')}
         aria-label={this.props.intl.formatMessage({ id: 'Terra.form.select.menu' })}
         ref={(menu) => { this.menu = menu; }}
+        onMouseDown={(event) => { console.log('[Search Menu] - OnMouseDown'); event.preventDefault(); }}
         {...(this.state.active !== null ? { 'aria-activedescendant': `terra-select-option-${this.state.active}` } : {})}
-        tabIndex="0"
+        tabIndex="-1"
       >
         {this.clone(this.state.children)}
       </ul>
