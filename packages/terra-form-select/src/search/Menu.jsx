@@ -277,7 +277,7 @@ class Menu extends React.Component {
         //   });
         return (
           <MockOption
-            onMouseDown={(event) => { console.log('[Search Menu] - Option - OnMouseDown'); event.preventDefault(); event.stopPropagation(); this.downOption = option; }}
+            onMouseDown={(event) => { console.log('[Search Menu] - Option - OnMouseDown'); event.preventDefault(); event.stopImmediatePropagation(); this.downOption = option; }}
             onMouseUp={event => this.handleOptionClick(event, option)}
           >
             {option.props.display}

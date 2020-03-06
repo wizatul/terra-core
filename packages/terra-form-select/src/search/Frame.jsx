@@ -411,8 +411,17 @@ class Frame extends React.Component {
   /**
    * Handles the input blur event.
    */
-  handleInputBlur() {
+  handleInputBlur(event) {
     console.log('[Search Frame] - HandleInputBlur');
+
+    console.log('[Search Frame] - HandleInputBlur - Active Element', document.activeElement);
+
+    // The check for dropdown.contains(activeElement) is necessary to prevent IE10 from closing dropdown on click.
+    if (this.dropdown && (this.dropdown === document.activeElement && this.dropdown.contains(document.activeElement))) {
+      console.log('[Search Frame] - HandleInputBlur - Preventing Blur');
+      event.preventDefault();
+      return;
+    }
 
     this.setState({ isInputFocused: false });
   }
