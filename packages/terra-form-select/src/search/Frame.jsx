@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { injectIntl, intlShape } from 'react-intl';
-import uniqueid from 'lodash.uniqueid';
+// import uniqueid from 'lodash.uniqueid';
 import * as KeyCode from 'keycode-js';
 import Dropdown from '../shared/_Dropdown';
 import Menu from './Menu';
@@ -417,7 +417,7 @@ class Frame extends React.Component {
     console.log('[Search Frame] - HandleInputBlur - Active Element', document.activeElement);
 
     // The check for dropdown.contains(activeElement) is necessary to prevent IE10 from closing dropdown on click.
-    if (this.dropdown && (this.dropdown === document.activeElement && this.dropdown.contains(document.activeElement))) {
+    if (this.input && this.input === document.activeElement) {
       console.log('[Search Frame] - HandleInputBlur - Preventing Blur');
       event.preventDefault();
       return;
@@ -666,8 +666,8 @@ class Frame extends React.Component {
       customProps.className,
     ]);
 
-    const labelId = `terra-select-screen-reader-label-${uniqueid()}`;
-    const descriptionId = `terra-select-screen-reader-description-${uniqueid()}`;
+    const labelId = 'terra-select-screen-reader-label-mock';
+    const descriptionId = 'terra-select-screen-reader-description-mock';
     const customAriaDescribedbyIds = customProps['aria-describedby'];
     const ariaDescribedBy = customAriaDescribedbyIds ? `${descriptionId} ${customAriaDescribedbyIds}` : descriptionId;
 
