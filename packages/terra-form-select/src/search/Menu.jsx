@@ -78,6 +78,9 @@ const defaultProps = {
   value: undefined,
 };
 
+const MockOption = ({ children, ...custom }) => <div {...custom}>{children}</div>;
+MockOption.isOption = true;
+
 class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -142,7 +145,7 @@ class Menu extends React.Component {
      * first option in the dropdown. To mitigate this, the following conditional
      * check opts-out of the aria-live update if browser supports ontouchstart which iOS supports.
      */
-    if ('ontouchstart' in window) return;
+    // if ('ontouchstart' in window) return;
     this.updateCurrentActiveScreenReader();
   }
 
@@ -261,20 +264,31 @@ class Menu extends React.Component {
   clone(object) {
     return React.Children.map(object, (option) => {
       if (option.type.isOption) {
-        return React.cloneElement(option, {
-          id: `terra-select-option-${option.props.value}`,
-          isActive: option.props.value === this.state.active,
-          isCheckable: false,
-          isSelected: MenuUtil.isSelected(this.props.value, option.props.value),
-          variant: 'search',
-          onMouseDown: (event) => { console.log('[Search Menu] - Option - OnMouseDown'); event.preventDefault(); event.stopPropagation(); this.downOption = option; },
-          onMouseUp: event => this.handleOptionClick(event, option),
-          onMouseEnter: event => this.handleMouseEnter(event, option),
-          ...(option.props.value === this.state.active) && { 'data-select-active': true },
-        });
-      } if (option.type.isOptGroup) {
+        //   return React.cloneElement(option, {
+        //     id: `terra-select-option-${option.props.value}`,
+        //     isActive: option.props.value === this.state.active,
+        //     isCheckable: false,
+        //     isSelected: MenuUtil.isSelected(this.props.value, option.props.value),
+        //     variant: 'search',
+        //     onMouseDown: (event) => { console.log('[Search Menu] - Option - OnMouseDown'); event.preventDefault(); event.stopPropagation(); this.downOption = option; },
+        //     onMouseUp: event => this.handleOptionClick(event, option),
+        //     onMouseEnter: event => this.handleMouseEnter(event, option),
+        //     ...(option.props.value === this.state.active) && { 'data-select-active': true },
+        //   });
+        return (
+          <MockOption
+            onMouseDown={(event) => { console.log('[Search Menu] - Option - OnMouseDown'); event.preventDefault(); event.stopPropagation(); this.downOption = option; }}
+            onMouseUp={event => this.handleOptionClick(event, option)}
+          >
+            {option.props.display}
+          </MockOption>
+        );
+      }
+
+      if (option.type.isOptGroup) {
         return React.cloneElement(option, {}, this.clone(option.props.children));
       }
+
       return option;
     });
   }

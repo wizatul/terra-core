@@ -249,33 +249,35 @@ class Frame extends React.Component {
       return;
     }
 
-    /**
-     * Avoids focusing the input if the toggle button is used to open the select menu.
-     * This is to avoid an issue with VoiceOver on iOS where shifting to toggle button while the
-     * input is focused / onScreen keyboard is open unexpected focus shift when the onScreen
-     * keyboard is closed
-     */
-    if (event && event.target
-      && (event.target.hasAttribute('data-terra-form-select-toggle-button')
-        || event.target.hasAttribute('data-terra-form-select-toggle-button-icon'))) {
-      this.setState({ isOpen: true, isPositioned: false });
+    // /**
+    //  * Avoids focusing the input if the toggle button is used to open the select menu.
+    //  * This is to avoid an issue with VoiceOver on iOS where shifting to toggle button while the
+    //  * input is focused / onScreen keyboard is open unexpected focus shift when the onScreen
+    //  * keyboard is closed
+    //  */
+    // if (event && event.target
+    //   && (event.target.hasAttribute('data-terra-form-select-toggle-button')
+    //     || event.target.hasAttribute('data-terra-form-select-toggle-button-icon'))) {
+    //   this.setState({ isOpen: true, isPositioned: false });
 
-      console.log('[Search Frame] - OpenDropdown - ClickedArrowButton - Preparing Timeout');
+    //   console.log('[Search Frame] - OpenDropdown - ClickedArrowButton - Preparing Timeout');
 
-      // Allows time for state update to render select menu DOM before shifting focus to it
-      setTimeout(() => {
-        if (document.querySelector(this.selectMenu)) {
-          console.log('[Search Frame] - OpenDropdown - ClickedArrowButton - Timeout Invoked');
-          document.querySelector(this.selectMenu).focus();
-        }
-      }, 10);
-      return;
-    }
+    //   // Allows time for state update to render select menu DOM before shifting focus to it
+    //   setTimeout(() => {
+    //     if (document.querySelector(this.selectMenu)) {
+    //       console.log('[Search Frame] - OpenDropdown - ClickedArrowButton - Timeout Invoked');
+    //       document.querySelector(this.selectMenu).focus();
+    //     }
+    //   }, 10);
+    //   return;
+    // }
 
     if (this.input) {
+      console.log('[Search Frame] - OpenDropdown - Focus Input');
+
       this.input.focus();
     } else {
-      console.log('[Search Frame] - OpenDropdown - DidNotClickArrowButton - Preparing Timeout');
+      console.log('[Search Frame] - OpenDropdown - Focus - Preparing Timeout');
 
       // Allows time for state update to render select menu DOM before shifting focus to it
       setTimeout(() => {
@@ -419,6 +421,8 @@ class Frame extends React.Component {
    * Handles the toggle mouse down events.
    */
   handleToggleMouseDown() {
+    console.log('[Search Frame] - HandleToggleMouseDown');
+
     if (this.state.isOpen) {
       this.closeDropdown();
     }
@@ -428,6 +432,8 @@ class Frame extends React.Component {
    * Handles the toggle button mouse down events.
    */
   handleToggleButtonMouseDown() {
+    console.log('[Search Frame] - HandleToggleButtonMouseDown');
+
     if (this.state.isOpen) {
       this.closeDropdown();
       if (this.input) {
@@ -440,7 +446,7 @@ class Frame extends React.Component {
    * Handles the touch start events
    */
   handleTouchStart() {
-    this.setState({ focusedByTouch: true });
+    // this.setState({ focusedByTouch: true });
   }
 
   /**
@@ -506,13 +512,13 @@ class Frame extends React.Component {
     const { ariaLabel, disabled, intl } = this.props;
 
     const defaultAriaLabel = intl.formatMessage({ id: 'Terra.form.select.ariaLabel' });
-    const dimmed = intl.formatMessage({ id: 'Terra.form.select.dimmed' });
+    // const dimmed = intl.formatMessage({ id: 'Terra.form.select.dimmed' });
 
-    // VO on iOS doesn't do a good job of announcing disabled stated. Here we append the phrase that
-    // VO associates with disabled form controls.
-    if ('ontouchstart' in window && disabled) {
-      return ariaLabel === undefined ? `${defaultAriaLabel} ${dimmed}` : `${ariaLabel} ${dimmed}`;
-    }
+    // // VO on iOS doesn't do a good job of announcing disabled stated. Here we append the phrase that
+    // // VO associates with disabled form controls.
+    // if ('ontouchstart' in window && disabled) {
+    //   return ariaLabel === undefined ? `${defaultAriaLabel} ${dimmed}` : `${ariaLabel} ${dimmed}`;
+    // }
 
     return ariaLabel === undefined ? defaultAriaLabel : ariaLabel;
   }
@@ -536,13 +542,13 @@ class Frame extends React.Component {
     const mobileUsageGuidanceTxt = intl.formatMessage({ id: 'Terra.form.select.mobileUsageGuidance' });
     const searchUsageGuidanceTxt = intl.formatMessage({ id: 'Terra.form.select.searchUsageGuidance' });
 
-    if ('ontouchstart' in window) {
-      if (this.state.isInputFocused) {
-        return `${listOfOptionsTxt}`;
-      }
+    // if ('ontouchstart' in window) {
+    //   if (this.state.isInputFocused) {
+    //     return `${listOfOptionsTxt}`;
+    //   }
 
-      return `${listOfOptionsTxt} ${mobileUsageGuidanceTxt}`;
-    }
+    //   return `${listOfOptionsTxt} ${mobileUsageGuidanceTxt}`;
+    // }
 
     return `${listOfOptionsTxt} ${searchUsageGuidanceTxt}`;
   }
