@@ -277,7 +277,7 @@ class Menu extends React.Component {
           isCheckable: true,
           isSelected: MenuUtil.isSelected(this.props.value, option.props.value),
           variant: 'tag',
-          onMouseDown: () => { this.downOption = option; },
+          onMouseDown: (event) => { event.preventDefault(); this.downOption = option; },
           onMouseUp: event => this.handleOptionClick(event, option),
           onMouseEnter: event => this.handleMouseEnter(event, option),
           ...(option.props.value === this.state.active) && { 'data-select-active': true },
