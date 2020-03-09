@@ -296,8 +296,8 @@ class Frame extends React.Component {
     const { relatedTarget } = event;
     const { focusedByTouch } = this.state;
 
-    // The check for dropdown.contains(activeElement) is necessary to prevent IE11 from closing dropdown on click of scrollbar in certain contexts.
-    if (this.dropdown && (this.dropdown === document.activeElement && this.dropdown.contains(document.activeElement))) {
+    // This check is necessary to prevent IE10/IE11 from closing the dropdown on click of scrollbar or option in certain contexts.
+    if ((this.dropdown && (this.dropdown === document.activeElement)) || this.input === document.activeElement) {
       return;
     }
 
