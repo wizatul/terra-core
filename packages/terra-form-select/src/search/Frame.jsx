@@ -383,6 +383,11 @@ class Frame extends React.Component {
    * Handles the input blur event.
    */
   handleInputBlur() {
+    // This check is necessary to prevent IE from closing the dropdown on mouse down of an option.
+    if (this.input && this.input === document.activeElement) {
+      return;
+    }
+
     this.setState({ isInputFocused: false });
   }
 
