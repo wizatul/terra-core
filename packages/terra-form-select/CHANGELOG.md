@@ -3,6 +3,8 @@ ChangeLog
 
 Unreleased
 ----------
+### Fixed
+* Fixed an issue in IE that caused the dropdown to close when clicking an option and prevented making a selection.
 
 5.43.0 - (February 25, 2020)
 ------------------
