@@ -2,40 +2,45 @@
 import intlLoaders from 'intlLoaders';
 import hasIntlData from 'intl-locales-supported';
 
-const supportedIntlConstructors = () => {
-  /**
-   * Use try-catch to check if Intl is provided by the browser. In some instances checking Intl will throw an
-   * error and crash the page with little information.
-   *
-   * Reference: https://github.com/cerner/terra-core/issues/2820
-   */
-  let constructors;
-  try {
-    console.log('**********TERRA-I18N supportedIntlConstructors: ');
+const supportedIntlConstructors = global.Intl ? [
+  Intl.DateTimeFormat,
+  Intl.NumberFormat,
+] : [];
 
-    console.log('**********TERRA-I18N typeof (Intl): ', typeof (Intl));
-    console.log('**********TERRA-I18N (Intl.DateTimeFormat): ', (Intl.DateTimeFormat));
-    console.log('**********TERRA-I18N typeof (Intl.NumberFormat): ', typeof (Intl.NumberFormat));
+// const supportedIntlConstructors = () => {
+//   /**
+//    * Use try-catch to check if Intl is provided by the browser. In some instances checking Intl will throw an
+//    * error and crash the page with little information.
+//    *
+//    * Reference: https://github.com/cerner/terra-core/issues/2820
+//    */
+//   let constructors;
+//   try {
+//     console.log('**********TERRA-I18N supportedIntlConstructors: ');
 
-    if (typeof (Intl) === 'object' && typeof (Intl.DateTimeFormat) === 'function' && typeof (Intl.NumberFormat) === 'function') {
-      constructors = [
-        Intl.DateTimeFormat,
-        Intl.NumberFormat,
-      ];
-    }
-  } catch (error) {
-    console.log('**********TERRA-I18N supportedIntlConstructors exception: ');
-    constructors = [];
-  }
+//     console.log('**********TERRA-I18N typeof (Intl): ', typeof (Intl));
+//     console.log('**********TERRA-I18N (Intl.DateTimeFormat): ', typeof (Intl.DateTimeFormat));
+//     console.log('**********TERRA-I18N typeof (Intl.NumberFormat): ', typeof (Intl.NumberFormat));
 
-  console.log('**********TERRA-I18N supportedIntlConstructors constructors: ', constructors);
-  return constructors;
-};
+//     if (typeof (Intl) === 'object' && typeof (Intl.DateTimeFormat) === 'function' && typeof (Intl.NumberFormat) === 'function') {
+//       constructors = [
+//         Intl.DateTimeFormat,
+//         Intl.NumberFormat,
+//       ];
+//     }
+//   } catch (error) {
+//     console.log('**********TERRA-I18N supportedIntlConstructors exception: ');
+//     constructors = [];
+//   }
+
+//   console.log('**********TERRA-I18N supportedIntlConstructors constructors: ', constructors);
+//   return constructors;
+// };
 
 const loadFallbackIntl = (localeContext) => {
   try {
     console.log('**********TERRA-I18N loadFallbackIntl: ');
-    if (!hasIntlData(['en'], supportedIntlConstructors())) {
+    if (!hasIntlData(['en'], supportedIntlConstructors) {
       console.log('**********TERRA-I18N intlLoaders.en(): ');
       intlLoaders.en();
     }
@@ -54,15 +59,16 @@ const loadIntl = (locale) => {
   console.log('**********TERRA-I18N fallbackLocale: ', fallbackLocale);
 
   try {
-    console.log('**********TERRA-I18N Start try: ');
-    if (!hasIntlData([locale], supportedIntlConstructors())) {
+    console.log('**********TERRA-I18N Start try supportedIntlConstructors: ', supportedIntlConstructors);
+    console.log('**********TERRA-I18N Start try global.Intl: ', global.Intl);
+    if (!hasIntlData([locale], supportedIntlConstructors) {
       console.log('**********TERRA-I18N calling intlLoaders[locale](): ');
       intlLoaders[locale]();
     }
   } catch (e) {
     if (fallbackLocale) {
       try {
-        if (!hasIntlData([fallbackLocale], supportedIntlConstructors())) {
+        if (!hasIntlData([fallbackLocale], supportedIntlConstructors) {
           intlLoaders[fallbackLocale]();
         }
 
