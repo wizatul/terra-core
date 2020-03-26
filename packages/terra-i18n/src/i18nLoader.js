@@ -20,16 +20,22 @@ export default (locale, callback, scope) => {
   let hasIntl;
   try {
     // eslint-disable-next-line compat/compat
+    console.log('**********TERRA-I18N typeof (Intl): ', typeof (Intl));
+    console.log('**********TERRA-I18N (Intl.DateTimeFormat): ', (Intl.DateTimeFormat));
+    console.log('**********TERRA-I18N typeof (Intl.NumberFormat): ', typeof (Intl.NumberFormat));
     hasIntl = typeof (Intl) === 'object' && typeof (Intl.DateTimeFormat) === 'function' && typeof (Intl.NumberFormat) === 'function';
   } catch (error) {
     hasIntl = false;
   }
 
+  console.log('**********TERRA-I18N hasIntl: ', hasIntl);
   if (!hasIntl) {
+    console.log('**********TERRA-I18N require(intl): ');
     require('intl');
   }
 
   if (global.IntlPolyfill) {
+    console.log('**********TERRA-I18N loadIntl(locale): ');
     loadIntl(locale);
   }
 

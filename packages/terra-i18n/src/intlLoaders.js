@@ -11,6 +11,12 @@ const supportedIntlConstructors = () => {
    */
   let constructors;
   try {
+    console.log('**********TERRA-I18N supportedIntlConstructors: ');
+
+    console.log('**********TERRA-I18N typeof (Intl): ', typeof (Intl));
+    console.log('**********TERRA-I18N (Intl.DateTimeFormat): ', (Intl.DateTimeFormat));
+    console.log('**********TERRA-I18N typeof (Intl.NumberFormat): ', typeof (Intl.NumberFormat));
+
     if (typeof (Intl) === 'object' && typeof (Intl.DateTimeFormat) === 'function' && typeof (Intl.NumberFormat) === 'function') {
       constructors = [
         Intl.DateTimeFormat,
@@ -18,15 +24,19 @@ const supportedIntlConstructors = () => {
       ];
     }
   } catch (error) {
+    console.log('**********TERRA-I18N supportedIntlConstructors exception: ');
     constructors = [];
   }
 
+  console.log('**********TERRA-I18N supportedIntlConstructors constructors: ', constructors);
   return constructors;
 };
 
 const loadFallbackIntl = (localeContext) => {
   try {
+    console.log('**********TERRA-I18N loadFallbackIntl: ');
     if (!hasIntlData(['en'], supportedIntlConstructors())) {
+      console.log('**********TERRA-I18N intlLoaders.en(): ');
       intlLoaders.en();
     }
 
@@ -40,8 +50,13 @@ const loadFallbackIntl = (localeContext) => {
 
 const loadIntl = (locale) => {
   const fallbackLocale = locale.split('-').length > 1 ? locale.split('-')[0] : false;
+
+  console.log('**********TERRA-I18N fallbackLocale: ', fallbackLocale);
+
   try {
+    console.log('**********TERRA-I18N Start try: ');
     if (!hasIntlData([locale], supportedIntlConstructors())) {
+      console.log('**********TERRA-I18N calling intlLoaders[locale](): ');
       intlLoaders[locale]();
     }
   } catch (e) {
@@ -56,10 +71,13 @@ const loadIntl = (locale) => {
         }
       } catch (error) {
         const localeContext = `${locale} or ${fallbackLocale} locales`;
+        console.log('**********TERRA-I18N localeContext1: ', localeContext);
+
         loadFallbackIntl(localeContext);
       }
     } else {
       const localeContext = `${locale} locale`;
+      console.log('**********TERRA-I18N localeContext2: ', localeContext);
       loadFallbackIntl(localeContext);
     }
   }
