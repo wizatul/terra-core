@@ -29,6 +29,7 @@ export default (locale, callback, scope) => {
     require('intl');
   }
 
+  console.log('**********terra-i18n global.IntlPolyfill: ', global.IntlPolyfill);
   if (global.IntlPolyfill) {
     loadIntl(locale);
   }
