@@ -2,15 +2,17 @@
 import intlLoaders from 'intlLoaders';
 import hasIntlData from 'intl-locales-supported';
 
-// const supportedIntlConstructors = global.Intl ? [
-//   Intl.DateTimeFormat,
-//   Intl.NumberFormat,
-// ] : [];
+console.log('**********TERRA-I18N global.Intl ', global.Intl);
 
-const supportedIntlConstructors = [
+const supportedIntlConstructors = global.Intl ? [
   Intl.DateTimeFormat,
   Intl.NumberFormat,
-];
+] : [];
+
+// const supportedIntlConstructors = [
+//   Intl.DateTimeFormat,
+//   Intl.NumberFormat,
+// ];
 
 // const supportedIntlConstructors = () => {
 //   /**
@@ -45,7 +47,7 @@ const supportedIntlConstructors = [
 const loadFallbackIntl = (localeContext) => {
   try {
     console.log('**********TERRA-I18N loadFallbackIntl: ');
-    if (!hasIntlData(['en'], supportedIntlConstructors)) {
+    if (!hasIntlData(['en'], [Intl.DateTimeFormat, Intl.NumberFormat,])) {
       console.log('**********TERRA-I18N intlLoaders.en(): ');
       intlLoaders.en();
     }
@@ -66,14 +68,14 @@ const loadIntl = (locale) => {
   try {
     console.log('**********TERRA-I18N Start try supportedIntlConstructors: ', supportedIntlConstructors);
     console.log('**********TERRA-I18N Start try global.Intl: ', global.Intl);
-    if (!hasIntlData([locale], supportedIntlConstructors)) {
+    if (!hasIntlData([locale], [Intl.DateTimeFormat, Intl.NumberFormat,])) {
       console.log('**********TERRA-I18N calling intlLoaders[locale](): ');
       intlLoaders[locale]();
     }
   } catch (e) {
     if (fallbackLocale) {
       try {
-        if (!hasIntlData([fallbackLocale], supportedIntlConstructors)) {
+        if (!hasIntlData([fallbackLocale], [Intl.DateTimeFormat, Intl.NumberFormat,])) {
           intlLoaders[fallbackLocale]();
         }
 
