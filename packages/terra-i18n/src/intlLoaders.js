@@ -2,10 +2,15 @@
 import intlLoaders from 'intlLoaders';
 import hasIntlData from 'intl-locales-supported';
 
-const supportedIntlConstructors = global.Intl ? [
+// const supportedIntlConstructors = global.Intl ? [
+//   Intl.DateTimeFormat,
+//   Intl.NumberFormat,
+// ] : [];
+
+const supportedIntlConstructors = [
   Intl.DateTimeFormat,
   Intl.NumberFormat,
-] : [];
+];
 
 // const supportedIntlConstructors = () => {
 //   /**
