@@ -40,7 +40,7 @@ const supportedIntlConstructors = global.Intl ? [
 const loadFallbackIntl = (localeContext) => {
   try {
     console.log('**********TERRA-I18N loadFallbackIntl: ');
-    if (!hasIntlData(['en'], supportedIntlConstructors) {
+    if (!hasIntlData(['en'], supportedIntlConstructors)) {
       console.log('**********TERRA-I18N intlLoaders.en(): ');
       intlLoaders.en();
     }
@@ -61,14 +61,14 @@ const loadIntl = (locale) => {
   try {
     console.log('**********TERRA-I18N Start try supportedIntlConstructors: ', supportedIntlConstructors);
     console.log('**********TERRA-I18N Start try global.Intl: ', global.Intl);
-    if (!hasIntlData([locale], supportedIntlConstructors) {
+    if (!hasIntlData([locale], supportedIntlConstructors)) {
       console.log('**********TERRA-I18N calling intlLoaders[locale](): ');
       intlLoaders[locale]();
     }
   } catch (e) {
     if (fallbackLocale) {
       try {
-        if (!hasIntlData([fallbackLocale], supportedIntlConstructors) {
+        if (!hasIntlData([fallbackLocale], supportedIntlConstructors)) {
           intlLoaders[fallbackLocale]();
         }
 
