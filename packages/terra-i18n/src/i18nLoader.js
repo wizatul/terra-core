@@ -21,8 +21,12 @@ export default (locale, callback, scope) => {
   try {
     // eslint-disable-next-line compat/compat
     console.log('**********TERRA-I18N typeof (Intl): ', typeof (Intl));
-    console.log('**********TERRA-I18N (Intl.DateTimeFormat): ', (Intl.DateTimeFormat));
-    console.log('**********TERRA-I18N typeof (Intl.NumberFormat): ', typeof (Intl.NumberFormat));
+
+    if (typeof (Intl) === 'object') {
+      console.log('**********TERRA-I18N (Intl.DateTimeFormat): ', typeof (Intl.DateTimeFormat));
+      console.log('**********TERRA-I18N typeof (Intl.NumberFormat): ', typeof (Intl.NumberFormat));
+    }
+    
     hasIntl = typeof (Intl) === 'object' && typeof (Intl.DateTimeFormat) === 'function' && typeof (Intl.NumberFormat) === 'function';
   } catch (error) {
     hasIntl = false;
@@ -33,6 +37,8 @@ export default (locale, callback, scope) => {
     console.log('**********TERRA-I18N require(intl): ');
     require('intl');
   }
+
+  console.log('**********TERRA-I18N global.IntlPolyfill: ', global.IntlPolyfill);
 
   if (global.IntlPolyfill) {
     console.log('**********TERRA-I18N loadIntl(locale): ');
