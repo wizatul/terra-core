@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DualListBox with no props should render a default component 1`] = `<DualListBox />`;

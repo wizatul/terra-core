@@ -1,0 +1,46 @@
+:local {
+  .container {
+    display: inline-flex;
+    width: auto;
+  }
+
+  .list-box {
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    height: 14.2857rem;
+    margin: 1rem;
+    overflow: scroll;
+    width: 12.8571rem;
+  }
+
+  .list-items {
+    padding: 0.5rem 0.8rem 0.6rem;
+  }
+
+  .list-header-wrapper {
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .list-header-count {
+    margin-left: auto;
+    padding: 0.8rem;
+  }
+
+  .list-header {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .button-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .arrow-button {
+    height: 2rem;
+    margin-bottom: 0.3rem;
+    width: 2rem;
+  }
+}
