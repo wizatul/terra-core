@@ -9,6 +9,6 @@ const cx = classNames.bind(styles);
 export default () => (
   <OverlayContainer
     className={cx('overlay-container1')}
-    overlay={<LoadingOverlay isOpen isRelativeToContainer isAnimated id="terra-LoadingOverlay" />}
+    overlay={<LoadingOverlay className={cx('flicker')} isOpen isAnimated id="terra-LoadingOverlay" />}
   />
 );

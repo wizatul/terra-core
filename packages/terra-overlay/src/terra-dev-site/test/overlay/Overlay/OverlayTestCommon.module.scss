@@ -11,4 +11,14 @@
   .overlay-container2 {
     height: 100px;
   }
+
+  @keyframes flickerAnimation {
+    0% { opacity: 0.85; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0.85; }
+  }
+  
+  .flicker {
+    animation: flickerAnimation 2s infinite;
+  }
 }
