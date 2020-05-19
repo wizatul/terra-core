@@ -1,4 +1,6 @@
 import React from 'react';
+import ThemeContextProvider from 'terra-theme-context/lib/ThemeContextProvider';
+
 import Input from '../../src/Input';
 
 describe('Input', () => {
@@ -74,6 +76,15 @@ describe('Input', () => {
   it('should favor ariaLabel prop over aria-label if both props passed to component', () => {
     const input = <Input defaultValue="foo" ariaLabel="ariaLabel" aria-label="aria-label" />;
     const wrapper = shallow(input);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('correctly applies the theme context className', () => {
+    const wrapper = mount(
+      <ThemeContextProvider theme={{ className: 'orion-fusion-theme' }}>
+        <Input defaultValue="foo" ariaLabel="ariaLabel" aria-label="aria-label" />
+      </ThemeContextProvider>,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 });
