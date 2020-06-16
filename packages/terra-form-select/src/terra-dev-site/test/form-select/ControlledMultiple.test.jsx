@@ -1,41 +1,26 @@
-import React from 'react';
-import classNames from 'classnames/bind';
+import React, { useState } from 'react';
 import Select from '../../../Select';
-import styles from './common/Select.test.module.scss';
 
-const cx = classNames.bind(styles);
+const Example = () => {
+  const [clickCount, setClickCount] = useState(0);
 
-class ControlledMultiple extends React.Component {
-  constructor() {
-    super();
+  return (
+    <div>
+      <p>
+        Click Count:
+        {' '}
+        {clickCount}
+      </p>
+      <Select placeholder="example" variant="multiple" onClick={() => setClickCount(clickCount + 1)}>
+        <Select.Option value="blue" display="Blue" />
+        <Select.Option value="green" display="Green" />
+        <Select.Option value="purple" display="Purple" />
+        <Select.Option value="red" display="Red" />
+        <Select.Option value="violet" display="Violet" />
+      </Select>
+    </div>
 
-    this.state = { value: [] };
-    this.handleChange = this.handleChange.bind(this);
-  }
+  );
+};
 
-  handleChange(value) {
-    this.setState({ value });
-  }
-
-  render() {
-    return (
-      <div className={cx('content-wrapper')}>
-        <Select
-          id="multiple"
-          onChange={this.handleChange}
-          placeholder="Select a color"
-          value={this.state.value}
-          variant="multiple"
-        >
-          <Select.Option value="blue" display="Blue" />
-          <Select.Option value="green" display="Green" />
-          <Select.Option value="purple" display="Purple" />
-          <Select.Option value="red" display="Red" />
-          <Select.Option value="violet" display="Violet" />
-        </Select>
-      </div>
-    );
-  }
-}
-
-export default ControlledMultiple;
+export default Example;

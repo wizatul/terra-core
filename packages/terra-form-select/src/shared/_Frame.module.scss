@@ -200,10 +200,10 @@
   // A reduced, non-zero, height and width allows the input to receive focus using tab.
   // Browsers disable focus on inputs with a 0 x 0 height and width.
   .search-input.is-hidden {
-    height: 0.1px;
-    margin: 0;
+    // height: 0.1px;
+    // margin: 0;
     opacity: 0;
-    width: 1px;
+    // width: 1px;
   }
 
   .search-wrapper {
@@ -211,7 +211,7 @@
     flex: 1 1 auto; // IE 10
     max-width: 100%; // IE 10
     min-width: 0; // IE 11
-    pointer-events: none; // This fixes an issue with onClick events not being properly activated. This bug is not present in IE 10
+    // pointer-events: none; // This fixes an issue with onClick events not being properly activated. This bug is not present in IE 10
   }
 
   .search-input,
