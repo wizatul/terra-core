@@ -5,7 +5,7 @@ import classNamesBind from 'classnames/bind';
 import ThemeContext from 'terra-theme-context';
 import { FormattedMessage } from 'react-intl';
 import { KEY_SPACE, KEY_RETURN } from 'keycode-js';
-import { enableFocusStyles, removeFocusStyles, restoreFocusStyles } from './_SwitchUtils';
+import { removeFocusStyles, restoreFocusStyles } from './_SwitchUtils';
 import styles from './Switch.module.scss';
 
 const cx = classNamesBind.bind(styles);
@@ -16,10 +16,6 @@ const SWITCH_STATE = Object.freeze({
 });
 
 const propTypes = {
-  /**
-   * Id of the Switch button.
-   */
-  switchId: PropTypes.string.isRequired,
   /**
    * Whether or not the Switch is checked ("ON").
    */
@@ -58,10 +54,6 @@ const Switch = (props) => {
   const sliderButton = useRef();
 
   const handleOnClick = useCallback((event) => {
-    // See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Button#Clicking_and_focus
-    // Button on IE running on OS X does not receive focus when clicked.
-    // This will set focus on the button when clicked.
-    sliderButton.current.focus();
     if (onChange) {
       onChange(!isChecked, event);
     }
@@ -70,7 +62,6 @@ const Switch = (props) => {
   const handleOnKeyDown = (event) => {
     if (event.nativeEvent.keyCode === KEY_RETURN || event.nativeEvent.keyCode === KEY_SPACE) {
       event.preventDefault();
-      enableFocusStyles(sliderButton.current);
       if (onChange) {
         onChange(!isChecked, event);
       }
@@ -78,7 +69,6 @@ const Switch = (props) => {
   };
 
   const handleOnMouseDown = (event) => {
-    event.preventDefault();
     removeFocusStyles(sliderButton.current);
   };
 
@@ -86,38 +76,17 @@ const Switch = (props) => {
     restoreFocusStyles(sliderButton.current);
   };
 
-  const labelClassNames = cx([
-    'label-text',
-    { 'is-disabled': isDisabled },
-  ]);
-
-  const statusLabelClassNames = cx([
-    'status-label-text',
-    { 'is-disabled': isDisabled },
-  ]);
-
-  const trayClassNames = cx([
-    'tray',
-    { 'is-selected': isChecked },
-    { 'is-disabled': isDisabled },
-  ]);
-
-  const sliderClassNames = cx([
-    'slider',
-    { 'is-selected': isChecked },
-    { 'is-disabled': isDisabled },
-  ]);
-
   const statusLabelText = isChecked ? SWITCH_STATE.ON : SWITCH_STATE.OFF;
 
   const switchClassNames = classNames(cx(
     'switch',
+    { 'is-enabled': !isDisabled },
     { 'is-disabled': isDisabled },
+    { 'is-selected': isChecked },
     theme.className,
   ),
   customProps.className);
 
-  delete customProps.className;
   let switchAttrs;
   if (!isDisabled) {
     switchAttrs = {
@@ -127,28 +96,31 @@ const Switch = (props) => {
       onMouseDown: handleOnMouseDown,
       onKeyDown: handleOnKeyDown,
     };
+  } else {
+    switchAttrs = {
+      'aria-disabled': true,
+    };
   }
 
   return (
-    <div
+    <span
       {...customProps}
       {...switchAttrs}
-      id={switchId}
-      disabled={isDisabled}
+      aria-label={labelText}
       aria-checked={isChecked}
       role="switch"
       className={switchClassNames}
       data-terra-switch-show-focus-styles
       ref={sliderButton}
     >
-      <div className={cx('label-container')}>
-        <div className={labelClassNames}>{labelText}</div>
-        <div className={statusLabelClassNames}>{statusLabelText}</div>
+      <div aria-hidden className={cx('label-container')}>
+        <div className={cx('label-text')}>{labelText}</div>
+        <div className={cx('status-label-text')}>{statusLabelText}</div>
       </div>
-      <div className={trayClassNames}>
-        <div className={sliderClassNames} />
+      <div aria-hidden className={cx('tray')}>
+        <div className={cx('slider')} />
       </div>
-    </div>
+    </span>
   );
 };
 
