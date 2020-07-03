@@ -54,6 +54,8 @@ const Switch = (props) => {
   const sliderButton = useRef();
 
   const handleOnClick = useCallback((event) => {
+    // Need this for focus styles on IE running on OS X since it does not receive focus when clicked.
+    sliderButton.current.focus();
     if (onChange) {
       onChange(!isChecked, event);
     }
@@ -62,6 +64,7 @@ const Switch = (props) => {
   const handleOnKeyDown = (event) => {
     if (event.nativeEvent.keyCode === KEY_RETURN || event.nativeEvent.keyCode === KEY_SPACE) {
       event.preventDefault();
+      restoreFocusStyles(sliderButton.current);
       if (onChange) {
         onChange(!isChecked, event);
       }
@@ -69,6 +72,7 @@ const Switch = (props) => {
   };
 
   const handleOnMouseDown = (event) => {
+    event.preventDefault();
     removeFocusStyles(sliderButton.current);
   };
 
@@ -103,7 +107,7 @@ const Switch = (props) => {
   }
 
   return (
-    <span
+    <div
       {...customProps}
       {...switchAttrs}
       aria-label={labelText}
@@ -120,7 +124,7 @@ const Switch = (props) => {
       <div aria-hidden className={cx('tray')}>
         <div className={cx('slider')} />
       </div>
-    </span>
+    </div>
   );
 };
 
