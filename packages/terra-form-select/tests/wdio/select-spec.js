@@ -2166,6 +2166,10 @@ Terra.describeViewports('Select', ['tiny'], () => {
     });
 
     Terra.it.validatesElement('navigated to previous option using key-board navigation', { selector: '#root' });
+
+    after(() => {
+      browser.refresh();
+    });
   });
 
   describe('dropdown should not detach on search', () => {
