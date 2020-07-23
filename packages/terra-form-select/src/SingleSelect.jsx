@@ -30,6 +30,11 @@ const propTypes = {
    */
   intl: intlShape.isRequired,
   /**
+   * Whether the select input should use the filter style display, forcing a value to always be selected.
+   * This also removes the placeholder and removes the ability for user to clear the value, returning the select to browser-native behavior.
+   */
+  isFilterStyle: PropTypes.bool,
+  /**
    * Whether the select displays as Incomplete. Use when no value has been provided. _(usage note: `required` must also be set)_.
    */
   isIncomplete: PropTypes.bool,
@@ -84,6 +89,7 @@ const defaultProps = {
   defaultValue: undefined,
   disabled: false,
   dropdownAttrs: undefined,
+  isFilterStyle: false,
   isIncomplete: false,
   isInvalid: false,
   noResultContent: undefined,
@@ -166,6 +172,7 @@ class SingleSelect extends React.Component {
       required,
       value,
       intl,
+      isFilterStyle,
       ...otherProps
     } = this.props;
 
@@ -173,13 +180,14 @@ class SingleSelect extends React.Component {
       <Frame
         {...otherProps}
         data-terra-select
-        value={SelectUtil.value(this.props, this.state)}
+        value={!isFilterStyle || this.state.value ? SelectUtil.value(this.props, this.state) : children[0].props.value}
         display={this.display()}
         onDeselect={this.handleDeselect}
         onSelect={this.handleSelect}
         required={required}
         totalOptions={SelectUtil.getTotalNumberOfOptions(children)}
-        clearOptionDisplay={intl.formatMessage({ id: 'Terra.form.select.defaultDisplay' })}
+        clearOptionDisplay={!isFilterStyle ? intl.formatMessage({ id: 'Terra.form.select.defaultDisplay' }) : undefined}
+        isFilterStyle
       >
         {children}
       </Frame>

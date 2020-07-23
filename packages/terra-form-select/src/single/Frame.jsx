@@ -46,6 +46,11 @@ const propTypes = {
    */
   intl: intlShape.isRequired,
   /**
+   * Whether the select input should use the filter style display, forcing a value to always be selected.
+   * This also removes the placeholder and removes the ability for user to clear the value, returning the select to browser-native behavior.
+   */
+  isFilterStyle: PropTypes.bool,
+  /**
    * Whether the select displays as Incomplete. Use when no value has been provided. _(usage note: `required` must also be set)_.
    */
   isIncomplete: PropTypes.bool,
@@ -95,6 +100,7 @@ const defaultProps = {
   clearOptionDisplay: undefined,
   disabled: false,
   dropdownAttrs: undefined,
+  isFilterStyle: false,
   isIncomplete: false,
   isInvalid: false,
   noResultContent: undefined,
@@ -179,12 +185,17 @@ class Frame extends React.Component {
   }
 
   getDisplay(displayId, placeholderId) {
-    const { display, intl } = this.props;
+    const {
+      children, display, intl, isFilterStyle,
+    } = this.props;
 
-    return (display
-      ? <span id={displayId}>{display}</span>
-      : <div id={placeholderId} className={cx('placeholder')}>{intl.formatMessage({ id: 'Terra.form.select.defaultDisplay' }) || '\xa0'}</div>
-    );
+    if (isFilterStyle) {
+      if (display) {
+        return <span id={displayId}>{display}</span>;
+      }
+      return <span id={displayId}>{children[0].props.display}</span>;
+    }
+    return (<div id={placeholderId} className={cx('placeholder')}>{intl.formatMessage({ id: 'Terra.form.select.defaultDisplay' }) || '\xa0'}</div>);
   }
 
   /**
@@ -437,6 +448,7 @@ class Frame extends React.Component {
       display,
       dropdownAttrs,
       intl,
+      isFilterStyle,
       isIncomplete,
       isInvalid,
       maxHeight,
