@@ -180,14 +180,15 @@ class SingleSelect extends React.Component {
       <Frame
         {...otherProps}
         data-terra-select
-        value={!isFilterStyle || this.state.value ? SelectUtil.value(this.props, this.state) : children[0].props.value}
+        // eslint-disable-next-line no-nested-ternary
+        value={!isFilterStyle || this.state.value ? SelectUtil.value(this.props, this.state) : (children && children[0].props.children[0]) ? children[0].props.children[0].props.display : children[0].props.display}
         display={this.display()}
         onDeselect={this.handleDeselect}
         onSelect={this.handleSelect}
         required={required}
         totalOptions={SelectUtil.getTotalNumberOfOptions(children)}
         clearOptionDisplay={!isFilterStyle ? intl.formatMessage({ id: 'Terra.form.select.defaultDisplay' }) : undefined}
-        isFilterStyle
+        isFilterStyle={isFilterStyle}
       >
         {children}
       </Frame>
