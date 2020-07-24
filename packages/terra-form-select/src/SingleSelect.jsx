@@ -176,12 +176,21 @@ class SingleSelect extends React.Component {
       ...otherProps
     } = this.props;
 
+    let frameValue;
+
+    if (!isFilterStyle || this.state.value || this.props.value) {
+      frameValue = SelectUtil.value(this.props, this.state);
+    } else if (children && children[0].props.children[0]) {
+      frameValue = children[0].props.children[0].props.value;
+    } else {
+      frameValue = children[0].props.value;
+    }
     return (
       <Frame
         {...otherProps}
         data-terra-select
         // eslint-disable-next-line no-nested-ternary
-        value={!isFilterStyle || this.state.value ? SelectUtil.value(this.props, this.state) : (children && children[0].props.children[0]) ? children[0].props.children[0].props.display : children[0].props.display}
+        value={frameValue}
         display={this.display()}
         onDeselect={this.handleDeselect}
         onSelect={this.handleSelect}
