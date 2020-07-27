@@ -189,13 +189,13 @@ class Frame extends React.Component {
       children, display, intl, isFilterStyle,
     } = this.props;
 
-    if (isFilterStyle) {
-      return (display
-        ? <span id={displayId}>{display}</span>
-        : <span id={displayId}>{children && children[0].props.children[0] ? children[0].props.children[0].props.display : children[0].props.display}</span>
-      );
+    if (!isFilterStyle && !display) {
+      return (<div id={placeholderId} className={cx('placeholder')}>{intl.formatMessage({ id: 'Terra.form.select.defaultDisplay' }) || '\xa0'}</div>);
     }
-    return (<div id={placeholderId} className={cx('placeholder')}>{intl.formatMessage({ id: 'Terra.form.select.defaultDisplay' }) || '\xa0'}</div>);
+    return (display
+      ? <span id={displayId}>{display}</span>
+      : <span id={displayId}>{children && children[0].props.children ? children[0].props.children[0].props.display : children[0].props.display}</span>
+    );
   }
 
   /**

@@ -180,7 +180,7 @@ class SingleSelect extends React.Component {
 
     if (!isFilterStyle || this.state.value || this.props.value) {
       frameValue = SelectUtil.value(this.props, this.state);
-    } else if (children && children[0].props.children[0]) {
+    } else if (children && children[0].props.children) {
       frameValue = children[0].props.children[0].props.value;
     } else {
       frameValue = children[0].props.value;
