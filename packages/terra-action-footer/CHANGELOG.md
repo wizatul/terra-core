@@ -4,43 +4,35 @@
 
 ## 2.49.0 - (July 29, 2020)
 
-Changed
-
-* Update changelog formatting
+* Changed
+  * Update changelog formatting
 
 ## 2.48.0 - (July 7, 2020)
 
-Changed
-
-* Minor dependency version bump
+* Changed
+  * Minor dependency version bump
 
 ## 2.47.0 - (June 13, 2020)
 
-Changed
-
-* Minor dependency version bump
+* Changed
+  * Minor dependency version bump
 
 ## 2.46.0 - (June 11, 2020)
 
-Changed
-
-* Minor dependency version bump
+* Changed
+  * Minor dependency version bump
 
 ## 2.45.0 - (June 9, 2020)
 
-Changed
-
-* Update wdio test configuration to use root wdio config
-
-Fixed
-
-* Text in footer not wrapping in IE 10
+* Changed
+  * Update wdio test configuration to use root wdio config
+* Fixed
+  * Text in footer not wrapping in IE 10
 
 ## 2.44.0 - (June 2, 2020)
 
-Changed
-
-* Minor dependency version bump
+* Changed
+  * Minor dependency version bump
 
 ## 2.43.0 - (May 19, 2020)
 
