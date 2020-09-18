@@ -126,11 +126,13 @@ class Overlay extends React.Component {
       if (document.querySelector(selector) && !document.querySelector(selector).hasAttribute('data-overlay-count')) {
         document.querySelector(selector).setAttribute('data-overlay-count', '1');
         document.querySelector(selector).setAttribute('inert', '');
+        document.querySelector(selector).classList.add(cx('inert'));
       } else if (document.querySelector(selector) && document.querySelector(selector).hasAttribute('data-overlay-count')) {
         const inert = +document.querySelector(selector).getAttribute('data-overlay-count');
 
         document.querySelector(selector).setAttribute('data-overlay-count', `${inert + 1}`);
         document.querySelector(selector).setAttribute('inert', '');
+        document.querySelector(selector).classList.add(cx('inert'));
       }
       document.documentElement.style.overflow = 'hidden';
     }
@@ -151,6 +153,7 @@ class Overlay extends React.Component {
           document.querySelector(selector).removeAttribute('data-overlay-count');
           document.querySelector(selector).removeAttribute('inert');
           document.querySelector(selector).removeAttribute('aria-hidden');
+          document.querySelector(selector).classList.remove(cx('inert'));
         } else if (inert && inert > 1) {
           document.querySelector(selector).setAttribute('data-overlay-count', `${inert - 1}`);
         }
