@@ -153,6 +153,7 @@ class Overlay extends React.Component {
       if (this.container && this.container.querySelector('[data-terra-overlay-container-content]')) {
         this.container.querySelector('[data-terra-overlay-container-content]').removeAttribute('inert');
         this.container.querySelector('[data-terra-overlay-container-content]').removeAttribute('aria-hidden');
+        document.querySelector('[data-terra-overlay-container-content]').classList.remove(cx('inert'));
       }
     } else {
       const selector = this.props.rootSelector;
