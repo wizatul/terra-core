@@ -55,7 +55,7 @@ class InfiniteProgressivePaginatorExample extends React.Component {
               {this.state.currentPage}
             </h1>
           )}
-          footer={<InfiniteProgressivePaginator onPageChange={this.changePages} selectedPage={1} />}
+          footer={<InfiniteProgressivePaginator onPageChange={this.changePages} />}
         >
           {this.state.content}
         </Dialog>

@@ -19,16 +19,12 @@ const propTypes = {
   /**
    * The active/selected page, Selects 1st page when no value is provided.
    */
-  selectedPage: PropTypes.number,
+  selectedPage: PropTypes.number.isRequired,
   /**
    * @private
    * The intl object to be injected for translations.
    */
   intl: intlShape.isRequired,
-};
-
-const defaultProps = {
-    selectedPage: 1,
 };
 
 const ControlledInfiniteProgressivePaginator = (props) => {
@@ -137,6 +133,5 @@ const ControlledInfiniteProgressivePaginator = (props) => {
 }
 
 ControlledInfiniteProgressivePaginator.propTypes = propTypes;
-ControlledInfiniteProgressivePaginator.defaultProps = defaultProps;
 
 export default injectIntl(ControlledInfiniteProgressivePaginator);

@@ -27,14 +27,10 @@ const propTypes = {
   intl: intlShape.isRequired,
 };
 
-const defaultProps = {
-    selectedPage: 1,
-};
-
 const InfiniteProgressivePaginator = (props) => {
     const { selectedPage, onPageChange, intl } = props;
 
-    const [selectedPageIndex, setSelectedPageIndex] = useState(selectedPage);
+    const [selectedPageIndex, setSelectedPageIndex] = useState((selectedPage) ? selectedPage : 1); //defaults to 1st page
     const [showReducedPaginator, setShowReducedPaginator] = useState(false);
 
   const setPaginator = (event) => {
@@ -141,6 +137,5 @@ const InfiniteProgressivePaginator = (props) => {
 }
 
 InfiniteProgressivePaginator.propTypes = propTypes;
-InfiniteProgressivePaginator.defaultProps = defaultProps;
 
 export default injectIntl(InfiniteProgressivePaginator);
