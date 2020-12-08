@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[751],{1531:function(e,a,n){"use strict";n.r(a);var t=n(0),i=n.n(t),l=n(4),r=n.n(l),c=n(813),s=n(830),u=r.a.bind(s.a);a.default=function(){return i.a.createElement("div",{className:u("content-wrapper")},i.a.createElement(c.a,{id:"fullSizeTextarea",size:"full",ariaLabel:"label"}))}}}]);

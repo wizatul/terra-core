@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[707],{1318:function(t,e,i){"use strict";i.r(e);var a=i(0),n=i.n(a),c=i(161);e.default=function(){return n.a.createElement(c.Facility,{id:"default-facility",alt:"facility",color:"three"})}}}]);
